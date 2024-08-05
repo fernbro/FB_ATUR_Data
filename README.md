@@ -1,2 +1,2 @@
-# FB_ATUR_Data
+# ATUR Data
  Data acquisition, processing, & wrangling for the ATUR project
