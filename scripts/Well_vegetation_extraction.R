@@ -25,11 +25,26 @@ alluvial_veg_23 <- terra::extract(lc2023, alluvial_points) %>%
   transmute(lc2023 = EVT_NAME) %>% 
   cbind(as.data.frame(alluvial_points))
 
-alluvial_lcc <- full_join(alluvial_veg_16, alluvial_veg_23) %>% 
-  filter(lc2016 != lc2023)
+alluvial_veg <- full_join(alluvial_veg_16, alluvial_veg_23)
 
 # bring in landfire metadata
 
-metadata <- read_csv("data/Landcover/Landfire_EVT_meta.csv")
+metadata <- read_csv("data/Landcover/Landfire_EVT_meta.csv") %>% 
+  select(VALUE, EVT_NAME)
 # VALUE (matching alluvial_lcc lc2016 and lc2023 values)
 # is what we want to get the EVT_NAME for
+
+alluvial_landfire <- alluvial_veg %>% 
+  mutate(lc2016 = metadata$EVT_NAME[match(lc2016, metadata$VALUE)],
+         lc2023 = metadata$EVT_NAME[match(lc2023, metadata$VALUE)])
+
+alluvial_lcc <- filter(alluvial_landfire, lc2016 != lc2023)
+
+regional_veg_16 <- extract(lc2016, regional_points) %>% 
+  transmute
+
+
+
+
+
+
