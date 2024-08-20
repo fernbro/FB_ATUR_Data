@@ -1,15 +1,18 @@
 library(tidyverse)
 # install.packages("zoo")
 library(zoo)
-options(scipen = 99999)
 
 # need to read in both evi tables
 
-# read in EVI from before 2013
+# read in EVI from before 2013??
 
-evi_ts <- read_csv("data/EVI_2013_2023.csv")
-evi_ts_general <- read_csv("data/EVI_2013_2023_general.csv")
+evi_alluv1 <- read_csv("data/EVI_alluvial_2013_2023.csv")
+evi_gen1 <- read_csv("data/EVI_2013_2023_general.csv")
+evi_alluv2 <- read_csv("data/EVI_alluvwells_2000_2013.csv")
+evi_gen2 <- read_csv("data/EVI_generalwells_2000_2013.csv")
 
+evi_ts <- rbind(evi_alluv1, evi_alluv2)
+  
 evi <- evi_ts %>%  # alluvial aquifer wells
   mutate(date = make_date(year = year, month = month, day = day),
          evi = EVI, well = "alluvial") %>% 
@@ -28,6 +31,7 @@ ggplot(filter(evi_combo), aes(x = date, y = evi, color = well, group = well))+
 
 # according to Nagler et al. 2013, each 0.01 increase in EVI in a riparian area
 # corresponds to an increased ET of 0.16 mm/day (58.4 mm/yr)
+# see NaglerET product
 
 # Groundwater
 
@@ -80,7 +84,7 @@ ggplot(water_combo, aes(x = date, y = level, group = well, color = well))+
 combined_evi <- full_join(water_combo, evi_combo)
 
 stats <- combined_evi %>% # did I do this correctly?
-  # filter(month(date)) %>% 
+  filter(month(date) == 4) %>% 
   group_by(well, name) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
             evi_sd = sd(evi, na.rm = T),
@@ -97,8 +101,13 @@ z_scores <- left_join(combined_evi, stats) %>%
          dtg_z = (level - dtg_mean)/dtg_sd
   )
 
-ggplot(filter(stats), aes(x = dtg_mean, 
-                                          y = evi_mean, color = well))+
-  geom_point()
+ggplot(filter(z_scores), aes(x = dtg_z,
+                             y = evi_z))+
+  geom_point(aes(color = well))+
+  geom_smooth(method = "lm", se = F)
 
-summary(lm(evi_cv ~ dtg_cv, z_scores))
+summary(lm(evi_z ~ dtg_z, z_scores))
+
+# places where EVI has dropped from groundwater: priority restoration for recharge?
+# decline in evi during a time period vs. decline in gw during a time period
+# evi change vs. dtg change
