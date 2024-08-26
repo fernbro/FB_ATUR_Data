@@ -10,12 +10,16 @@ lc2023 <- rast("data/Landcover/LF2023_USP_Clip.tif")
 crs(lc2016) <- "EPSG:5070"
 crs(lc2023) <- "EPSG:5070"
 
+# bring in landfire metadata
+
+metadata <- read_csv("data/Landcover/Landfire_EVT_meta.csv") %>% 
+  select(VALUE, EVT_NAME)
+# VALUE (matching alluvial_lcc lc2016 and lc2023 values)
+# is what we want to get the EVT_NAME for
+
 # well points:
 alluvial_points_raw <- st_read("data/Alluvial_well_locations.shp")
 alluvial_points <- vect(st_transform(alluvial_points_raw, crs = "EPSG:5070"))
-
-regional_points_raw <- st_read("data/General_USPWHIP_well_locations.shp")
-regional_points <- vect(st_transform(regional_points_raw, crs = "EPSG:5070"))
 
 alluvial_veg_16 <- terra::extract(lc2016, alluvial_points) %>% 
   transmute(lc2016 = EVT_NAME) %>% 
@@ -27,24 +31,29 @@ alluvial_veg_23 <- terra::extract(lc2023, alluvial_points) %>%
 
 alluvial_veg <- full_join(alluvial_veg_16, alluvial_veg_23)
 
-# bring in landfire metadata
-
-metadata <- read_csv("data/Landcover/Landfire_EVT_meta.csv") %>% 
-  select(VALUE, EVT_NAME)
-# VALUE (matching alluvial_lcc lc2016 and lc2023 values)
-# is what we want to get the EVT_NAME for
-
 alluvial_landfire <- alluvial_veg %>% 
   mutate(lc2016 = metadata$EVT_NAME[match(lc2016, metadata$VALUE)],
          lc2023 = metadata$EVT_NAME[match(lc2023, metadata$VALUE)])
 
 alluvial_lcc <- filter(alluvial_landfire, lc2016 != lc2023)
 
+
+regional_points_raw <- st_read("data/General_USPWHIP_well_locations.shp")
+regional_points <- vect(st_transform(regional_points_raw, crs = "EPSG:5070"))
+
 regional_veg_16 <- extract(lc2016, regional_points) %>% 
-  transmute
+  transmute(lc2016 = EVT_NAME) %>% 
+  cbind(as.data.frame(regional_points))
 
+regional_veg_23 <- extract(lc2023, regional_points) %>% 
+  transmute(lc2023 = EVT_NAME) %>% 
+  cbind(as.data.frame(regional_points))
 
+regional_veg <- full_join(regional_veg_16, regional_veg_23)
 
+regional_landfire <- regional_veg %>% 
+  mutate(lc2016 = metadata$EVT_NAME[match(lc2016, metadata$VALUE)],
+         lc2023 = metadata$EVT_NAME[match(lc2023, metadata$VALUE)])
 
-
+regional_lcc <- filter(regional_landfire, lc2016 != lc2023)
 
