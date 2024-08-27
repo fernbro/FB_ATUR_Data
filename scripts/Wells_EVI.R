@@ -18,6 +18,8 @@ evi <- evi_ts %>%  # alluvial aquifer wells
          evi = EVI, well = "alluvial") %>% 
   select(name, evi, date, well)
 
+evi_ts_general <- rbind(evi_gen1, evi_gen2)
+
 evi2 <- evi_ts_general %>% # regional aquifer wells
   mutate(date = make_date(year = year, month = month, day = day),
          evi = EVI, well = "regional") %>% 
@@ -25,9 +27,9 @@ evi2 <- evi_ts_general %>% # regional aquifer wells
 
 evi_combo <- rbind(evi, evi2)
 
-ggplot(filter(evi_combo), aes(x = date, y = evi, color = well, group = well))+
-  # geom_line()+
-  geom_smooth()
+ggplot(filter(evi_combo), aes(x = date, y = evi, 
+                              color = well, group = well))+
+  geom_line()
 
 # according to Nagler et al. 2013, each 0.01 increase in EVI in a riparian area
 # corresponds to an increased ET of 0.16 mm/day (58.4 mm/yr)
@@ -84,7 +86,6 @@ ggplot(water_combo, aes(x = date, y = level, group = well, color = well))+
 combined_evi <- full_join(water_combo, evi_combo)
 
 stats <- combined_evi %>% # did I do this correctly?
-  filter(month(date) == 4) %>% 
   group_by(well, name) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
             evi_sd = sd(evi, na.rm = T),
@@ -96,14 +97,15 @@ stats <- combined_evi %>% # did I do this correctly?
   ungroup()
 
 z_scores <- left_join(combined_evi, stats) %>% 
-  filter(!is.na(evi)) %>% 
+  filter(!is.na(evi), !is.na(level)) %>% 
   mutate(evi_z = (evi - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd
   )
 
 ggplot(filter(z_scores), aes(x = dtg_z,
-                             y = evi_z))+
-  geom_point(aes(color = well))+
+                             y = evi_z,
+                             color = well))+
+  geom_point()+
   geom_smooth(method = "lm", se = F)
 
 summary(lm(evi_z ~ dtg_z, z_scores))
@@ -111,3 +113,25 @@ summary(lm(evi_z ~ dtg_z, z_scores))
 # places where EVI has dropped from groundwater: priority restoration for recharge?
 # decline in evi during a time period vs. decline in gw during a time period
 # evi change vs. dtg change
+
+# import vegetation data
+
+vegetation <- rbind(alluvial_landfire, regional_landfire) # alluvial + reg
+
+z_scores_veg <- full_join(z_scores, vegetation) 
+
+# 
+ggplot(filter(z_scores_veg, 
+              grepl("Wash", lc2016) 
+              | grepl("Riparian", lc2016)
+              | grepl("Ruderal", lc2016)), 
+       aes(x = dtg_z,
+           y = evi_z,
+           color = lc2016))+
+  geom_point()+
+  geom_smooth(method = "lm", se = F)
+
+
+
+
+
