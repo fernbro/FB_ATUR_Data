@@ -6,36 +6,54 @@ library(zoo)
 
 # read in EVI from before 2013??
 
-evi_alluv1 <- read_csv("data/EVI_alluvial_2013_2023.csv")
-evi_gen1 <- read_csv("data/EVI_2013_2023_general.csv")
-evi_alluv2 <- read_csv("data/EVI_alluvwells_2000_2013.csv")
-evi_gen2 <- read_csv("data/EVI_generalwells_2000_2013.csv")
+  # alluvial wells:
 
-evi_ts <- rbind(evi_alluv1, evi_alluv2)
+      evi_alluv1 <- read_csv("data/EVI_alluvial_2013_2023.csv")
+      evi_alluv2 <- read_csv("data/EVI_alluvwells_2000_2013.csv")
+      
+  # regional aquifer wells:
+      evi_gen1 <- read_csv("data/EVI_2013_2023_general.csv")
+      evi_gen2 <- read_csv("data/EVI_generalwells_2000_2013.csv")
+      
+      # spikes and cloud mask???
+
+evi_ts_alluvial <- rbind(evi_alluv1, 
+                         evi_alluv2) # bind alluvial evi time series
   
-evi <- evi_ts %>%  # alluvial aquifer wells
-  mutate(date = make_date(year = year, month = month, day = day),
-         evi = EVI, well = "alluvial") %>% 
+evi <- evi_ts_alluvial %>%  # alluvial aquifer wells
+  mutate(date = make_date(year = year, 
+                          month = month, 
+                          day = day),
+         evi = EVI, 
+         well = "alluvial") %>% 
   select(name, evi, date, well)
 
-evi_ts_general <- rbind(evi_gen1, evi_gen2)
+evi_ts_general <- rbind(evi_gen1, 
+                        evi_gen2) # bind regional aqu time series
 
 evi2 <- evi_ts_general %>% # regional aquifer wells
-  mutate(date = make_date(year = year, month = month, day = day),
-         evi = EVI, well = "regional") %>% 
+  mutate(date = make_date(year = year, 
+                          month = month, 
+                          day = day),
+         evi = EVI, 
+         well = "regional") %>% 
   select(name, evi, date, well)
 
-evi_combo <- rbind(evi, evi2)
+evi_combo <- rbind(evi, evi2) # combine now that they're labeled
 
-ggplot(filter(evi_combo), aes(x = date, y = evi, 
-                              color = well, group = well))+
+# plot of evi, time series for each well (colored by its aquifer type)
+ggplot(filter(evi_combo), 
+       aes(x = date, 
+           y = evi,
+           color = well,
+           group = name))+
   geom_line()
 
 # according to Nagler et al. 2013, each 0.01 increase in EVI in a riparian area
 # corresponds to an increased ET of 0.16 mm/day (58.4 mm/yr)
-# see NaglerET product
+# (see NaglerET product)
 
-# Groundwater
+# Groundwater Measurements from uppersanpedrowhip.org/map
 
       # Alluvial:
 
@@ -43,8 +61,12 @@ alluv_levels <- read_csv("data/Near-stream_alluvial-aquifer_water_levels.csv",
                          skip = 2, col_names = T)
 
 alluvial <- alluv_levels %>% 
-  transmute(date = as.POSIXct(lev_timestamp, tryFormats = c("%m/%d/%Y")),
-            name = station_nm, lat = y, lon = x, level = lev_va) %>% 
+  transmute(date = as.POSIXct(lev_timestamp, 
+                              tryFormats = c("%m/%d/%Y")),
+            name = station_nm, 
+            lat = y, 
+            lon = x, 
+            level = lev_va) %>%
   mutate(well = "alluvial")
 
 filter(alluvial) %>% 
@@ -76,7 +98,8 @@ water_combo <- rbind(regional, alluvial)
 
       # plot gw status by wells
 
-ggplot(water_combo, aes(x = date, y = level, group = well, color = well))+
+ggplot(water_combo, aes(x = date, y = level, 
+                        group = well, color = well))+
   geom_smooth()
 
       # alluvial is much deeper
@@ -86,6 +109,7 @@ ggplot(water_combo, aes(x = date, y = level, group = well, color = well))+
 combined_evi <- full_join(water_combo, evi_combo)
 
 stats <- combined_evi %>% # did I do this correctly?
+#  filter(month(date) %in% c(4, 5, 6)) %>% 
   group_by(well, name) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
             evi_sd = sd(evi, na.rm = T),
@@ -97,18 +121,25 @@ stats <- combined_evi %>% # did I do this correctly?
   ungroup()
 
 z_scores <- left_join(combined_evi, stats) %>% 
-  filter(!is.na(evi), !is.na(level)) %>% 
+  filter(!is.na(evi), !is.na(level),
+         month(date) %in% c(4, 5, 6)) %>% 
   mutate(evi_z = (evi - evi_mean)/evi_sd,
-         dtg_z = (level - dtg_mean)/dtg_sd
-  )
+         dtg_z = (level - dtg_mean)/dtg_sd)
 
-ggplot(filter(z_scores), aes(x = dtg_z,
+ggplot(filter(z_scores, evi_z > -5), aes(x = dtg_z,
                              y = evi_z,
-                             color = well))+
+                             color = name))+
   geom_point()+
   geom_smooth(method = "lm", se = F)
 
-summary(lm(evi_z ~ dtg_z, z_scores))
+summary(lm(evi_z ~ dtg_z, filter(z_scores, well == "alluvial")))
+  # slope is significantly different from 0
+cor(z_scores$evi_z, z_scores$dtg_z) # positive correlation (0.08)
+
+summary(lm(evi_z ~ dtg_z, filter(z_scores, well == "regional")))
+  # slope is NOT significantly different from 0
+
+# how to determine if alluvial slope
 
 # places where EVI has dropped from groundwater: priority restoration for recharge?
 # decline in evi during a time period vs. decline in gw during a time period
@@ -124,14 +155,18 @@ z_scores_veg <- full_join(z_scores, vegetation)
 ggplot(filter(z_scores_veg, 
               grepl("Wash", lc2016) 
               | grepl("Riparian", lc2016)
-              | grepl("Ruderal", lc2016)), 
+              | grepl("Ruderal", lc2016), evi_z > -5), 
        aes(x = dtg_z,
            y = evi_z,
-           color = lc2016))+
+           color = month(date)))+
   geom_point()+
-  geom_smooth(method = "lm", se = F)
+  geom_smooth(method = "lm", se = T)
 
+# 2023 SPRNCA report study sites:
 
+sprnca <- read_csv("data/SPRNCA_2023_study_sites.csv")
+spr_points <- coord_from_df(sprnca, "epsg:32612", 
+                            site_name, easting, northing)
 
-
-
+spr_points <- st_transform(spr_points, crs = "epsg:4267")
+st_write(spr_points, "data/SPRNCA_site_points.shp")

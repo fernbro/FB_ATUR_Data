@@ -1,6 +1,23 @@
 library(tidyverse)
 library(sf)
 
+coord_from_df <- function(df, epsg, site_column, lon, lat){
+  
+  points <- df %>% 
+    select({{site_column}}, {{lon}}, {{lat}}) %>% 
+    transmute(name = {{site_column}},
+              lat = as.numeric({{lat}}),
+              lon = as.numeric({{lon}})) %>% 
+    as_tibble() %>% 
+    distinct(name, lat, lon) %>% 
+    as.data.frame() %>% 
+    st_as_sf(coords = c("lon", "lat")) %>% 
+    st_sf(crs = epsg)
+  
+  return(points)
+  
+}
+
 # USGS scientific report 2005-5163: hydrologic site observations
 
 # site locations:
@@ -23,6 +40,11 @@ usgs_locations <- usgs_report_sites %>%
   st_sf(crs = "epsg:26912") #NAD83 (coordinates) 
 
 st_write(usgs_locations, "data/USGS_2005-5163/Piezometer_locations.shp", append = T)
+
+# function version: for converting from a table to a shapefile.
+
+test <- coord_from_df(usgs_report_sites, "epsg:26912", 
+                      peiz_code, utm_easting, utm_northing)
 
 # transmute(): acts as "select" and "mutate,"
 # where new df only contains specified fields
