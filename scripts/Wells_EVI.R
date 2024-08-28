@@ -70,7 +70,7 @@ alluvial <- alluv_levels %>%
 
 filter(alluvial) %>% 
   ggplot(aes(x = date, y = -level, group = name))+
-  geom_line()+
+  geom_point(size = 0.1)+
   facet_wrap(~name, scales = "free")
 
 # alluvial_evi <- full_join(alluvial, evi) %>% 
@@ -88,22 +88,26 @@ regional <- regional_levels %>%
 
       # combine groundwater measurements
 
-water_combo <- rbind(regional, alluvial)
+water_combo <- rbind(regional, alluvial) %>% 
+  select(date, name, well, level)
 
       # plot gw status by wells
 
 ggplot(water_combo, aes(x = date, y = level, 
-                        group = well, color = well))+
-  geom_smooth()
+                        group = name, color = well))+
+  geom_line()
 
       # alluvial is much deeper
 
       # attach EVI
 
-combined_evi <- full_join(water_combo, evi_combo)
+combined_evi <- full_join(water_combo, evi_combo, 
+                          join_by(name, date, well))
 
+# compute average spring (dry season) EVI and groundwater levels
 stats <- combined_evi %>% # did I do this correctly?
-#  filter(month(date) %in% c(4, 5, 6)) %>% 
+  filter(!is.na(evi), !is.na(level),
+         month(date) %in% c(4, 5, 6)) %>%
   group_by(well, name) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
             evi_sd = sd(evi, na.rm = T),
@@ -114,7 +118,7 @@ stats <- combined_evi %>% # did I do this correctly?
   ) %>% 
   ungroup()
 
-z_scores <- left_join(combined_evi, stats) %>% 
+z_scores <- full_join(combined_evi, stats) %>% 
   filter(!is.na(evi), !is.na(level),
          month(date) %in% c(4, 5, 6)) %>% 
   mutate(evi_z = (evi - evi_mean)/evi_sd,
@@ -127,14 +131,12 @@ ggplot(filter(z_scores, evi_z > -5),
   geom_smooth(method = "lm", se = F)+
   facet_wrap(~name, scales = "free")
 
-summary(lm(evi_z ~ dtg_z, filter(z_scores, well == "alluvial")))
+summary(lm(evi_z ~ dtg_z, filter(z_scores)))
   # slope is significantly different from 0
 cor(z_scores$evi_z, z_scores$dtg_z) # positive correlation (0.08)
 
 summary(lm(evi_z ~ dtg_z, filter(z_scores, well == "regional")))
   # slope is NOT significantly different from 0
-
-# how to determine if alluvial slope
 
 # places where EVI has dropped from groundwater: priority restoration for recharge?
 # decline in evi during a time period vs. decline in gw during a time period
@@ -146,22 +148,23 @@ vegetation <- rbind(alluvial_landfire, regional_landfire) # alluvial + reg
 
 z_scores_veg <- full_join(z_scores, vegetation) 
 
-# 
+# grepl("Wash", lc2016) 
+#| grepl("Riparian", lc2016)
+#| grepl("Ruderal", lc2016),
 ggplot(filter(z_scores_veg, 
-              grepl("Wash", lc2016) 
-              | grepl("Riparian", lc2016)
-              | grepl("Ruderal", lc2016), evi_z > -5), 
+               evi_z > -5, dtg_z < 10, 
+              well == "alluvial"), 
        aes(x = dtg_z,
-           y = evi_z,
-           color = month(date)))+
-  geom_point()+
-  geom_smooth(method = "lm", se = T)
+           y = evi_z))+
+  geom_point(aes(
+    color = as.factor(month(date))))+
+  geom_smooth(method = "lm", se = T)+
+  theme_light()+
+  xlab("DTG z-score")+
+  ylab("EVI z-score")+
+  ggtitle("AMJ EVI vs. DTG z-scores relative to AMJ")
+ggsave("figures/AMJvsAMJ.jpg", width = 8, height = 4, units = "in")
 
-# 2023 SPRNCA report study sites:
-
-sprnca <- read_csv("data/SPRNCA_2023_study_sites.csv")
-spr_points <- coord_from_df(sprnca, "epsg:32612", 
-                            site_name, easting, northing)
-
-spr_points <- st_transform(spr_points, crs = "epsg:4267")
-st_write(spr_points, "data/SPRNCA_site_points.shp")
+summary(lm(evi_z ~ dtg_z, filter(z_scores_veg, 
+                                  evi_z > -5, dtg_z < 10, 
+                                  well == "alluvial"))) # p < 0.001

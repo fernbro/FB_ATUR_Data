@@ -2,11 +2,10 @@ library(tidyverse)
 library(terra)
 library(sf)
 
-coord_from_df <- function(df, epsg, site_column, lon, lat){
-  
+coord_from_df <- function(df, epsg, sites, lon, lat){
   points <- df %>% 
-    select({{site_column}}, {{lon}}, {{lat}}) %>% 
-    transmute(name = {{site_column}},
+    select({{sites}}, {{lon}}, {{lat}}) %>% 
+    transmute(name = {{sites}},
               lat = as.numeric({{lat}}),
               lon = as.numeric({{lon}})) %>% 
     as_tibble() %>% 
@@ -16,16 +15,26 @@ coord_from_df <- function(df, epsg, site_column, lon, lat){
     st_sf(crs = epsg)
   
   return(points)
-  
 }
 
 # wrangling/exploring data from this report:
 # https://uppersanpedropartnership.org/wp-content/uploads/2024/04/SPRNCA-Riparian-Report_2023_Dixon_and_Robertson.pdf
 
-whip_well_codes <- c("STD-LI", "SUM-LI", "CONLID", "FBK-LO",
-                      "BOQ-UP", "CHB-LI", "MODLND", "COTBLM",
-                       "HUN-LI", "HER-LS", "KOL-LO", "PAL-LS",
-                       "PLS-LI")
+whip_well_codes <- c("STD-LI", 
+                     "SUM-LI", 
+                     "CONLID", 
+                     "FBK-LO",
+                     "BOQ-UP", 
+                     "CHB-LI", 
+                     "MODLND", 
+                     "COTBLM",
+                     "HUN-LI", 
+                     "HER-LS", 
+                     "KOL-LO", 
+                     "PAL-LS",
+                     "PLS-LI")
+
+# matched these to above wells in ArcGIS: (maintain vector order)
 
 sprnca_sites <- c("STD", "SUM", "CON", "FAI",
                   "BOQ", "CHB", "MOS", "COT",
@@ -35,7 +44,15 @@ sprnca_sites <- c("STD", "SUM", "CON", "FAI",
 sprnca_study_wells <- data.frame(whip_well_codes,
                                  sprnca_sites)
 
+# 2023 SPRNCA report study sites:
 
+sprnca <- read_csv("data/SPRNCA_2023_study_sites.csv")
+spr_points <- coord_from_df(sprnca, "epsg:32612", 
+                            site_name, easting, northing)
 
+spr_points <- st_transform(spr_points, crs = "epsg:4267")
+st_write(spr_points, "data/SPRNCA_site_points.shp")
 
+spr_points <- spr_points %>% 
+  filter(name %in% sprnca_sites)
 
