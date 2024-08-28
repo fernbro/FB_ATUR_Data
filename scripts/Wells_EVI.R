@@ -2,9 +2,8 @@ library(tidyverse)
 # install.packages("zoo")
 library(zoo)
 
-# need to read in both evi tables
 
-# read in EVI from before 2013??
+# EVI Measurements
 
   # alluvial wells:
 
@@ -87,11 +86,6 @@ regional <- regional_levels %>%
   mutate(well = "regional") %>% 
   filter(year(date) >= 2000, year(date) <= 2024)
 
-filter(regional) %>% 
-  ggplot(aes(x = date, y = -level, group = name))+
-  geom_line()+
-  facet_wrap(~name)
-
       # combine groundwater measurements
 
 water_combo <- rbind(regional, alluvial)
@@ -126,11 +120,12 @@ z_scores <- left_join(combined_evi, stats) %>%
   mutate(evi_z = (evi - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd)
 
-ggplot(filter(z_scores, evi_z > -5), aes(x = dtg_z,
-                             y = evi_z,
-                             color = name))+
+ggplot(filter(z_scores, evi_z > -5),
+       aes(x = dtg_z,
+                             y = evi_z))+
   geom_point()+
-  geom_smooth(method = "lm", se = F)
+  geom_smooth(method = "lm", se = F)+
+  facet_wrap(~name, scales = "free")
 
 summary(lm(evi_z ~ dtg_z, filter(z_scores, well == "alluvial")))
   # slope is significantly different from 0
