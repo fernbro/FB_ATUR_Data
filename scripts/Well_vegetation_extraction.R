@@ -1,5 +1,6 @@
 library(terra)
 library(sf)
+library(tidyverse)
 options(scipen = 99999)
 
 # read in landfire tables to get cover for wells
@@ -64,11 +65,11 @@ alluvial_lcc <- filter(alluvial_landfire, lc2016 != lc2023)
 regional_points_raw <- st_read("data/General_USPWHIP_well_locations.shp")
 regional_points <- vect(st_transform(regional_points_raw, crs = "EPSG:5070"))
 
-regional_veg_16 <- extract(lc2016, regional_points) %>% 
+regional_veg_16 <- terra::extract(lc2016, regional_points) %>% 
   transmute(lc2016 = EVT_NAME) %>% 
   cbind(as.data.frame(regional_points))
 
-regional_veg_23 <- extract(lc2023, regional_points) %>% 
+regional_veg_23 <- terra::extract(lc2023, regional_points) %>% 
   transmute(lc2023 = EVT_NAME) %>% 
   cbind(as.data.frame(regional_points))
 

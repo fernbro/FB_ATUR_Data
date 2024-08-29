@@ -43,10 +43,21 @@ evi_combo <- rbind(evi, evi2) # combine now that they're labeled
 # plot of evi, time series for each well (colored by its aquifer type)
 ggplot(filter(evi_combo), 
        aes(x = date, 
-           y = evi,
-           color = well,
+           y = avg_evi,
            group = name))+
-  geom_line()
+  geom_line()+
+  facet_wrap(~well)+
+  theme(legend.position = "none")
+
+# let's do some smoothing
+
+# rolling means:
+
+evi_smooth1 <- rollmean(evi_combo[,"evi"], 28, c(NA, NA, NA))
+colnames(evi_smooth1) <- "avg_evi"
+evi_smooth <- cbind(evi_combo, evi_smooth1)
+
+
 
 # according to Nagler et al. 2013, each 0.01 increase in EVI in a riparian area
 # corresponds to an increased ET of 0.16 mm/day (58.4 mm/yr)
@@ -68,7 +79,7 @@ alluvial <- alluv_levels %>%
             level = lev_va) %>%
   mutate(well = "alluvial")
 
-filter(alluvial) %>% 
+filter(alluvial, year(date) == 2016) %>% 
   ggplot(aes(x = date, y = -level, group = name))+
   geom_point(size = 0.1)+
   facet_wrap(~name, scales = "free")
@@ -107,7 +118,7 @@ combined_evi <- full_join(water_combo, evi_combo,
 # compute average spring (dry season) EVI and groundwater levels
 stats <- combined_evi %>% # did I do this correctly?
   filter(!is.na(evi), !is.na(level),
-         month(date) %in% c(4, 5, 6)) %>%
+         month(date) %in% c(7, 8, 9)) %>%
   group_by(well, name) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
             evi_sd = sd(evi, na.rm = T),
@@ -120,7 +131,7 @@ stats <- combined_evi %>% # did I do this correctly?
 
 z_scores <- full_join(combined_evi, stats) %>% 
   filter(!is.na(evi), !is.na(level),
-         month(date) %in% c(4, 5, 6)) %>% 
+         month(date) %in% c(7, 8, 9)) %>% 
   mutate(evi_z = (evi - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd)
 
@@ -146,25 +157,55 @@ summary(lm(evi_z ~ dtg_z, filter(z_scores, well == "regional")))
 
 vegetation <- rbind(alluvial_landfire, regional_landfire) # alluvial + reg
 
-z_scores_veg <- full_join(z_scores, vegetation) 
+z_scores <- full_join(z_scores, vegetation) %>% 
+  mutate(year = year(date)) %>% 
+  full_join(usp_spi_annual, join_by(year)) %>% 
+  mutate(drought_year = case_when(drought >= 50 ~ "yes", .default = "no"))
 
 # grepl("Wash", lc2016) 
 #| grepl("Riparian", lc2016)
 #| grepl("Ruderal", lc2016),
-ggplot(filter(z_scores_veg, 
-               evi_z > -5, dtg_z < 10, 
+ggplot(filter(z_scores_nca, 
+               #evi_z > -5, dtg_z < 10, 
               well == "alluvial"), 
        aes(x = dtg_z,
            y = evi_z))+
-  geom_point(aes(
-    color = as.factor(month(date))))+
-  geom_smooth(method = "lm", se = T)+
+  geom_hline(yintercept = 0, color = "gray")+
+  geom_vline(xintercept = 0, color = "gray")+
+  geom_point(aes(color = drought))+
+  geom_smooth(method = "lm", se = F)+
   theme_light()+
   xlab("DTG z-score")+
   ylab("EVI z-score")+
-  ggtitle("AMJ EVI vs. DTG z-scores relative to AMJ")
-ggsave("figures/AMJvsAMJ.jpg", width = 8, height = 4, units = "in")
+  ggtitle("JAS EVI vs. DTG z-scores relative to JAS")+
+  facet_wrap(~sprnca)
+ggsave("figures/JASvsJAS_SPRNCA.jpg", width = 10, height = 8, units = "in")
 
-summary(lm(evi_z ~ dtg_z, filter(z_scores_veg, 
-                                  evi_z > -5, dtg_z < 10, 
+summary(lm(evi_z ~ dtg_z, filter(z_scores, 
+                                 evi_z > -5, dtg_z < 10, 
+                                 well == "alluvial")))
+
+summary(lm(evi_z ~ dtg_z, filter(z_scores_nca,
+                                 sprnca == "SUM",
                                   well == "alluvial"))) # p < 0.001
+
+
+evi_annual <- evi_combo %>% 
+  mutate(year = year(date)) %>%
+  filter(year != 2000 & year != 2023) %>% 
+  group_by(well, year) %>% 
+  summarise(evi = mean(evi, na.rm = T)) %>% 
+  inner_join(usp_spi_monsoon, join_by(year))
+
+ggplot(filter(evi_annual), 
+       aes(x = year, 
+           y = evi))+
+  geom_line()+
+  geom_point(aes(color = drought), size = 3)+
+  facet_wrap(~well)+
+  xlab("Year")+
+  ylab("Average EVI")+
+  theme(legend.position = "none")+
+  theme_light()+
+  scale_colour_gradient(low = "deepskyblue", high="red")
+#ggsave("figures/AnnualEVI_Drought.jpg", width = 7, height = 3, units = "in")
