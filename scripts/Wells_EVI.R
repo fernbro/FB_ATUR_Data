@@ -117,8 +117,7 @@ combined_evi <- full_join(water_combo, evi_combo,
 
 # compute average spring (dry season) EVI and groundwater levels
 stats <- combined_evi %>% # did I do this correctly?
-  filter(!is.na(evi), !is.na(level),
-         month(date) %in% c(7, 8, 9)) %>%
+  filter(!is.na(evi), !is.na(level)) %>%
   group_by(well, name) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
             evi_sd = sd(evi, na.rm = T),
@@ -159,30 +158,28 @@ vegetation <- rbind(alluvial_landfire, regional_landfire) # alluvial + reg
 
 z_scores <- full_join(z_scores, vegetation) %>% 
   mutate(year = year(date)) %>% 
-  full_join(usp_spi_annual, join_by(year)) %>% 
+  full_join(usp_spi_monsoon, join_by(year)) %>% 
   mutate(drought_year = case_when(drought >= 50 ~ "yes", .default = "no"))
 
 # grepl("Wash", lc2016) 
 #| grepl("Riparian", lc2016)
 #| grepl("Ruderal", lc2016),
-ggplot(filter(z_scores_nca, 
-               #evi_z > -5, dtg_z < 10, 
+ggplot(filter(z_scores, 
               well == "alluvial"), 
        aes(x = dtg_z,
            y = evi_z))+
   geom_hline(yintercept = 0, color = "gray")+
   geom_vline(xintercept = 0, color = "gray")+
   geom_point(aes(color = drought))+
-  geom_smooth(method = "lm", se = F)+
+  scale_colour_gradient(low = "deepskyblue", high="red")+
+  geom_smooth(method = "lm", se = T)+
   theme_light()+
   xlab("DTG z-score")+
   ylab("EVI z-score")+
-  ggtitle("JAS EVI vs. DTG z-scores relative to JAS")+
-  facet_wrap(~sprnca)
-ggsave("figures/JASvsJAS_SPRNCA.jpg", width = 10, height = 8, units = "in")
+  ggtitle("JAS EVI vs. DTG z-scores relative to entire year")
+ggsave("figures/JASvsYear_drought.jpg", width = 7, height = 4, units = "in")
 
 summary(lm(evi_z ~ dtg_z, filter(z_scores, 
-                                 evi_z > -5, dtg_z < 10, 
                                  well == "alluvial")))
 
 summary(lm(evi_z ~ dtg_z, filter(z_scores_nca,
