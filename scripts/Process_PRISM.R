@@ -44,6 +44,7 @@ usp_al2 <- st_transform(usp_alluvial, "epsg:4269")
 test_prism <- rast("../../Data/PRISM_20240829/vpdmax/2000/PRISM_vpdmax_stable_4kmD2_20000801_bil.bil")
 
 prism_path <- "../../Data/PRISM_20240829/"
+
 process_prism <- function(years, # YYYY:YYYY
                           variable_name, # "vpdmax", "tmean", "ppt"
                           points # vector object already read in
@@ -51,38 +52,51 @@ process_prism <- function(years, # YYYY:YYYY
   
   points_reproj <- st_transform(points, "epsg:4269")  # reproject points to raster CRS: NAD83 (PRISM)
   
-        for(year in years) {
+  
+  file_list <- list()
+  
+        for(i in 1:length(years)) {
         
-            file_paths <- list.files(path = paste0(prism_path,
+            file_list[[i]] <- list.files(path = paste0(prism_path,
                                                    variable_name, "/",
-                                                   as.character(year)),
+                                                   as.character(years[i])),
                                      pattern = "\\.bil$", # list of files for a given year and variable
                                       full.names = T)
-            # read in all files in file_paths:
-            
-            prism_rasts <- lapply(file_paths, terra::rast)
-            names(prism_rasts) <- paste0(variable_name, "_", 
-                                         str_sub(file_paths, -16, -9))
-            
-            extraction <- list()
+
+        }
+  
+  file_paths <- do.call(c, file_list)
+  prism_rasts <- lapply(file_paths, terra::rast)
+  
+  extraction <- list()
             
             for(r in seq_along(prism_rasts)){
           
                   prism_file <- prism_rasts[[r]]
                   extraction[[r]] <- terra::extract(x = prism_file, y = points_reproj) %>%  # extracts
                                         select(-ID)
+                  colnames(extraction[[r]]) <- str_sub(file_paths[r], -16, -9)
               }
             
-            extracted_values <- do.call(cbind, extraction)
-            extracted_values$name <- points$name
+  extracted_values <- do.call(cbind, extraction)
+  extracted_values$name <- points$name
         
-        }
+  # pivot but grouped by name....
+  extraction <- extracted_values %>% 
+    group_by(name) %>% 
+    pivot_longer(cols = -name, names_to = "date", values_to = variable_name) %>% 
+    ungroup() %>% 
+    mutate(date = as.POSIXct(date, tryFormats = "%Y%m%d"))
   
-  return(extracted_values)
+  return(extraction)
   
 }
 
-test <- process_prism(2000:2000, "ppt", usp_alluvial)
+test <- process_prism(2000:2001, "ppt", usp_alluvial)
+
+ggplot(test, aes(x = date, y = ppt))+
+  geom_line()+
+  facet_wrap(~name)
 
 extract(test_prism, usp_al2)
 names(test_prism) <- paste0("ppt", "_", str_sub("PRISM_vpdmax_stable_4kmD2_20000801_bil.bil",
