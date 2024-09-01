@@ -2,9 +2,98 @@ library(tidyverse)
 library(terra)
 library(sf)
 
+# goal:
+# read in daily prism rasters for a variable
+# by looping through a list ? of file names (identified thru their path and sequence i.e. dates in their names)
+# extract value from each raster to each point in a specified shapefile, creating an output that is a time series dataframe
+# then we can use that time series to temporally aggregate up to any scale
 
+# i also want to freshly download the data because idk what version kang got.
 
 # function to load and process rasters for given years
+
+# file naming conventions: (it's a lot of data btw ...)
+
+# DAILY DATA (2000-2024)
+# "../../Data/PRISM_20240829/Max_VPD"
+
+  # folders by year
+    # PRISM_vpdmax_stable_4kmD2_20000101_bil.bil
+
+# "../../Data/PRISM_20240829/Mean_temperature"
+
+  # folders by year
+    # PRISM_tmean_stable_4kmD2_20000101_bil.bil
+
+# "../../Data/PRISM_20240829/Precipitation"
+
+  # folders by year
+    # PRISM_ppt_stable_4kmD2_20000101_bil.bil
+
+# function for processing data for a given set of points, between dates
+
+# terra::extract()
+
+# sample: 20000101, 20000110, "ppt", usp_alluvial
+
+usp_alluvial <- st_read("data/Alluvial_well_locations.shp")
+
+usp_al2 <- st_transform(usp_alluvial, "epsg:4269")
+# turn into vector before extracting??
+
+test_prism <- rast("../../Data/PRISM_20240829/vpdmax/2000/PRISM_vpdmax_stable_4kmD2_20000801_bil.bil")
+
+prism_path <- "../../Data/PRISM_20240829/"
+process_prism <- function(years, # YYYY:YYYY
+                          variable_name, # "vpdmax", "tmean", "ppt"
+                          points # vector object already read in
+                          ){
+  
+  points_reproj <- st_transform(points, "epsg:4269")  # reproject points to raster CRS: NAD83 (PRISM)
+  
+        for(year in years) {
+        
+            file_paths <- list.files(path = paste0(prism_path,
+                                                   variable_name, "/",
+                                                   as.character(year)),
+                                     pattern = "\\.bil$", # list of files for a given year and variable
+                                      full.names = T)
+            # read in all files in file_paths:
+            
+            prism_rasts <- lapply(file_paths, terra::rast)
+            names(prism_rasts) <- paste0(variable_name, "_", 
+                                         str_sub(file_paths, -16, -9))
+            
+            extraction <- list()
+            
+            for(r in seq_along(prism_rasts)){
+          
+                  prism_file <- prism_rasts[[r]]
+                  extraction[[r]] <- terra::extract(x = prism_file, y = points_reproj) %>%  # extracts
+                                        select(-ID)
+              }
+            
+            extracted_values <- do.call(cbind, extraction)
+            extracted_values$name <- points$name
+        
+        }
+  
+  return(extracted_values)
+  
+}
+
+test <- process_prism(2000:2000, "ppt", usp_alluvial)
+
+extract(test_prism, usp_al2)
+names(test_prism) <- paste0("ppt", "_", str_sub("PRISM_vpdmax_stable_4kmD2_20000801_bil.bil",
+                                                -16, -9))
+
+
+# loop thru each file:
+# extract to points, add to data frame
+# info to carry: attributes from points, raster value, date
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 load_process_raster <- function(year) {
   raster_path <- file.path(lai_dir, paste0("Lai_", year, "_EOM.tif"))
   if (file.exists(raster_path)) {
