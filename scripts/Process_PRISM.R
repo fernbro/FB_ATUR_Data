@@ -38,10 +38,7 @@ library(sf)
 
 usp_alluvial <- st_read("data/Alluvial_well_locations.shp")
 
-usp_al2 <- st_transform(usp_alluvial, "epsg:4269")
-# turn into vector before extracting??
 
-test_prism <- rast("../../Data/PRISM_20240829/vpdmax/2000/PRISM_vpdmax_stable_4kmD2_20000801_bil.bil")
 
 prism_path <- "../../Data/PRISM_20240829/"
 
@@ -92,54 +89,15 @@ process_prism <- function(years, # YYYY:YYYY
   
 }
 
-test <- process_prism(2000:2001, "ppt", usp_alluvial)
+alluvial_prism_ppt <- process_prism(2000:2024, "ppt", usp_alluvial)
+alluvial_prism_vpdmax <- process_prism(2000:2024, "vpdmax", usp_alluvial)
+alluvial_prism_tmean <- process_prism(2000:2024, "tmean", usp_alluvial)
 
-ggplot(test, aes(x = date, y = ppt))+
+write_csv(alluvial_prism_ppt, "data/USP_AlluvialWells_PRISM_ppt.csv")
+write_csv(alluvial_prism_vpdmax, "data/USP_AlluvialWells_PRISM_vpdmax.csv")
+write_csv(alluvial_prism_tmean, "data/USP_AlluvialWells_PRISM_tmean.csv")
+
+
+ggplot(filter(alluvial_prism_vpdmax, year(date) == 2021), aes(x = date, y = vpdmax))+
   geom_line()+
   facet_wrap(~name)
-
-extract(test_prism, usp_al2)
-names(test_prism) <- paste0("ppt", "_", str_sub("PRISM_vpdmax_stable_4kmD2_20000801_bil.bil",
-                                                -16, -9))
-
-
-# loop thru each file:
-# extract to points, add to data frame
-# info to carry: attributes from points, raster value, date
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-load_process_raster <- function(year) {
-  raster_path <- file.path(lai_dir, paste0("Lai_", year, "_EOM.tif"))
-  if (file.exists(raster_path)) {
-    raster <- rast(raster_path) / 10
-    lcmap_mask <- terra::resample(lcmap, raster, "near")
-    raster <- mask(raster, lcmap_mask)
-    return(raster)
-  } else {
-    warning(paste("Raster file for year", year, "not found. Skipping."))
-    return(NULL)
-  }
-}
-
-# list to store all rasters
-lai_rast_list <- list()
-# loop through each year from 2001 to 2021 with above function
-for (year in 2001:2021) {
-  raster <- load_process_raster(year)
-  if (!is.null(raster)) {
-    lai_rast_list[[as.character(year)]] <- raster
-  }
-}
-
-
-
-for (year in seq_along(lai_rast_list)) {
-  raster <- lai_rast_list[[year]]
-  lai_list <- vector(mode = "list", length = 12)
-  for(m in 1:12){
-    lai_list[[m]] <- terra::extract(x = raster, y = lsu, layer = m, fun = mean, 
-                                    ID = T)
-  }
-  lai_month_df <- dplyr::bind_rows(lai_list)
-  lai_df_list[[year]] <- lai_month_df
-}
