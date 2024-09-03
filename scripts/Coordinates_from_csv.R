@@ -1,7 +1,11 @@
 library(tidyverse)
 library(sf)
 
-coord_from_df <- function(df, epsg, site_column, lon, lat){
+coord_from_df <- function(df, # data frame with geometry columns
+                          epsg, # reference system that the data came in/were reported
+                          site_column, # column with a name for each point
+                          lon, # longitude (x coord) column
+                          lat){ # latitude (y coord) column
   
   points <- df %>% 
     select({{site_column}}, {{lon}}, {{lat}}) %>% 
@@ -18,6 +22,16 @@ coord_from_df <- function(df, epsg, site_column, lon, lat){
   
 }
 
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~
 # USGS scientific report 2005-5163: hydrologic site observations
 
 # site locations:
