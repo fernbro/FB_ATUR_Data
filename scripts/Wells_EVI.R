@@ -43,7 +43,7 @@ evi_combo <- rbind(evi, evi2) # combine now that they're labeled
 # plot of evi, time series for each well (colored by its aquifer type)
 ggplot(filter(evi_combo), 
        aes(x = date, 
-           y = avg_evi,
+           y = evi,
            group = name))+
   geom_line()+
   facet_wrap(~well)+
@@ -51,13 +51,20 @@ ggplot(filter(evi_combo),
 
 # let's do some smoothing
 
-# rolling means:
-
-evi_smooth1 <- rollmean(evi_combo[,"evi"], 28, c(NA, NA, NA))
-colnames(evi_smooth1) <- "avg_evi"
-evi_smooth <- cbind(evi_combo, evi_smooth1)
-
-
+              # # rolling means:
+              # 
+              # evi_smooth1 <- rollmean(evi_combo[,"evi"], 28, c(NA, NA, NA))
+              # colnames(evi_smooth1) <- "avg_evi"
+              # evi_smooth <- cbind(evi_combo, evi_smooth1)
+              # 
+              # #smoothed:
+              # ggplot(filter(evi_smooth), 
+              #        aes(x = date, 
+              #            y = avg_evi,
+              #            group = name))+
+              #   geom_line()+
+              #   facet_wrap(~well)+
+              #   theme(legend.position = "none")
 
 # according to Nagler et al. 2013, each 0.01 increase in EVI in a riparian area
 # corresponds to an increased ET of 0.16 mm/day (58.4 mm/yr)
@@ -79,10 +86,10 @@ alluvial <- alluv_levels %>%
             level = lev_va) %>%
   mutate(well = "alluvial")
 
-filter(alluvial, year(date) == 2016) %>% 
-  ggplot(aes(x = date, y = -level, group = name))+
-  geom_point(size = 0.1)+
-  facet_wrap(~name, scales = "free")
+# filter(alluvial, year(date) == 2016) %>% 
+#   ggplot(aes(x = date, y = -level, group = name))+
+#   geom_point(size = 0.1)+
+#   facet_wrap(~name, scales = "free")
 
 # alluvial_evi <- full_join(alluvial, evi) %>% 
 #   filter(year(date) >= 2013, month(date) %in% c(4,5,6))
@@ -104,9 +111,9 @@ water_combo <- rbind(regional, alluvial) %>%
 
       # plot gw status by wells
 
-ggplot(water_combo, aes(x = date, y = level, 
-                        group = name, color = well))+
-  geom_line()
+# ggplot(water_combo, aes(x = date, y = level, 
+#                         group = name, color = well))+
+#   geom_line()
 
       # alluvial is much deeper
 
@@ -135,11 +142,9 @@ z_scores <- full_join(combined_evi, stats) %>%
          dtg_z = (level - dtg_mean)/dtg_sd)
 
 ggplot(filter(z_scores, evi_z > -5),
-       aes(x = dtg_z,
-                             y = evi_z))+
+       aes(x = dtg_z, y = evi_z, color = well))+
   geom_point()+
-  geom_smooth(method = "lm", se = F)+
-  facet_wrap(~name, scales = "free")
+  geom_smooth(method = "lm", se = F)
 
 summary(lm(evi_z ~ dtg_z, filter(z_scores)))
   # slope is significantly different from 0
@@ -186,7 +191,11 @@ summary(lm(evi_z ~ dtg_z, filter(z_scores_nca,
                                  sprnca == "SUM",
                                   well == "alluvial"))) # p < 0.001
 
+z_scores$method <- "JAS obs relative to whole year"
 
+write_csv(z_scores, "data/Processed/USP_GW_EVI_Z.csv")
+
+######## EVI TIME SERIES:
 evi_annual <- evi_combo %>% 
   mutate(year = year(date)) %>%
   filter(year != 2000 & year != 2023) %>% 
