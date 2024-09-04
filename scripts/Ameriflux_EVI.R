@@ -1,6 +1,7 @@
 library(tidyverse)
 library(sf)
 library(terra)
+source("scripts/Process_PRISM.R")
 
 all_az_sites <- st_read("data/Flux/AZ_Ameriflux_sites.shp")
 plot(all_az_sites)
@@ -22,9 +23,15 @@ az_sites <- all_az_sites %>%
                         "US-SRC",
                         "US-SRS",
                         "US-xSR")) %>% 
-  select(SITE_ID) %>% 
+  transmute(name = SITE_ID) %>% 
   st_zm(drop = T, what = "ZM")
 
 plot(az_sites)
 
 st_write(az_sites, "data/Flux/AZ_Ameriflux_subset_sites.shp")
+
+source("scripts/Process_PRISM.R")
+
+flux_ppt <- process_prism(2000:2024, "ppt", az_sites)
+flux_tmean <- process_prism(2000:2024, "tmean", az_sites)
+flux_vpdmax <- process_prism(2000:2024, "vpdmax", az_sites)

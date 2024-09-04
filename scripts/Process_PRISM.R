@@ -36,10 +36,6 @@ library(sf)
 
 # sample: 20000101, 20000110, "ppt", usp_alluvial
 
-usp_alluvial <- st_read("data/Alluvial_well_locations.shp")
-
-
-
 prism_path <- "../../Data/PRISM_20240829/"
 
 process_prism <- function(years, # YYYY:YYYY
@@ -89,15 +85,6 @@ process_prism <- function(years, # YYYY:YYYY
   
 }
 
-alluvial_prism_ppt <- process_prism(2000:2024, "ppt", usp_alluvial)
-alluvial_prism_vpdmax <- process_prism(2000:2024, "vpdmax", usp_alluvial)
-alluvial_prism_tmean <- process_prism(2000:2024, "tmean", usp_alluvial)
-
-write_csv(alluvial_prism_ppt, "data/USP_AlluvialWells_PRISM_ppt.csv")
-write_csv(alluvial_prism_vpdmax, "data/USP_AlluvialWells_PRISM_vpdmax.csv")
-write_csv(alluvial_prism_tmean, "data/USP_AlluvialWells_PRISM_tmean.csv")
-
-
-ggplot(filter(alluvial_prism_vpdmax, year(date) == 2021), aes(x = date, y = vpdmax))+
-  geom_line()+
-  facet_wrap(~name)
+# Example:
+# alluvial_prism_ppt <- process_prism(2000:2024, "ppt", usp_alluvial)
+# write_csv(alluvial_prism_ppt, "data/USP_AlluvialWells_PRISM_ppt.csv")
