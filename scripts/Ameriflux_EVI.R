@@ -35,3 +35,9 @@ source("scripts/Process_PRISM.R")
 flux_ppt <- process_prism(2000:2024, "ppt", az_sites)
 flux_tmean <- process_prism(2000:2024, "tmean", az_sites)
 flux_vpdmax <- process_prism(2000:2024, "vpdmax", az_sites)
+
+flux_prism <- full_join(flux_ppt, flux_tmean, join_by(name, date)) %>% 
+  full_join(flux_vpdmax, join_by(name, date)) %>% 
+  mutate(vpdmax = vpdmax / 10)
+
+write_csv(flux_prism, "data/AZ_Flux_PRISM.csv")
