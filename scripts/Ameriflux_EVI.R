@@ -51,5 +51,6 @@ flux_data <- read_csv("../../Data/Flux/Processed/AZ_flux_all.csv")
 flux_daily <- flux_data %>% 
   mutate(date = date(DateTime)) %>% 
   group_by(site, date) %>% 
-  summarise(ET = mean(ET*24*60*60))
+  summarise(ET = mean((ET*(24*60*60)), na.rm = T))
 
+write_csv(flux_daily, "data/Flux/Daily_Ameriflux_ET.csv") # averaged in mm daily
