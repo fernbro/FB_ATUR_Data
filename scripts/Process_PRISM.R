@@ -88,3 +88,13 @@ process_prism <- function(years, # YYYY:YYYY
 # Example:
 # alluvial_prism_ppt <- process_prism(2000:2024, "ppt", usp_alluvial)
 # write_csv(alluvial_prism_ppt, "data/USP_AlluvialWells_PRISM_ppt.csv")
+
+usp_gen <- st_read("data/General_USPWHIP_well_locations.shp")
+
+usp_gen_ppt <- process_prism(2000:2024, "ppt", usp_gen)
+usp_gen_tmean <- process_prism(2000:2024, "tmean", usp_gen)
+usp_gen_vpdmax <- process_prism(2000:2024, "vpdmax", usp_gen)
+
+write_csv(usp_gen_ppt, "data/USP_RegionalWells_PRISM_ppt.csv")
+write_csv(usp_gen_tmean, "data/USP_RegionalWells_PRISM_tmean.csv")
+write_csv(usp_gen_vpdmax, "data/USP_RegionalWells_PRISM_vpdmax.csv")
