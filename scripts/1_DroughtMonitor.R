@@ -12,7 +12,7 @@ usp_dm_monthly <- usp_dm_raw %>%
          year = year(date), month = month(date)) %>%
   group_by(year, month) %>% 
   summarise(no_drought = mean(None), 
-            drought = mean(D0 + D1 + D2 + D3 + D4)) 
+            drought = mean(D0 + D1 + D2 + D3 + D4))
 
 # 
 # add all drought categories and then take the mean

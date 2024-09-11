@@ -41,30 +41,22 @@ evi2 <- evi_ts_general %>% # regional aquifer wells
 evi_combo <- rbind(evi, evi2) # combine now that they're labeled
 
 # plot of evi, time series for each well (colored by its aquifer type)
-ggplot(filter(evi_combo), 
-       aes(x = date, 
-           y = evi,
-           group = name))+
-  geom_line()+
-  facet_wrap(~well)+
-  theme(legend.position = "none")
+# ggplot(filter(evi_combo), 
+#        aes(x = date, 
+#            y = evi,
+#            group = name))+
+#   geom_line()+
+#   facet_wrap(~well)+
+#   theme(legend.position = "none")
 
 # let's do some smoothing
+# WANT TO IMPROVE LATER (for data spikes)
 
-              # # rolling means:
-              # 
-              # evi_smooth1 <- rollmean(evi_combo[,"evi"], 28, c(NA, NA, NA))
-              # colnames(evi_smooth1) <- "avg_evi"
-              # evi_smooth <- cbind(evi_combo, evi_smooth1)
-              # 
-              # #smoothed:
-              # ggplot(filter(evi_smooth), 
-              #        aes(x = date, 
-              #            y = avg_evi,
-              #            group = name))+
-              #   geom_line()+
-              #   facet_wrap(~well)+
-              #   theme(legend.position = "none")
+evi_smooth <- evi_combo %>% 
+  group_by(name) %>% 
+  arrange(name, date) %>% 
+  mutate(evi_30 = zoo::rollmean(evi, 31, c(NA, NA, NA))) %>% 
+  ungroup()
 
 # according to Nagler et al. 2013, each 0.01 increase in EVI in a riparian area
 # corresponds to an increased ET of 0.16 mm/day (58.4 mm/yr)
@@ -119,13 +111,16 @@ water_combo <- rbind(regional, alluvial) %>%
 
       # attach EVI
 
-combined_evi <- full_join(water_combo, evi_combo, 
+# water_combo: date, name, well, level
+# evi_combo: name, evi, date, well
+
+combined_evi <- full_join(water_combo, evi_smooth, 
                           join_by(name, date, well))
 
-# compute average spring (dry season) EVI and groundwater levels
+# compute average EVI and groundwater levels
 stats <- combined_evi %>% # did I do this correctly?
-  filter(!is.na(evi), !is.na(level)) %>%
-  group_by(well, name) %>% 
+  filter(!is.na(evi_30), !is.na(level)) %>%
+  group_by(name) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
             evi_sd = sd(evi, na.rm = T),
             dtg_mean = mean(level, na.rm = T), 
@@ -136,12 +131,15 @@ stats <- combined_evi %>% # did I do this correctly?
   ungroup()
 
 z_scores <- full_join(combined_evi, stats) %>% 
-  filter(!is.na(evi), !is.na(level),
-         month(date) %in% c(7, 8, 9)) %>% 
-  mutate(evi_z = (evi - evi_mean)/evi_sd,
+  filter(!is.na(evi_30), !is.na(level),
+         month(date) %in% c(7, 8, 9)
+         # date != as.POSIXct("2016-06-28"),      # 2 cloudy days
+         # date != as.POSIXct("2009-05-20")
+         ) %>% 
+  mutate(evi_z = (evi_30 - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd)
 
-ggplot(filter(z_scores, evi_z > -5),
+ggplot(filter(z_scores),
        aes(x = dtg_z, y = evi_z, color = well))+
   geom_point()+
   geom_smooth(method = "lm", se = F)
@@ -150,7 +148,7 @@ summary(lm(evi_z ~ dtg_z, filter(z_scores)))
   # slope is significantly different from 0
 cor(z_scores$evi_z, z_scores$dtg_z) # positive correlation (0.08)
 
-summary(lm(evi_z ~ dtg_z, filter(z_scores, well == "regional")))
+summary(lm(evi_z ~ dtg_z, filter(z_scores, well == "alluvial")))
   # slope is NOT significantly different from 0
 
 # places where EVI has dropped from groundwater: priority restoration for recharge?
@@ -166,6 +164,11 @@ z_scores <- full_join(z_scores, vegetation) %>%
   full_join(usp_spi_monsoon, join_by(year)) %>% 
   mutate(drought_year = case_when(drought >= 50 ~ "yes", .default = "no"))
 
+ggplot(filter(z_scores, well == "alluvial"),
+       aes(x = date, y = evi, group = name))+
+  geom_line()+
+  theme_light()
+
 # grepl("Wash", lc2016) 
 #| grepl("Riparian", lc2016)
 #| grepl("Ruderal", lc2016),
@@ -175,43 +178,102 @@ ggplot(filter(z_scores,
            y = evi_z))+
   geom_hline(yintercept = 0, color = "gray")+
   geom_vline(xintercept = 0, color = "gray")+
-  geom_point(aes(color = drought))+
-  scale_colour_gradient(low = "deepskyblue", high="red")+
+  geom_point(aes(color = as.factor(month(date))))+
+  #scale_colour_gradient(low = "deepskyblue", high="red")+
   geom_smooth(method = "lm", se = T)+
   theme_light()+
   xlab("DTG z-score")+
   ylab("EVI z-score")+
+  labs(color = "Month")+
   ggtitle("JAS EVI vs. DTG z-scores relative to entire year")
-ggsave("figures/JASvsYear_drought.jpg", width = 7, height = 4, units = "in")
+ggsave("figures/JASvsYear_evi30_months.jpg", width = 8, height = 4, units = "in")
 
 summary(lm(evi_z ~ dtg_z, filter(z_scores, 
                                  well == "alluvial")))
 
-summary(lm(evi_z ~ dtg_z, filter(z_scores_nca,
-                                 sprnca == "SUM",
-                                  well == "alluvial"))) # p < 0.001
+ggplot(filter(z_scores, 
+              well == "alluvial"), 
+       aes(x = dtg_z))+
+  geom_histogram(binwidth = 0.2,
+                 color = "darkgrey",
+                 aes(fill = as.factor(month(date))))+
+  xlab("DTG z-score")+
+  ylab("Count")+
+  geom_vline(xintercept = mean((filter(z_scores, well == "alluvial")$dtg_z), na.rm = T))+
+  theme_light()+
+  labs(fill = "Month")
+#  theme(legend.position = "none")
+ggsave("figures/jas_dtgz_hist.jpg", last_plot(), width = 5, height = 3, units = "in")
+
+# summary(lm(evi_z ~ dtg_z, filter(z_scores_nca,
+#                                  sprnca == "SUM",
+#                                   well == "alluvial"))) # p < 0.001
 
 z_scores$method <- "JAS obs relative to whole year"
 
-write_csv(z_scores, "data/Processed/USP_GW_EVI_Z.csv")
+# write_csv(z_scores, "data/Processed/USP_GW_EVI_Z.csv")
 
 ######## EVI TIME SERIES:
 evi_annual <- evi_combo %>% 
-  mutate(year = year(date)) %>%
-  filter(year != 2000 & year != 2023) %>% 
+  mutate(year = year(date), month = month(date)) %>%
+  filter(year != 2000 & year != 2023, month %in% c(4, 5, 6)) %>% 
   group_by(well, year) %>% 
   summarise(evi = mean(evi, na.rm = T)) %>% 
-  inner_join(usp_spi_monsoon, join_by(year))
+  inner_join(usp_spi_annual, join_by(year))
+
+evi_means <- evi_combo %>% 
+  mutate(year = year(date), month = month(date)) %>%
+  filter(year != 2000 & year != 2023, month %in% c(4, 5, 6)) %>% 
+  group_by(well) %>% 
+  summarise(evi = mean(evi, na.rm = T))
 
 ggplot(filter(evi_annual), 
        aes(x = year, 
            y = evi))+
-  geom_line()+
-  geom_point(aes(color = drought), size = 3)+
-  facet_wrap(~well)+
   xlab("Year")+
   ylab("Average EVI")+
   theme(legend.position = "none")+
   theme_light()+
-  scale_colour_gradient(low = "deepskyblue", high="red")
-#ggsave("figures/AnnualEVI_Drought.jpg", width = 7, height = 3, units = "in")
+  facet_wrap(~well)+
+  theme(strip.background = element_rect(color = "black", fill = "white"))+
+  theme(strip.text = element_text(colour = 'black'))+
+  scale_colour_gradient(low = "deepskyblue", high="red")+
+  geom_smooth(method = "lm", se = F, color = "lemonchiffon4")+
+  geom_hline(data = evi_means, aes(yintercept = evi), linetype = 2, color = "cornsilk4")+
+  geom_line()+
+  geom_point(aes(color = drought), size = 3)
+ggsave("figures/JAS_EVI_Drought_avgs.jpg", width = 7, height = 3, units = "in")
+
+# histograms:
+
+# ggplot(filter(combined_evi, well == "alluvial"), aes(x = level))+
+#   geom_histogram(aes(fill = name), binwidth = 0.1)+
+#   theme(legend.position = "none")
+# 
+# full_evi_veg <- full_join(combined_evi, vegetation)
+# 
+# anova1 <- aov(level ~ name, data = combined_evi)
+# 
+# ggplot(filter(z_scores, well == "alluvial"), aes(x = -level))+
+#   coord_flip()+
+#   geom_histogram(fill = "skyblue2", binwidth = 1)+
+#   geom_vline(xintercept = -9.19, color = "darkorange", size = 1)+
+#   geom_vline(xintercept = -4.92, color = "forestgreen", size = 1)+
+#   geom_vline(xintercept = -11.81, color = "maroon", size = 1)+
+#   xlab("Groundwater level (ft)")+
+#   ylab("Frequency")+
+#   theme_light()
+
+# ggsave("figures/dtg_hist.jpg", width = 6, height = 3, units = "in")
+
+# ggplot(filter(z_scores, well == "alluvial"), aes(x = dtg_z))+
+#   geom_histogram(fill = "skyblue2", binwidth = 0.2)+
+#   theme(legend.position = "none")+
+#   xlab("Depth to groundwater z-score")+
+#   ylab("Frequency")
+# 
+# ggplot(filter(z_scores, well == "alluvial"), aes(x = date, y = level))+
+#   geom_line(aes(group = name))+
+#   geom_point(aes(color = name))+
+#   facet_wrap(~lc2016, scales = "free_x")+
+#   theme(legend.position = "none")
