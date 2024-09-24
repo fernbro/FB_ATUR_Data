@@ -1,6 +1,7 @@
 library(tidyverse)
 library(zoo)
 
+# after just using rollmean in script #3, idk if this is necessary. it wasn't that hard with that fxn.
 
 # EVI Measurements
 

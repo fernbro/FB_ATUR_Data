@@ -25,7 +25,7 @@ ggplot(filter(evi_flux), aes(x = evi, y = ET))+
   geom_smooth(se = F, method = "lm")+
   facet_wrap(~site)
 
-model <- lmer(ET ~ vpdmax + evi + tmean + ppt + (1 + evi | site), evi_flux)
+model <- lmer(ET ~ evi + tmean + ppt + (1 + evi | site), evi_flux)
  # ppt on any given day may not tell much.
   # what about ppt within the last 3 days? or a time period?
 
@@ -44,7 +44,7 @@ monthly <- evi_flux %>%
 ggplot(filter(monthly, site %in% c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs')), 
        aes(x = evi, y = ET))+
   geom_point(size = 0.4, aes(color = site))+
-  geom_smooth(se = F, method = "lm", linewidth = 0.5)+
+  geom_smooth(se = T, method = "lm", linewidth = 0.5)+
   ggtitle("Monthly ET vs. average EVI")+
   xlab("EVI")+
   ylab("ET (mm/day)")+
@@ -52,9 +52,42 @@ ggplot(filter(monthly, site %in% c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs')),
   #facet_wrap(~site)+
   theme(strip.background = element_rect(color = "black", fill = "white"))+
   theme(strip.text = element_text(colour = 'black'))
-ggsave("figures/Monthly_ETvEVI_USPFlux.jpg", last_plot(), width = 5, height = 5, units = "in")
+#ggsave("figures/Monthly_ETvEVI_USPFlux.jpg", last_plot(), width = 5, height = 5, units = "in")
 
-summary(lm(ET ~ evi, data = filter(monthly, site == "Whs")))
+ggplot(monthly, aes(x = evi, y = ET))+
+  geom_point(size = 0.4)+
+  geom_smooth(se = T, method = "lm", linewidth = 0.5)+
+  ggtitle("Monthly ET vs. average EVI")+
+  xlab("EVI")+
+  ylab("ET (mm/day)")+
+  theme_light()+
+  facet_wrap(~site)+
+  theme(strip.background = element_rect(color = "black", fill = "white"))+
+  theme(strip.text = element_text(colour = 'black'))
+ggsave("figures/Monthly_ET_EVI_Flux.jpg", last_plot(), width = 8, height = 5, units = "in")
+
+# monthly <- monthly %>% 
+#   filter(!is.na(ET), !is.na(evi))
+
+monthly_usp <- filter(monthly, site %in% c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs'),
+                      !is.na(ET), !is.na(evi))
+  
+model1a <- (lmer(ET ~ evi + (1 | site), data = monthly_usp))
+model1b <- (lmer(ET ~ evi + (0 + evi | site), data = monthly_usp)) # lowest AIC
+
+# fitting a random intercept lets us test if the mean btwn groups varies.
+# lets us estimate among-group variance in dependent variable
+# fitting a random slope lets us test if the independent variable has a diff effect in each group
+
+
+model2 <- lm(evi ~ ppt + month, data = monthly_usp)
+
+anova(model1a, model1b, model2)
+
+summary(model2)
+
+plot(monthly_usp$evi, fitted(model2))
+abline(a = 0, b = 1, col = "red")
 
 annual <- evi_flux %>% 
   mutate(year = year(date)) %>% 
@@ -67,5 +100,5 @@ ggplot(filter(annual), aes(x = evi, y = ET))+
   geom_point(size = 0.2)+
   geom_smooth(se = F, method = "lm")+
   xlab("EVI")+
-  ylab("Monthly ET (mm/day)")
+  ylab("Monthly ET (mm/day)")+
   facet_wrap(~site)

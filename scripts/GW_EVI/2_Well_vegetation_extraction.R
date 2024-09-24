@@ -42,6 +42,7 @@ extract_landfire <- function(veg_map_file, points_file){
 
 # well points:
 alluvial_points_raw <- st_read("data/Alluvial_well_locations.shp")
+#alluvial_points_raw <- st_transform(alluvial_points_raw, "epsg:4326")
 alluvial_points <- vect(st_transform(alluvial_points_raw, crs = "EPSG:5070"))
 
 alluvial_veg_16 <- terra::extract(lc2016, alluvial_points) %>% 
@@ -63,6 +64,7 @@ alluvial_lcc <- filter(alluvial_landfire, lc2016 != lc2023)
 # ~~~~
 
 regional_points_raw <- st_read("data/General_USPWHIP_well_locations.shp")
+#regional_points_raw <- st_transform(regional_points_raw, crs = "epsg:4326")
 regional_points <- vect(st_transform(regional_points_raw, crs = "EPSG:5070"))
 
 regional_veg_16 <- terra::extract(lc2016, regional_points) %>% 
