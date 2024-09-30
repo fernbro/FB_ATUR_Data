@@ -67,7 +67,7 @@ modis_data_nested <- modis_et %>%
   nest()
 
 modis_data_expanded <- modis_data_nested %>%
-  mutate(data = map(data, expand_modis_data)) %>% 
+  mutate(data = map(data, expand_modis_data)) %>%
   # map the expand_modis_data function to each site (called "data" by the nest fxn) in the collection we created above
   unnest(data) # now unnest to make one dataframe again with its site column
 

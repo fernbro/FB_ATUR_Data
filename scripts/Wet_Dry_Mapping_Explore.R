@@ -33,9 +33,15 @@ regional <- st_transform(regional_wells, crs = "epsg:3742")
 
 # try st_distance()
 
-alluvial_reaches <- data.frame(st_distance(alluvial,
-                                survey_reaches,
-                                which = "Euclidean"))
+# find wet reach closest to each FOR EACH YEAR!!
+
+alluv_near <- st_nearest_feature(alluvial, wet_reaches)  # indices of y that are closest to each object in x
+  
+alluv_dist <- data.frame(dist = st_distance(alluvial, wet_reaches[alluv_near,],
+                          by_element = T, method = "Euclidean")) %>% 
+  cbind(alluvial$name)
+
+# st_nearest_feature
 
 
 

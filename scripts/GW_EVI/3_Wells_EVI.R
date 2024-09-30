@@ -7,39 +7,64 @@ library(lme4)
 # EVI Measurements
 
   # alluvial wells:
-
-      evi_alluv1 <- read_csv("data/EVI_alluvial_2013_2023.csv")
-      evi_alluv2 <- read_csv("data/EVI_alluvwells_2000_2013.csv")
+# 
+      # MODIS EVI:
+      # evi_alluv1 <- read_csv("data/EVI_alluvial_2013_2023.csv")
+      # evi_alluv2 <- read_csv("data/EVI_alluvwells_2000_2013.csv")
+      
+      # Landsat EVI:
+      
+      landsat_alluv <- read_csv("data/LandsatEVI_Alluvial.csv")
+      ls_alluv <- landsat_alluv %>% 
+        transmute(date = make_date(year = year, month = month,
+                                   day = day),
+                  evi = EVI, name = name, well = "alluvial")
       
   # regional aquifer wells:
-      evi_gen1 <- read_csv("data/EVI_2013_2023_general.csv")
-      evi_gen2 <- read_csv("data/EVI_generalwells_2000_2013.csv")
+      
+      # MODIS EVI:
+      # evi_gen1 <- read_csv("data/EVI_2013_2023_general.csv")
+      # evi_gen2 <- read_csv("data/EVI_generalwells_2000_2013.csv")
       
       # spikes and cloud mask???
+      
+      # Landsat EVI:
+      
+      landsat_reg <- read_csv("data/LandsatEVI_Regional.csv")
+      ls_reg <- landsat_reg %>% 
+        transmute(date = make_date(year = year, month = month,
+                                   day = day),
+                  evi = EVI, name = name, well = "regional")
 
-evi_ts_alluvial <- rbind(evi_alluv1, 
-                         evi_alluv2) # bind alluvial evi time series
-  
-evi <- evi_ts_alluvial %>%  # alluvial aquifer wells
-  mutate(date = make_date(year = year, 
-                          month = month, 
-                          day = day),
-         evi = EVI, 
-         well = "alluvial") %>% 
-  select(name, evi, date, well)
+      
+      # For MODIS:
+              evi_ts_alluvial <- rbind(evi_alluv1, 
+                                       evi_alluv2) # bind alluvial evi time series
+                
+              evi <- evi_ts_alluvial %>%  # alluvial aquifer wells
+                mutate(date = make_date(year = year, 
+                                        month = month, 
+                                        day = day),
+                       evi = EVI, 
+                       well = "alluvial") %>% 
+                select(name, evi, date, well)
+              
+              evi_ts_general <- rbind(evi_gen1, 
+                                      evi_gen2) # bind regional aqu time series
+              
+              evi2 <- evi_ts_general %>% # regional aquifer wells
+                mutate(date = make_date(year = year, 
+                                        month = month, 
+                                        day = day),
+                       evi = EVI, 
+                       well = "regional") %>% 
+                select(name, evi, date, well)
+              
+              evi_combo <- rbind(evi, evi2) # combine now that they're labeled
 
-evi_ts_general <- rbind(evi_gen1, 
-                        evi_gen2) # bind regional aqu time series
-
-evi2 <- evi_ts_general %>% # regional aquifer wells
-  mutate(date = make_date(year = year, 
-                          month = month, 
-                          day = day),
-         evi = EVI, 
-         well = "regional") %>% 
-  select(name, evi, date, well)
-
-evi_combo <- rbind(evi, evi2) # combine now that they're labeled
+      # Landsat data:
+              
+              evi_combo <- rbind(ls_alluv, ls_reg)
 
 #plot of evi, time series for each well (colored by its aquifer type)
 # ggplot(filter(evi_combo),
@@ -110,12 +135,12 @@ water_combo <- rbind(regional, alluvial) %>%
 # water_combo: date, name, well, level
 # evi_combo: name, evi, date, well
 
-combined_evi <- full_join(water_combo, evi_smooth, 
+combined_evi <- full_join(water_combo, evi_combo, 
                           join_by(name, date, well))
 
 # compute average EVI and groundwater levels
 stats <- combined_evi %>%
-  filter(!is.na(evi_30), !is.na(level)) %>%
+  filter(!is.na(evi), !is.na(level)) %>%
   group_by(name) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
             evi_sd = sd(evi, na.rm = T),
@@ -127,7 +152,7 @@ stats <- combined_evi %>%
   ungroup()
 
 stats_by_month <- combined_evi %>% 
-  filter(!is.na(evi_30), !is.na(level)) %>% 
+  filter(!is.na(evi), !is.na(level)) %>% 
   mutate(month = month(date)) %>% 
   group_by(name, month) %>% 
   summarise(evi_mean = mean(evi, na.rm = T), 
@@ -140,20 +165,20 @@ stats_by_month <- combined_evi %>%
   ungroup()
 
 z_scores <- full_join(combined_evi, stats) %>% 
-  filter(!is.na(evi_30), !is.na(level),
+  filter(!is.na(evi), !is.na(level),
          month(date) %in% c(4, 5, 6, 7, 8, 9)
          ) %>% 
-  mutate(evi_z = (evi_30 - evi_mean)/evi_sd,
+  mutate(evi_z = (evi - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd,
          month = month(date))
 
 z_scores_monthly <- combined_evi %>%  # Z-scores data frame with mean & sd for any given Month
   mutate(month = month(date)) %>% 
   full_join(stats_by_month) %>% 
-  filter(!is.na(evi_30), !is.na(level),
+  filter(!is.na(evi), !is.na(level),
          month %in% c(4, 5, 6, 7, 8, 9)) %>% 
   group_by(name, month) %>% 
-  mutate(evi_z = (evi_30 - evi_mean)/evi_sd,
+  mutate(evi_z = (evi - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd) %>% 
   ungroup()
 
