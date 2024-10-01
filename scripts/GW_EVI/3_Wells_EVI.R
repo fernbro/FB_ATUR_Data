@@ -2,39 +2,29 @@ library(tidyverse)
 # install.packages("zoo")
 library(zoo)
 library(lme4)
-
+# install.packages("lmerTest")
+library(lmerTest)
+library(ggthemes)
 
 # EVI Measurements
 
+
+
   # alluvial wells:
-# 
+
+      wells_by_reach <- read_csv("data/SPRNCA/Wells_Reaches.csv")
+
       # MODIS EVI:
-      # evi_alluv1 <- read_csv("data/EVI_alluvial_2013_2023.csv")
-      # evi_alluv2 <- read_csv("data/EVI_alluvwells_2000_2013.csv")
-      
-      # Landsat EVI:
-      
-      landsat_alluv <- read_csv("data/LandsatEVI_Alluvial.csv")
-      ls_alluv <- landsat_alluv %>% 
-        transmute(date = make_date(year = year, month = month,
-                                   day = day),
-                  evi = EVI, name = name, well = "alluvial")
-      
+      evi_alluv1 <- read_csv("data/EVI_alluvial_2013_2023.csv")
+      evi_alluv2 <- read_csv("data/EVI_alluvwells_2000_2013.csv")
+
   # regional aquifer wells:
       
       # MODIS EVI:
-      # evi_gen1 <- read_csv("data/EVI_2013_2023_general.csv")
-      # evi_gen2 <- read_csv("data/EVI_generalwells_2000_2013.csv")
+      evi_gen1 <- read_csv("data/EVI_2013_2023_general.csv")
+      evi_gen2 <- read_csv("data/EVI_generalwells_2000_2013.csv")
       
       # spikes and cloud mask???
-      
-      # Landsat EVI:
-      
-      landsat_reg <- read_csv("data/LandsatEVI_Regional.csv")
-      ls_reg <- landsat_reg %>% 
-        transmute(date = make_date(year = year, month = month,
-                                   day = day),
-                  evi = EVI, name = name, well = "regional")
 
       
       # For MODIS:
@@ -62,9 +52,6 @@ library(lme4)
               
               evi_combo <- rbind(evi, evi2) # combine now that they're labeled
 
-      # Landsat data:
-              
-              evi_combo <- rbind(ls_alluv, ls_reg)
 
 #plot of evi, time series for each well (colored by its aquifer type)
 # ggplot(filter(evi_combo),
@@ -166,7 +153,7 @@ stats_by_month <- combined_evi %>%
 
 z_scores <- full_join(combined_evi, stats) %>% 
   filter(!is.na(evi), !is.na(level),
-         month(date) %in% c(4, 5, 6, 7, 8, 9)
+         month(date) %in% c(7, 8, 9)
          ) %>% 
   mutate(evi_z = (evi - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd,
@@ -176,67 +163,74 @@ z_scores_monthly <- combined_evi %>%  # Z-scores data frame with mean & sd for a
   mutate(month = month(date)) %>% 
   full_join(stats_by_month) %>% 
   filter(!is.na(evi), !is.na(level),
-         month %in% c(4, 5, 6, 7, 8, 9)) %>% 
+         month %in% c(7, 8, 9)) %>% 
   group_by(name, month) %>% 
   mutate(evi_z = (evi - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd) %>% 
   ungroup()
 
+# let's get a bunch of explanatory variables going
+z_model <- filter(z_scores, 
+                  well == "alluvial",
+                  month(date) %in% c(7, 8, 9)) %>% 
+  mutate(year = as.factor(year(date))) %>% 
+  full_join(wells_by_reach) %>% 
+  mutate(shallow_gw = case_when(level <= 10 ~ "yes",
+                                level > 10 ~ "no"),
+         water_year = case_when(month(date) >= 11 ~ year(date) + 1,
+                                .default = year(date))) %>% 
+  filter(!is.na(evi_z), !is.na(dtg_z))
+
+# wells_by_reach <- read_csv("data/SPRNCA/Wells_Reaches.csv")
+
 
 # Regression lines: colored by MONTHS (growing season months)
-colors <- c("firebrick3", "darkorange1", "goldenrod1", 
-            "darkgreen", "blue", "purple")
-names(colors) <- as.factor(seq(4, 9, by = 1))
-ggplot(filter(z_scores, well == "alluvial"),
-       aes(x = dtg_z, y = evi_z, 
-           color = as.factor(month(date)),
-           group = month(date))
+# colors <- c("firebrick3", "darkorange1", "goldenrod1", 
+#             "darkgreen", "blue", "purple")
+# names(colors) <- as.factor(seq(4, 9, by = 1))
+ggplot(filter(z_model),
+       aes(x = dtg_z, y = evi_z, color = shallow_gw)
        )+
-  geom_point()+
+  geom_point(aes())+
   geom_smooth(method = "lm", se = T)+
   ylim(c(-5, 5))+
-  scale_color_manual(values = colors,
-                     labels = c("April", "May", "June",
-                                "July", "August", "September"))+
   theme_light()
 
 # now box plots for each month, evi_z and dtg_z?
 
-ggplot(filter(z_scores, dtg_z < 5, well == "regional"), 
+ggplot(filter(z_scores, dtg_z < 5, well == "alluvial"), 
        aes(y = dtg_z, x = as.factor(month(date)),
            fill = as.factor(month(date))))+
   geom_boxplot()+
   #geom_boxplot(aes(y = evi_z), alpha = 0.2)+
   theme_light()+
   scale_fill_manual(values = colors,
-                     labels = c("April", "May", "June",
-                                "July", "August", "September"))+
+                     labels = c("July", "August", "September"))+
   labs(fill = "Month")+
   xlab("Month")+
   ylab("DTG z-score")
 #ggsave("figures/upland_DTGz_box.jpg", width = 6, height = 4, units = "in")
 
-ggplot(filter(z_scores, dtg_z < 5, well == "regional"), 
+ggplot(filter(z_scores, dtg_z < 5, well == "alluvial"), 
        aes(y = evi_z, x = as.factor(month(date)),
            fill = as.factor(month(date))))+
   geom_boxplot()+
   theme_light()+
   scale_fill_manual(values = colors,
-                    labels = c("April", "May", "June",
-                               "July", "August", "September"))+
+                    labels = c("July", "August", "September"))+
   labs(fill = "Month")+
   xlab("Month")+
   ylab("EVI z-score")
 #ggsave("figures/upland_EVIz_box.jpg", width = 6, height = 4, units = "in")
 
 # import vegetation data: (from script #2)
-
-vegetation <- rbind(alluvial_landfire, regional_landfire) # alluvial + reg
-
-z_scores <- full_join(z_scores, vegetation) %>% 
-  mutate(year = year(date)) %>% 
-  full_join(usp_spi_monsoon, join_by(year)) %>% 
-  mutate(drought_year = case_when(drought >= 50 ~ "yes", .default = "no"))
+# 
+# vegetation <- rbind(alluvial_landfire, regional_landfire) # alluvial + reg
+# 
+# z_scores <- full_join(z_scores, vegetation) %>% 
+#   mutate(year = year(date)) %>% 
+#   full_join(usp_spi_monsoon, join_by(year)) %>% 
+#   mutate(drought_year = case_when(drought >= 50 ~ "yes", .default = "no"))
 
 # ggplot(filter(z_scores, well == "alluvial"),
 #        aes(x = date, y = evi, group = name))+
@@ -250,29 +244,93 @@ z_scores <- full_join(z_scores, vegetation) %>%
 # colors <- c("royalblue1", "mediumpurple1", "tomato")
 # names(colors) <- c(as.factor(9), as.factor(8), as.factor(7))
 
-ggplot(filter(z_scores, 
-              well == "alluvial"), 
+ggplot(filter(z_model,
+              reach != 0), 
        aes(x = dtg_z,
            y = evi_z))+
   geom_hline(yintercept = 0, color = "gray")+
   geom_vline(xintercept = 0, color = "gray")+
   geom_point(aes(color = as.factor(month(date))))+
-  scale_color_manual(values = colors,
-                     labels = c("April", "May", "June",
-                       "July", "August", "September"))+
-  geom_smooth(method = "lm", se = F)+
+  # scale_color_manual(values = colors,
+  #                    labels = c(
+  #                      "July", "August", "September"))+
+  geom_smooth(method = "lm", se = T)+
   theme_light()+
   ylim(c(-5,5))+
   xlab("DTG z-score")+
   ylab("EVI z-score")+
   labs(color = "Month")+
-  ggtitle("AMJJAS EVI vs. DTG z-scores relative to each month")+
+  ggtitle("JAS EVI vs. DTG z-scores relative to each month")+
   theme(strip.background = element_rect(color = "black", fill = "white"))+
-  theme(strip.text = element_text(colour = 'black'))
+  theme(strip.text = element_text(colour = 'black'))+
 # ggsave("figures/AMJJASvsYear_evi30_months.jpg", width = 8, height = 4, units = "in")
+  facet_wrap(~reach)
 
-summary(lm(evi_z ~ dtg_z, filter(z_scores, 
-                                 well == "alluvial")))
+# Spearman's rank correlations
+
+spearman_name <- z_model %>% 
+  group_by(name) %>% 
+  summarise(corr = cor(evi_z, dtg_z, method = "pearson"))
+
+spearman_year <- z_model %>% 
+  group_by(year(date)) %>% 
+  summarise(corr = cor(evi_z, dtg_z, method = "pearson"))
+
+ggplot(spearman_name, aes(x = corr))+
+  geom_histogram(color = "black", fill = "lightgray")+
+  theme_hc(base_size = 26)+
+  geom_vline(xintercept = 0, linetype = 2)+
+  labs(x = "Pearson's correlation", y = "Count", 
+       title = "EVI Z - DTG Z correlation by site")
+
+ggplot(spearman_year, aes(x = corr))+
+  geom_histogram(color = "black", fill = "lightgray")+
+  theme_hc(base_size = 26)+
+  geom_vline(xintercept = 0, linetype = 2)+
+  labs(x = "Pearson's correlation", y = "Count",
+       title = "EVI Z - DTG Z correlation by year")
+
+###### Linear Modeling
+
+summary(lm(evi_z ~ dtg_z, data = filter(z_model, reach == 13)))
+
+mixed_name <- (lmer(evi_z ~ dtg_z + (dtg_z | name), data = filter(z_model)))
+mixed_reach <- lmer(evi_z ~ (dtg_z | reach), data = filter(z_model, year(date) <= 2013))
+mixed_year <- (lmer(evi_z ~ dtg_z + (dtg_z | year), data = filter(z_model))) # higher temporal variability bc this model explains best?
+linear <- lm(evi_z ~ dtg_z, data = z_model)
+summary(mixed_name)
+summary(mixed_year) # by-year model had a lower AIC
+summary(linear)
+
+AIC(mod, mod1, mod2)
+anova(mixed_name, mixed_year, mixed_reach)
+ranova(mixed_year)
+ranef(mixed_year) # mixed effects model cofficients
+ranova(mixed_name)
+ranef(mixed_name)
+  
+plot(fitted(mixed_name), z_model$evi_z)
+abline(a = 0, b = 1, col = "red")
+
+ggplot(filter(z_model), aes(x = dtg_z, y = evi_z))+
+  geom_point(aes(color = as.integer(year(date))))+
+  geom_line(aes(y = predict(mixed_year),
+                group = year(date),
+                color = year(date)))+
+  labs(x = "DTG z-score", y = "EVI z-score", title = "Year as random effect",
+       color = "Year")+
+  theme_light(base_size = 26)
+# +
+#   theme(legend.position = "none")
+
+ggplot(filter(z_model), aes(x = dtg_z, y = evi_z))+
+  geom_point(aes(color = name))+
+  geom_line(aes(y = predict(mixed_name),
+                group = name, 
+                color = name))+
+  labs(x = "DTG z-score", y = "EVI z-score", title = "Site as random effect")+
+  theme_light(base_size = 26)+
+  theme(legend.position = "none")
 
 # TIME SERIES of z-scores
           
@@ -325,7 +383,7 @@ ggplot(filter(z_scores),
   #                aes(fill = as.factor(month(date))))+
   geom_density(alpha = 0.3)+
   scale_fill_manual(values = colors,
-                     labels = c("April", "May", "June",
+                     labels = c(
                                 "July", "August", "September"))+
   xlab("EVI z-score")+
   ylab("Count")+

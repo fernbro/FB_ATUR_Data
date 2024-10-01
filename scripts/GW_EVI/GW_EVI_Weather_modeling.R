@@ -55,13 +55,26 @@ monthly_weather <- weather %>%
 
 # weather year precipitation PRIOR to monsoon:
 weather_wy <- weather %>%
-  mutate(water_year = case_when(month(date) >= 10 ~ year(date) + 1,
+  mutate(water_year = case_when(month(date) >= 11 ~ year(date) + 1,
                                 .default = year(date))) %>% 
   filter(water_year != 2000, water_year != 2024) %>% # we don't have data for 1999, and WY 2024 is not over
   group_by(name, water_year) %>% 
   filter(month(date) %!in% c(7, 8, 9)) %>% # exclude july, august, and september: summing total rain from oct-june
   summarise(wy_ppt = sum(ppt)) %>% 
   rename(year = water_year)
+
+wy_avgs <- weather_wy %>%
+  group_by(year) %>% 
+  summarise(wy_ppt = mean(wy_ppt))
+
+ggplot(wy_avgs, aes(x = year, y = wy_ppt))+
+  geom_point()+
+  geom_line()+
+  theme_light(base_size = 26)+
+  theme(legend.position = "none")+
+  labs(x = "Year", y = "Pre-monsoon precip (Nov - June) (mm)")+
+  geom_hline(yintercept = mean(weather_wy$wy_ppt), linetype = 2)
+
 
 wy_stats <- weather_wy %>% 
   group_by(name) %>% 
@@ -104,8 +117,6 @@ weather_z <- full_join(z_scores, weather, join_by(name, date, well, year)) %>%
 # best models:
 model <- (lm(evi_z ~ dtg_z + vpdmax + wy_z, 
              filter(weather_z, well == "alluvial")))
-model <- lmer(evi_z ~ 1 + dtg_z + vpdmax + wy_z + (0 + winter | name), 
-              filter(weather_z, well == "alluvial"))
 summary(model)
 
 plot(filter(weather_z, well == "alluvial")$evi_z, fitted(model))
@@ -113,11 +124,11 @@ abline(a = 0, b = 1, col = "red")
 
 hist(residuals(model), breaks = 100)
 
-ggplot(filter(weather_z, dtg_z < 5), aes(x = dtg_z, y = evi_z, color = name))+
-  geom_point()+
+ggplot(filter(weather_z, dtg_z < 5), aes(x = dtg_z, y = evi_z))+
+  geom_point(aes(color = name))+
   geom_smooth(method = "lm", se = F)+
   theme_light()+
-  facet_wrap(~name)+
+  facet_wrap(~year(date))+
   theme(legend.position = "none")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~
