@@ -3,7 +3,7 @@ library(lme4)
 
 # read in files: DAILY LEVEL
 flux <- read_csv('data/Processed/Daily_Ameriflux_ET.csv')
-evi_raw <- read_csv('data/EVI_Daily_Flux.csv')
+evi_raw <- read_csv('data/MOD09GA_EVI_Flux.csv')
 prism_raw <- read_csv('data/AZ_Flux_PRISM.csv')
 
 evi <- evi_raw %>% 
@@ -43,15 +43,17 @@ monthly <- evi_flux %>%
 
 ggplot(filter(monthly, site %in% c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs')), 
        aes(x = evi, y = ET))+
-  geom_point(size = 0.4, aes(color = site))+
-  geom_smooth(se = T, method = "lm", linewidth = 0.5)+
+  geom_point(size = 0.9, aes(color = site))+
+  geom_smooth(se = T, method = "lm", linewidth = 1)+
   ggtitle("Monthly ET vs. average EVI")+
   xlab("EVI")+
   ylab("ET (mm/day)")+
-  theme_light()+
+  theme_light(base_size = 20)+
   #facet_wrap(~site)+
   theme(strip.background = element_rect(color = "black", fill = "white"))+
   theme(strip.text = element_text(colour = 'black'))
+
+summary(lm(ET ~ evi, data = filter(monthly, site %in% c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs'))))
 #ggsave("figures/Monthly_ETvEVI_USPFlux.jpg", last_plot(), width = 5, height = 5, units = "in")
 
 ggplot(monthly, aes(x = evi, y = ET))+

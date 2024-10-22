@@ -1,0 +1,1167 @@
+ID,VALUE,year,name,landcover,phys,lifeform,class,subclass
+1,9810,2016,D-24-22 04CBA3 [PAL-US],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+2,9148,2016,D-24-22 04CBC2 [PALUWD],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+3,7299,2016,D-23-22 33DCD2 [PALO DEEP],Developed-Roads,Developed-Roads,Developed,No Dominant Lifeform,Developed
+4,9810,2016,D-24-22 04CBA4 [PAL-UD],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+5,9810,2016,D-24-22 08DBA1 [PLS-LI],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+6,9810,2016,D-24-22 08DBA2 [PLS-LO],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+7,7986,2016,D-24-22 04ADD [PAL-SA],Western Warm Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+8,9810,2016,D-24-22 04CBA1 [PAL-LS],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+9,9148,2016,D-24-22 04CBC1 [PALUWS],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+10,9810,2016,D-24-22 04CBA2 [PAL-LD],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+11,7299,2016,D-23-22 33ABD02 [ULLRICH],Developed-Roads,Developed-Roads,Developed,No Dominant Lifeform,Developed
+12,9035,2016,D-23-22 22CBB2 [KOL-LO],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+13,9035,2016,D-23-22 22CBB1 [KOL-LI],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+14,9035,2016,D-23-22 22CBB3 [KOL-UP],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+15,9310,2016,D-23-22 09ACD1 [HERSUS],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+16,9310,2016,D-23-22 09ACD2 [HERSUD],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+17,9310,2016,D-23-22 04DCD1 [HER-LS],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+18,9310,2016,D-22-22 33BBC [HUN-UP],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+19,9035,2016,D-22-22 28CCD [HUN-SO],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+20,9035,2016,D-22-22 28CAA2 [HUN-LO],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+21,9310,2016,D-23-22 04DCD4 [HERUED],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+22,9535,2016,D-23-22 04DCA1 [HERUWS],North American Warm Desert Lower Montane Riparian Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+23,9310,2016,D-23-22 04DCD3 [HERUES],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+24,9310,2016,D-23-22 04DCD2 [HER-LD],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+25,7100,2016,D-22-22 17ACC3 [COTBLM],Chihuahuan Mixed Desert and Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+26,9148,2016,D-22-22 28CAA1 [HUN-LI],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+27,9810,2016,D-22-22 06AAA4 [LSP-4],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+28,7256,2016,D-22-22 17ACC1 [COT-LS],Apacherian-Chihuahuan Semi-Desert Grassland,Grassland,Herb,Herbaceous - shrub-steppe,Perennial graminoid steppe
+29,7100,2016,D-22-22 17BDD2 [COTUWD],Chihuahuan Mixed Desert and Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+30,9810,2016,D-22-22 06AAA1 [LSPLED],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+31,7503,2016,D-22-22 06ABD [LSP-6],Chihuahuan Loamy Plains Desert Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+32,9810,2016,D-22-22 06AAA6 [LSP-1],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+33,7256,2016,D-22-22 17ACC2 [COT-LD],Apacherian-Chihuahuan Semi-Desert Grassland,Grassland,Herb,Herbaceous - shrub-steppe,Perennial graminoid steppe
+34,7504,2016,D-22-22 05BBD2 [LSPUED],Chihuahuan-Sonoran Desert Bottomland and Swale Grassland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+35,9810,2016,D-22-22 06AAA5 [LSP-5],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+36,7986,2016,D-21-22 19CDB1 [CLRSUS],Western Warm Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+37,7503,2016,D-21-22 19CDB2 [CLRSUD],Chihuahuan Loamy Plains Desert Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+38,7504,2016,D-21-21 13BAB4 [MOSLNW],Chihuahuan-Sonoran Desert Bottomland and Swale Grassland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+39,9148,2016,D-21-21 13BAC1 [MOSWAS],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+40,7504,2016,D-22-22 06AAA3 [LSP-3],Chihuahuan-Sonoran Desert Bottomland and Swale Grassland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+41,7504,2016,D-22-22 06AAA7 [LSP-2],Chihuahuan-Sonoran Desert Bottomland and Swale Grassland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+42,9148,2016,D-21-21 13BAB1 [MOSLNS],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+43,7504,2016,D-22-22 06AAB [LSPUWD],Chihuahuan-Sonoran Desert Bottomland and Swale Grassland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+44,9034,2016,D-20-21 14BCC1 [BOQSUS],North American Warm Desert Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+45,7503,2016,D-20-21 10AAC2 [FBK-UP],Chihuahuan Loamy Plains Desert Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+46,9035,2016,D-20-21 03CBA [FBK-LI],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+47,9035,2016,D-20-21 15DDB [BOQ-UP],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+48,9654,2016,D-20-21 03CAB [FBK-LO],North American Warm Desert Wash Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+49,9035,2016,D-19-21 28ACD [TOM-LI],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+50,9148,2016,D-21-21 13BAB2 [MOSLND],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+51,9034,2016,D-20-21 14BCC2 [BOQSUD],North American Warm Desert Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+52,9148,2016,D-21-21 02DDC [CHB-LI],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+53,9534,2016,D-20-21 15DBD1 [BOQ-LI],North American Warm Desert Riparian Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+54,9810,2016,D-19-21 21ACC2 [CONLID],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+55,9148,2016,D-19-21 08DAC1 [SUM-LI],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+56,7986,2016,D-19-21 05AAA1 [STD-LI],Western Warm Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+57,9327,2016,D-19-21 05AAA2 [STD-LO],Interior West Ruderal Riparian Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+1,9810,2023,D-24-22 04CBA3 [PAL-US],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+2,9148,2023,D-24-22 04CBC2 [PALUWD],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+3,7299,2023,D-23-22 33DCD2 [PALO DEEP],Developed-Roads,Developed-Roads,Developed,No Dominant Lifeform,Developed
+4,9810,2023,D-24-22 04CBA4 [PAL-UD],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+5,9810,2023,D-24-22 08DBA1 [PLS-LI],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+6,9810,2023,D-24-22 08DBA2 [PLS-LO],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+7,7986,2023,D-24-22 04ADD [PAL-SA],Western Warm Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+8,9810,2023,D-24-22 04CBA1 [PAL-LS],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+9,9148,2023,D-24-22 04CBC1 [PALUWS],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+10,9810,2023,D-24-22 04CBA2 [PAL-LD],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+11,7299,2023,D-23-22 33ABD02 [ULLRICH],Developed-Roads,Developed-Roads,Developed,No Dominant Lifeform,Developed
+12,9148,2023,D-23-22 22CBB2 [KOL-LO],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+13,9310,2023,D-23-22 22CBB1 [KOL-LI],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+14,9827,2023,D-23-22 22CBB3 [KOL-UP],Interior West Ruderal Riparian Scrub,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+15,9310,2023,D-23-22 09ACD1 [HERSUS],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+16,9310,2023,D-23-22 09ACD2 [HERSUD],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+17,9310,2023,D-23-22 04DCD1 [HER-LS],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+18,9310,2023,D-22-22 33BBC [HUN-UP],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+19,9035,2023,D-22-22 28CCD [HUN-SO],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+20,9035,2023,D-22-22 28CAA2 [HUN-LO],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+21,9310,2023,D-23-22 04DCD4 [HERUED],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+22,9535,2023,D-23-22 04DCA1 [HERUWS],North American Warm Desert Lower Montane Riparian Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+23,9310,2023,D-23-22 04DCD3 [HERUES],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+24,9310,2023,D-23-22 04DCD2 [HER-LD],North American Warm Desert Ruderal & Planted Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+25,7100,2023,D-22-22 17ACC3 [COTBLM],Chihuahuan Mixed Desert and Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+26,9148,2023,D-22-22 28CAA1 [HUN-LI],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+27,9810,2023,D-22-22 06AAA4 [LSP-4],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+28,7256,2023,D-22-22 17ACC1 [COT-LS],Apacherian-Chihuahuan Semi-Desert Grassland,Grassland,Herb,Herbaceous - shrub-steppe,Perennial graminoid steppe
+29,7100,2023,D-22-22 17BDD2 [COTUWD],Chihuahuan Mixed Desert and Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+30,7980,2023,D-22-22 06AAA1 [LSPLED],Western Warm Temperate Orchard,Agricultural,Tree,Open tree canopy,Deciduous open tree canopy
+31,7100,2023,D-22-22 06ABD [LSP-6],Chihuahuan Mixed Desert and Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+32,9810,2023,D-22-22 06AAA6 [LSP-1],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+33,7256,2023,D-22-22 17ACC2 [COT-LD],Apacherian-Chihuahuan Semi-Desert Grassland,Grassland,Herb,Herbaceous - shrub-steppe,Perennial graminoid steppe
+34,9827,2023,D-22-22 05BBD2 [LSPUED],Interior West Ruderal Riparian Scrub,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+35,9810,2023,D-22-22 06AAA5 [LSP-5],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+36,7986,2023,D-21-22 19CDB1 [CLRSUS],Western Warm Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+37,7503,2023,D-21-22 19CDB2 [CLRSUD],Chihuahuan Loamy Plains Desert Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+38,7504,2023,D-21-21 13BAB4 [MOSLNW],Chihuahuan-Sonoran Desert Bottomland and Swale Grassland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+39,9148,2023,D-21-21 13BAC1 [MOSWAS],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+40,7504,2023,D-22-22 06AAA3 [LSP-3],Chihuahuan-Sonoran Desert Bottomland and Swale Grassland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+41,7504,2023,D-22-22 06AAA7 [LSP-2],Chihuahuan-Sonoran Desert Bottomland and Swale Grassland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+42,9148,2023,D-21-21 13BAB1 [MOSLNS],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+43,9827,2023,D-22-22 06AAB [LSPUWD],Interior West Ruderal Riparian Scrub,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+44,9034,2023,D-20-21 14BCC1 [BOQSUS],North American Warm Desert Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+45,7503,2023,D-20-21 10AAC2 [FBK-UP],Chihuahuan Loamy Plains Desert Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+46,9035,2023,D-20-21 03CBA [FBK-LI],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+47,9035,2023,D-20-21 15DDB [BOQ-UP],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+48,9654,2023,D-20-21 03CAB [FBK-LO],North American Warm Desert Wash Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+49,9035,2023,D-19-21 28ACD [TOM-LI],North American Warm Desert Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+50,9148,2023,D-21-21 13BAB2 [MOSLND],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+51,9034,2023,D-20-21 14BCC2 [BOQSUD],North American Warm Desert Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+52,9148,2023,D-21-21 02DDC [CHB-LI],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+53,9534,2023,D-20-21 15DBD1 [BOQ-LI],North American Warm Desert Riparian Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+54,9810,2023,D-19-21 21ACC2 [CONLID],North American Warm Desert Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+55,9148,2023,D-19-21 08DAC1 [SUM-LI],North American Warm Desert Cienega,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+56,7986,2023,D-19-21 05AAA1 [STD-LI],Western Warm Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+57,9327,2023,D-19-21 05AAA2 [STD-LO],Interior West Ruderal Riparian Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,-9999,NA,NA,Fill-NoData,NA,NA,NA,NA
+NA,4401,NA,NA,Alaska Arctic Coastal Sedge-Dwarf-Shrubland,Shrubland,Shrub,Dwarf Shrubland,Deciduous
+NA,4402,NA,NA,Alaska Arctic Floodplain Forest,Riparian,Tree,Shrubland,Deciduous shrubland
+NA,4403,NA,NA,Alaska Arctic Large River Floodplain Forest,Riparian,Tree,Shrubland,Deciduous shrubland
+NA,4404,NA,NA,Alaska Arctic Mesic Alder Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4405,NA,NA,Alaska Arctic Permafrost Plateau Dwarf-Shrub Lichen Tundra,Shrubland,Shrub,Dwarf Shrubland,Deciduous
+NA,4406,NA,NA,Alaska Arctic Tidal Flat,Sparsely Vegetated,Sparse,Sparsely Vegetated,Sparsely vegetated
+NA,4407,NA,NA,Alaska Sub-boreal and Maritime Alpine Mesic Herbaceous Meadow,Grassland,Herb,Herbaceous - forbland,Perennial forb
+NA,4408,NA,NA,Alaska Sub-boreal Mesic Subalpine Alder Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4409,NA,NA,Alaska Sub-boreal Mountain Hemlock-White Spruce Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4410,NA,NA,Alaska Sub-boreal White-Lutz Spruce Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4411,NA,NA,Alaskan Pacific Acidic Shrub Peatland,Riparian,Shrub,Shrubland,Deciduous
+NA,4412,NA,NA,Alaskan Pacific Alpine-Subalpine Dwarf-shrubland & Heath,Shrubland,Shrub,Herbaceous - Shrub Steppe,Perennial Graminoid
+NA,4413,NA,NA,Alaskan Pacific Floodplain Conifer Forest,Riparian,Tree,Open Tree Canopy,Evergreen open tree canopy
+NA,4414,NA,NA,Alaskan Pacific Maritime Alpine Floodplain Shrubland,Riparian,Shrub,Sparsely Vegetated,Unconsolidated material
+NA,4415,NA,NA,Alaskan Pacific Maritime Avalanche Slope Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4416,NA,NA,Alaskan Pacific Maritime Coastal Meadow and Slough-Levee,Grassland,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4417,NA,NA,Alaskan Pacific Maritime Mesic Herbaceous Meadow,Grassland,Herb,Herbaceous - forbland,Perennial forb
+NA,4418,NA,NA,Alaskan Pacific Maritime Mountain Hemlock-Shore Pine Peatland,Conifer,Tree,Open Tree Canopy,Evergreen
+NA,4419,NA,NA,Alaskan Pacific Maritime Western Hemlock Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4420,NA,NA,Alaskan Pacific Mesic Western Hemlock-Yellow-cedar Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4421,NA,NA,Alaskan Pacific Mountain Hemlock Forest and Subalpine Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4422,NA,NA,Alaskan Pacific Poorly Drained Conifer Woodland,Conifer,Tree,Open Tree Canopy,Evergreen
+NA,4423,NA,NA,Alaskan Pacific Sitka Spruce Forest and Beach Ridge,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4424,NA,NA,Alaskan Pacific Wet Low Shrubland & Floodplain Wetland,Riparian,Shrub,Shrubland,Deciduous
+NA,4425,NA,NA,Alaskan Pacific-Aleutian Alder-Salmonberry-Copperbush Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4426,NA,NA,Alaskan Pacific-Aleutian Coastal Dune Beach and Beach Meadow,Grassland,Herb,Herbaceous - grassland,Perennial Graminoid
+NA,4427,NA,NA,Alaskan Pacific-Aleutian Fen and Wet Meadow,Riparian,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4428,NA,NA,Alaskan Pacific-Aleutian Rocky Coastline and Sea Cliff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4429,NA,NA,Aleutian Ericaceous Dwarf-shrubland Heath and Fell-field,Shrubland,Shrub,Herbaceous - Shrub Steppe,Perennial Graminoid
+NA,4430,NA,NA,Aleutian Mesic Herbaceous Meadow,Grassland,Herb,Herbaceous - forbland,Perennial forb
+NA,4431,NA,NA,Aleutian Mesic-Wet Willow Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4432,NA,NA,Aleutian Volcanic Rock and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4434,NA,NA,North American Arctic Bedrock and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4435,NA,NA,North American Arctic Dryas Tundra,Shrubland,Shrub,Herbaceous - Shrub Steppe,Perennial Graminoid
+NA,4436,NA,NA,North American Arctic Dwarf-Shrub Lichen Tundra,Shrubland,Shrub,Dwarf Shrubland,Deciduous dwarf-shrubland
+NA,4437,NA,NA,North American Arctic Dwarf-shrub-Sphagnum Peatland,Riparian,Shrub,Herbaceous - Grassland,Perennial Graminoid
+NA,4438,NA,NA,North American Arctic Freshwater Marsh,Riparian,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4439,NA,NA,North American Arctic Lichen Tundra,Grassland,Herb,Nonvascular,Lichen
+NA,4440,NA,NA,North American Arctic Mesic Herbaceous Meadow,Grassland,Herb,Herbaceous - forbland,Perennial forb
+NA,4441,NA,NA,North American Arctic Mesic Sedge-Willow Tundra,Shrubland,Shrub,Herbaceous - Shrub Steppe,Perennial Graminoid
+NA,4442,NA,NA,North American Arctic Mesic-Wet Low Willow Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4443,NA,NA,North American Arctic Polygonal Ground Shrub-Tussock Tundra,Shrubland,Shrub,Shrubland,Deciduous
+NA,4444,NA,NA,North American Arctic Scrub Birch-Ericaceous Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4445,NA,NA,North American Arctic Sparse Tundra,Shrubland,Shrub,Dwarf Shrubland,Deciduous dwarf-shrubland
+NA,4446,NA,NA,North American Arctic Wet Sedge Tundra and Polygonal Ground,Riparian,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4447,NA,NA,North American Arctic-Subarctic Coastal Dune & Beach Meadow,Grassland,Herb,Herbaceous - grassland,Perennial Graminoid
+NA,4448,NA,NA,North American Arctic-Subarctic Shrub-Tussock Tundra,Shrubland,Shrub,Shrubland,Deciduous
+NA,4449,NA,NA,North American Arctic-Subarctic Tidal Salt and Brackish Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,4450,NA,NA,North American Arctic-Subarctic Tussock Tundra,Grassland,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4453,NA,NA,Western North American Boreal Alpine Dwarf-shrubland,Shrubland,Shrub,Dwarf Shrubland,Deciduous dwarf-shrubland
+NA,4454,NA,NA,Western North American Boreal Alpine Mesic Herbaceous Meadow,Grassland,Herb,Herbaceous - forbland,Perennial forb
+NA,4455,NA,NA,Western North American Boreal Montane-Alpine Talus and Bedrock,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4456,NA,NA,Western North American Boreal Black Spruce Bog and Dwarf-Tree Peatland,Conifer,Tree,Open Tree Canopy,Evergreen
+NA,4457,NA,NA,Western North American Boreal Black Spruce-Tamarack Fen,Conifer,Tree,Open Tree Canopy,Mixed
+NA,4458,NA,NA,Western North American Boreal Cliff Scree and Rock,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4459,NA,NA,Western North American Boreal Dry Aspen-Steppe Bluff,Shrubland,Shrub,Sparse Tree Canopy,Deciduous sparse Tree Canopy
+NA,4460,NA,NA,Western North American Boreal Dry Grassland,Grassland,Herb,Herbaceous - grassland,Perennial Graminoid
+NA,4461,NA,NA,Western North American Boreal Freshwater Emergent Marsh,Riparian,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4462,NA,NA,Western North American Boreal Lowland Large River Floodplain Conifer Forest,Riparian,Tree,Open Tree Canopy,Evergreen open tree canopy
+NA,4463,NA,NA,Western North American Boreal Mesic Birch-Aspen Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,4464,NA,NA,Western North American Boreal Mesic Bluejoint-Forb Meadow,Riparian,Herb,Herbaceous - grassland,Perennial Graminoid
+NA,4465,NA,NA,Western North American Boreal Mesic Scrub Birch-Willow Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4466,NA,NA,Western North American Boreal Mesic White Spruce Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4467,NA,NA,Western North American Boreal Mesic-Wet Black Spruce Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4468,NA,NA,Western North American Boreal Montane Floodplain Conifer Forest,Riparian,Tree,Open Tree Canopy,Evergreen open tree canopy
+NA,4469,NA,NA,Western North American Boreal Riparian Stringer Conifer Forest,Riparian,Tree,Open Tree Canopy,Mixed
+NA,4470,NA,NA,Western North American Boreal Shrub Floodplain,Riparian,Shrub,Shrubland,Deciduous
+NA,4471,NA,NA,Western North American Boreal Shrub Swamp,Shrubland,Shrub,Shrubland,Deciduous
+NA,4472,NA,NA,Western North American Boreal Shrub-Sedge Bog & Acidic Fen,Shrubland,Shrub,Dwarf Shrubland,Deciduous
+NA,4473,NA,NA,Western North American Boreal Shrub-Sedge Rich and Alkaline Fen,Riparian,Shrub,Herbaceous - Grassland,Perennial Graminoid
+NA,4474,NA,NA,Western North American Boreal Spruce-Lichen Woodland,Conifer,Tree,Open Tree Canopy,Evergreen open tree canopy
+NA,4475,NA,NA,Western North American Boreal Treeline White Spruce Woodland,Conifer,Tree,Open Tree Canopy,Evergreen open tree canopy
+NA,4476,NA,NA,Western North American Boreal Wet Black Spruce-Tussock Woodland,Conifer,Tree,Open Tree Canopy,Evergreen
+NA,4477,NA,NA,Western North American Boreal Wet Meadow,Riparian,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4478,NA,NA,Western North American Boreal Treeline Hardwood-White Spruce Woodland,Hardwood,Tree,Open tree canopy,Deciduous Open Tree Canopy
+NA,4479,NA,NA,Western North American Boreal Treeline White Spruce-Hardwood Woodland,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,4480,NA,NA,Western North American Boreal Mesic Hardwood-White Spruce Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,4481,NA,NA,Western North American Boreal Mesic White Spruce-Hardwood Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,4482,NA,NA,Alaska Sub-boreal Hardwood-White-Lutz Spruce Forest and Woodland,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,4483,NA,NA,Alaska Sub-boreal White-Lutz Spruce-Hardwood Forest and Woodland,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,4484,NA,NA,Western North American Boreal Mesic-Wet Black Spruce-Hardwood Forest and Woodland,Conifer-Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4485,NA,NA,Alaskan Pacific Floodplain Deciduous Forest,Riparian,Tree,Open Tree Canopy,Deciduous open tree canopy
+NA,4486,NA,NA,Alaskan Pacific Floodplain Mixed Forest,Riparian,Tree,Open Tree Canopy,Mixed
+NA,4487,NA,NA,Western North American Boreal Lowland Large River Floodplain Deciduous Forest,Riparian,Tree,Open Tree Canopy,Deciduous open tree canopy
+NA,4488,NA,NA,Western North American Boreal Lowland Large River Floodplain Mixed Forest,Riparian,Tree,Open Tree Canopy,Mixed
+NA,4489,NA,NA,Western North American Boreal Montane Floodplain Deciduous Forest,Riparian,Tree,Open Tree Canopy,Deciduous open tree canopy
+NA,4490,NA,NA,Western North American Boreal Montane Floodplain Mixed Forest,Riparian,Tree,Open Tree Canopy,Mixed
+NA,4491,NA,NA,Western North American Boreal Riparian Stringer Deciduous Forest,Riparian,Tree,Open Tree Canopy,Deciduous open tree canopy
+NA,4492,NA,NA,Western North American Boreal Riparian Stringer Mixed Forest,Riparian,Tree,Open Tree Canopy,Mixed
+NA,4601,NA,NA,Micronesian Dry Cliff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4602,NA,NA,Micronesian Dry-Site Lava Flow,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4603,NA,NA,Micronesian Dry Coastal Strand,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4604,NA,NA,Micronesian Lowland Rain Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4605,NA,NA,Micronesian Lowland Limestone Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4606,NA,NA,Central and Southern Polynesian Montane Rainforest,Hardwood,Tree,Closed tree canopy,Evergreen
+NA,4609,NA,NA,Micronesian Ravine and Riparian Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4610,NA,NA,Polynesian Freshwater Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,4611,NA,NA,Micronesian Swamp Forest,Riparian,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4612,NA,NA,Western Pacific Mangrove,Hardwood,Tree,Closed tree canopy,Evergreen
+NA,4614,NA,NA,Central and Southern Polynesian Coastal Wooded Strand,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,4615,NA,NA,Central and Southern Polynesian Cliff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4616,NA,NA,Central and Southern Polynesian Lava Flow,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4617,NA,NA,Central and Southern Polynesian Dry Coastal Strand,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4618,NA,NA,Central and Southern Polynesian Lowland Rain Forest,Hardwood,Tree,Closed tree canopy,Evergreen
+NA,4620,NA,NA,Central and Southern Polynesian Cloud Forest,Hardwood,Tree,Closed tree canopy,Evergreen
+NA,4621,NA,NA,Central and Southern Polynesian Littoral Forest,Hardwood,Tree,Closed tree canopy,Evergreen
+NA,4622,NA,NA,Central and Southern Polynesian Ravine and Riparian Forest,Hardwood,Tree,Closed tree canopy,Evergreen
+NA,4623,NA,NA,Central and Southern Polynesian Swamp Forest,Riparian,Tree,Closed tree canopy,Evergreen
+NA,4624,NA,NA,Micronesian Ravine and Riparian Shrubland,Riparian,Shrub,Closed tree canopy,Evergreen closed tree canopy
+NA,4627,NA,NA,Central and Southern Polynesian Dry Coastal Strand Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4628,NA,NA,Central and Southern Polynesian Dry Coastal Strand Herbaceous,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,4629,NA,NA,Micronesian Dry Coastal Strand Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,4630,NA,NA,Micronesian Dry Coastal Strand Herbaceous,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,4902,NA,NA,Alaska Arctic Floodplain Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+NA,4903,NA,NA,Alaska Arctic Large River Floodplain Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+NA,4904,NA,NA,Alaska Arctic Floodplain Herbaceous,Riparian,Herb,Shrubland,Deciduous shrubland
+NA,4905,NA,NA,Alaska Arctic Large River Floodplain Herbaceous,Riparian,Herb,Shrubland,Deciduous shrubland
+NA,4911,NA,NA,Alaskan Pacific Acidic Sedge Peatland,Riparian,Herb,Shrubland,Deciduous
+NA,4913,NA,NA,Alaskan Pacific Floodplain Shrubland (Conifer Forest),Riparian,Shrub,Open Tree Canopy,Evergreen open tree canopy
+NA,4914,NA,NA,Alaskan Pacific Maritime Alpine Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,4937,NA,NA,North American Arctic Wet Sedge-Sphagnum Peatland,Riparian,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4943,NA,NA,North American Arctic Polygonal Ground Tussock Tundra,Grassland,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4947,NA,NA,North American Arctic-Subarctic Coastal Dune & Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4962,NA,NA,Western North American Boreal Lowland Large River Floodplain Shrubland (Conifer Forest),Riparian,Shrub,Open Tree Canopy,Evergreen open tree canopy
+NA,4963,NA,NA,Western North American Boreal Lowland Large River Floodplain Sparse Vegetation,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4964,NA,NA,Western North American Boreal Montane Floodplain Sparse Vegetation,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4965,NA,NA,Alaskan Pacific Floodplain Sparse Vegetation,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4966,NA,NA,Alaska Arctic Large River Floodplain Sparse Vegetation,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,4968,NA,NA,Western North American Boreal Montane Floodplain Shrubland (Conifer Forest),Riparian,Shrub,Open Tree Canopy,Evergreen open tree canopy
+NA,4969,NA,NA,Western North American Boreal Riparian Stringer Shrubland (Conifer Forest),Riparian,Shrub,Open Tree Canopy,Mixed
+NA,4970,NA,NA,Western North American Boreal Herbaceous Floodplain,Riparian,Herb,Shrubland,Deciduous
+NA,4973,NA,NA,Western North American Boreal Herbaceous Rich and Alkaline Fen,Riparian,Herb,Herbaceous - Grassland,Perennial Graminoid
+NA,4985,NA,NA,Alaskan Pacific Floodplain Shrubland (Deciduous Forest),Riparian,Shrub,Open Tree Canopy,Deciduous open tree canopy
+NA,4986,NA,NA,Alaskan Pacific Floodplain Shrubland (Mixed Forest),Riparian,Shrub,Open Tree Canopy,Mixed
+NA,4987,NA,NA,Western North American Boreal Lowland Large River Floodplain Shrubland (Deciduous Forest),Riparian,Shrub,Open Tree Canopy,Deciduous open tree canopy
+NA,4988,NA,NA,Western North American Boreal Lowland Large River Floodplain Shrubland (Mixed Forest),Riparian,Shrub,Open Tree Canopy,Mixed
+NA,4989,NA,NA,Western North American Boreal Montane Floodplain Shrubland (Deciduous Forest),Riparian,Shrub,Open Tree Canopy,Deciduous open tree canopy
+NA,4990,NA,NA,Western North American Boreal Montane Floodplain Shrubland (Mixed Forest),Riparian,Shrub,Open Tree Canopy,Mixed
+NA,4991,NA,NA,Western North American Boreal Riparian Stringer Shrubland (Deciduous Forest),Riparian,Shrub,Open Tree Canopy,Deciduous open tree canopy
+NA,4992,NA,NA,Western North American Boreal Riparian Stringer Shrubland (Mixed Forest),Riparian,Shrub,Open Tree Canopy,Mixed
+NA,7008,NA,NA,North Pacific Oak Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7009,NA,NA,Northwestern Great Plains Aspen Forest and Parkland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7010,NA,NA,Northern Rocky Mountain Western Larch Savanna,Conifer,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7011,NA,NA,Rocky Mountain Aspen Forest and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7012,NA,NA,Rocky Mountain Bigtooth Maple Ravine Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7013,NA,NA,Western Great Plains Dry Bur Oak Forest and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7014,NA,NA,Central and Southern California Mixed Evergreen Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7015,NA,NA,California Coastal Redwood Forest,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7016,NA,NA,Colorado Plateau Pinyon-Juniper Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7017,NA,NA,Columbia Plateau Western Juniper Woodland and Savanna,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7018,NA,NA,East Cascades Mesic Montane Mixed-Conifer Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7019,NA,NA,Great Basin Pinyon-Juniper Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7020,NA,NA,Inter-Mountain Basins Subalpine Limber-Bristlecone Pine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7021,NA,NA,Klamath-Siskiyou Lower Montane Serpentine Mixed Conifer Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7022,NA,NA,Klamath-Siskiyou Upper Montane Serpentine Mixed Conifer Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7023,NA,NA,Madrean Encinal,Conifer-Hardwood,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7024,NA,NA,Madrean Lower Montane Pine-Oak Forest and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7025,NA,NA,Madrean Pinyon-Juniper Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7026,NA,NA,Madrean Upper Montane Conifer-Oak Forest and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7027,NA,NA,Mediterranean California Dry-Mesic Mixed Conifer Forest and Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7028,NA,NA,Mediterranean California Mesic Mixed Conifer Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7029,NA,NA,Mediterranean California Mixed Oak Woodland,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7030,NA,NA,Mediterranean California Lower Montane Conifer Forest and Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7031,NA,NA,California Montane Jeffrey Pine-(Ponderosa Pine) Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7032,NA,NA,Mediterranean California Red Fir Forest,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7033,NA,NA,Mediterranean California Subalpine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7034,NA,NA,Mediterranean California Mesic Serpentine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7035,NA,NA,North Pacific Dry Douglas-fir-(Madrone) Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7036,NA,NA,North Pacific Seasonal Sitka Spruce Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7037,NA,NA,North Pacific Maritime Dry-Mesic Douglas-fir-Western Hemlock Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7038,NA,NA,North Pacific Maritime Mesic Subalpine Parkland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7039,NA,NA,North Pacific Maritime Mesic-Wet Douglas-fir-Western Hemlock Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7041,NA,NA,North Pacific Mountain Hemlock Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7042,NA,NA,North Pacific Mesic Western Hemlock-Silver Fir Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7043,NA,NA,Mediterranean California Mixed Evergreen Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7044,NA,NA,Northern California Mesic Subalpine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7045,NA,NA,Northern Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7046,NA,NA,Northern Rocky Mountain Subalpine Woodland and Parkland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7047,NA,NA,Northern Rocky Mountain Mesic Montane Mixed Conifer Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7048,NA,NA,Northwestern Great Plains Highland White Spruce Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7049,NA,NA,Rocky Mountain Foothill Limber Pine-Juniper Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7050,NA,NA,Rocky Mountain Lodgepole Pine Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7051,NA,NA,Southern Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7052,NA,NA,Southern Rocky Mountain Mesic Montane Mixed Conifer Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7053,NA,NA,Northern Rocky Mountain Ponderosa Pine Woodland and Savanna,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7054,NA,NA,Southern Rocky Mountain Ponderosa Pine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7055,NA,NA,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7056,NA,NA,Rocky Mountain Subalpine Mesic-Wet Spruce-Fir Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7057,NA,NA,Rocky Mountain Subalpine-Montane Limber-Bristlecone Pine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7058,NA,NA,Sierra Nevada Subalpine Lodgepole Pine Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7059,NA,NA,Southern Rocky Mountain Pinyon-Juniper Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7060,NA,NA,East Cascades Ponderosa Pine Forest and Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7061,NA,NA,Inter-Mountain Basins Aspen-Mixed Conifer Forest and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7062,NA,NA,Inter-Mountain Basins Curl-leaf Mountain Mahogany Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7063,NA,NA,North Pacific Broadleaf Landslide Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7064,NA,NA,Colorado Plateau Mixed Low Sagebrush Shrubland,Shrubland,Shrub,Dwarf-shrubland,Evergreen dwarf-shrubland
+NA,7065,NA,NA,Columbia Plateau Scabland Shrubland,Shrubland,Shrub,Dwarf-shrubland,Evergreen dwarf-shrubland
+NA,7066,NA,NA,Inter-Mountain Basins Mat Saltbush Shrubland,Shrubland,Shrub,Dwarf-shrubland,Evergreen dwarf-shrubland
+NA,7067,NA,NA,Mediterranean California Alpine Fell-Field,Shrubland,Shrub,Dwarf-shrubland,Mixed evergreen-deciduous dwarf-shrubland
+NA,7068,NA,NA,North Pacific Dry and Mesic Alpine Dwarf-Shrubland,Shrubland,Shrub,Dwarf-shrubland,Mixed evergreen-deciduous dwarf-shrubland
+NA,7069,NA,NA,North Pacific Dry and Mesic Alpine Fell-field or Meadow,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7070,NA,NA,Rocky Mountain Alpine Dwarf-Shrubland,Shrubland,Shrub,Dwarf-shrubland,Evergreen dwarf-shrubland
+NA,7071,NA,NA,Sierra Nevada Alpine Dwarf-Shrubland,Shrubland,Shrub,Dwarf-shrubland,Evergreen dwarf-shrubland
+NA,7072,NA,NA,Wyoming Basins Dwarf Sagebrush Shrubland and Steppe,Shrubland,Shrub,Dwarf-shrubland,Evergreen dwarf-shrubland
+NA,7073,NA,NA,Baja Semi-Desert Coastal Succulent Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7074,NA,NA,Chihuahuan Creosotebush Desert Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7075,NA,NA,Chihuahuan Mixed Salt Desert Scrub,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7076,NA,NA,Chihuahuan Stabilized Coppice Dune and Sand Flat Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7077,NA,NA,Chihuahuan Succulent Desert Scrub,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7078,NA,NA,Colorado Plateau Blackbrush-Mormon-tea Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7079,NA,NA,Great Basin Xeric Mixed Sagebrush Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7080,NA,NA,Inter-Mountain Basins Big Sagebrush Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7081,NA,NA,Inter-Mountain Basins Mixed Salt Desert Scrub,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7082,NA,NA,Mojave Mid-Elevation Mixed Desert Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7083,NA,NA,North Pacific Avalanche Chute Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7084,NA,NA,North Pacific Montane Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7085,NA,NA,Northwestern Great Plains Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7086,NA,NA,Rocky Mountain Lower Montane-Foothill Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7087,NA,NA,Sonora-Mojave Creosotebush-White Bursage Desert Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7088,NA,NA,Sonora-Mojave Mixed Salt Desert Scrub,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7090,NA,NA,Sonoran Granite Outcrop Desert Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7091,NA,NA,Sonoran Mid-Elevation Desert Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7092,NA,NA,Southern California Coastal Scrub,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7093,NA,NA,Southern Colorado Plateau Sand Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7094,NA,NA,Western Great Plains Sandhill Steppe,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7096,NA,NA,California Maritime Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7097,NA,NA,California Mesic Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7098,NA,NA,California Montane Woodland and Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7099,NA,NA,California Xeric Serpentine Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7101,NA,NA,Madrean Oriental Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7102,NA,NA,Colorado Plateau Pinyon-Juniper Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7103,NA,NA,Great Basin Semi-Desert Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7104,NA,NA,Mogollon Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7105,NA,NA,Northern and Central California Dry-Mesic Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7106,NA,NA,Northern Rocky Mountain Montane-Foothill Deciduous Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7107,NA,NA,Rocky Mountain Gambel Oak-Mixed Montane Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7108,NA,NA,Sonora-Mojave Semi-Desert Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7109,NA,NA,Sonoran Paloverde-Mixed Cacti Desert Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7110,NA,NA,Southern California Dry-Mesic Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7111,NA,NA,Western Great Plains Mesquite Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7112,NA,NA,California Central Valley Mixed Oak Savanna,Hardwood,Tree,Sparse tree canopy,Deciduous sparse tree canopy
+NA,7113,NA,NA,California Coastal Live Oak Woodland and Savanna,Hardwood,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7114,NA,NA,California Lower Montane Foothill Pine Woodland and Savanna,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7115,NA,NA,Inter-Mountain Basins Juniper Savanna,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7116,NA,NA,Madrean Juniper Savanna,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7117,NA,NA,Southern Rocky Mountain Ponderosa Pine Savanna,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7118,NA,NA,Southern California Oak Woodland and Savanna,Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7119,NA,NA,Southern Rocky Mountain Juniper Woodland and Savanna,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7120,NA,NA,Willamette Valley Upland Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7121,NA,NA,Apacherian-Chihuahuan Semi-Desert Shrub-Steppe,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7122,NA,NA,Chihuahuan Gypsophilous Grassland and Steppe,Grassland,Herb,Herbaceous - shrub-steppe,Perennial graminoid steppe
+NA,7123,NA,NA,Columbia Plateau Steppe and Grassland,Grassland,Herb,Herbaceous - shrub-steppe,Perennial graminoid steppe
+NA,7124,NA,NA,Columbia Plateau Low Sagebrush Steppe,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7125,NA,NA,Inter-Mountain Basins Big Sagebrush Steppe,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7126,NA,NA,Inter-Mountain Basins Montane Sagebrush Steppe,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7127,NA,NA,Inter-Mountain Basins Semi-Desert Shrub-Steppe,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7128,NA,NA,Northern California Coastal Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7129,NA,NA,California Central Valley and Southern Coastal Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7130,NA,NA,California Mesic Serpentine Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7131,NA,NA,California Northern Coastal Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7132,NA,NA,Central Mixedgrass Prairie Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7133,NA,NA,Chihuahuan Sandy Plains Semi-Desert Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7134,NA,NA,Columbia Basin Foothill and Canyon Dry Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7135,NA,NA,Inter-Mountain Basins Semi-Desert Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7136,NA,NA,Mediterranean California Alpine Dry Tundra,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7137,NA,NA,Mediterranean California Subalpine Meadow,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7138,NA,NA,North Pacific Montane Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7139,NA,NA,Northern Rocky Mountain Lower Montane-Foothill-Valley Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7140,NA,NA,Northern Rocky Mountain Subalpine-Upper Montane Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7141,NA,NA,Northwestern Great Plains Mixedgrass Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7142,NA,NA,Columbia Basin Palouse Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7143,NA,NA,Rocky Mountain Alpine Fell-Field,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7144,NA,NA,Rocky Mountain Alpine Turf,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7145,NA,NA,Rocky Mountain Subalpine-Montane Mesic Meadow,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7146,NA,NA,Southern Rocky Mountain Montane-Subalpine Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7147,NA,NA,Western Great Plains Foothill and Piedmont Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7148,NA,NA,Western Great Plains Sand Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7149,NA,NA,Western Great Plains Shortgrass Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7150,NA,NA,Western Great Plains Tallgrass Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7151,NA,NA,California Central Valley Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7152,NA,NA,California Central Valley Riparian Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+NA,7153,NA,NA,Inter-Mountain Basins Greasewood Flat,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7156,NA,NA,North Pacific Lowland Riparian Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7157,NA,NA,North Pacific Lowland Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7158,NA,NA,North Pacific Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7159,NA,NA,North Pacific Montane Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7161,NA,NA,Northern Rocky Mountain Conifer Swamp,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7165,NA,NA,Northern Rocky Mountain Foothill Conifer Wooded Steppe,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7166,NA,NA,Middle Rocky Mountain Montane Douglas-fir Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7167,NA,NA,Rocky Mountain Poor-Site Lodgepole Pine Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7168,NA,NA,Northern Rocky Mountain Avalanche Chute Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,7169,NA,NA,Northern Rocky Mountain Subalpine Deciduous Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,7170,NA,NA,Klamath-Siskiyou Xeromorphic Serpentine Savanna,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7171,NA,NA,North Pacific Alpine and Subalpine Dry Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7172,NA,NA,Sierran-Intermontane Desert Western White Pine-White Fir Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7173,NA,NA,North Pacific Wooded Volcanic Flowage,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7174,NA,NA,North Pacific Dry-Mesic Silver Fir-Western Hemlock-Douglas-fir Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7177,NA,NA,California Coastal Closed-Cone Conifer Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7178,NA,NA,North Pacific Hypermaritime Western Red-cedar-Western Hemlock Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7179,NA,NA,Northwestern Great Plains-Black Hills Ponderosa Pine Woodland and Savanna,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7191,NA,NA,Recently Logged-Herb and Grass Cover,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7192,NA,NA,Recently Logged-Shrub Cover,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7193,NA,NA,Recently Logged-Tree Cover,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7195,NA,NA,Recently Burned-Herb and Grass Cover,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7196,NA,NA,Recently Burned-Shrub Cover,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7197,NA,NA,Recently Burned-Tree Cover,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7198,NA,NA,Recently Disturbed Other-Herb and Grass Cover,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7199,NA,NA,Recently Disturbed Other-Shrub Cover,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7200,NA,NA,Recently Disturbed Other-Tree Cover,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7207,NA,NA,Central Mixedgrass Prairie Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7234,NA,NA,Mediterranean California Mesic Serpentine Chaparral,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7238,NA,NA,Laurentian-Acadian Northern Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7239,NA,NA,Laurentian-Acadian Northern Pine-(Oak) Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7240,NA,NA,Laurentian-Acadian Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7241,NA,NA,Laurentian-Acadian Pine-Hemlock-Hardwood Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7242,NA,NA,Laurentian Oak Barrens,Hardwood,Tree,Sparse tree canopy,Deciduous sparse tree canopy
+NA,7243,NA,NA,Laurentian Pine-Oak Barrens,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7247,NA,NA,Southern Appalachian Grass Bald,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7248,NA,NA,Northern Atlantic Coastal Plain Dune and Swale Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7249,NA,NA,Atlantic Coastal Plain Peatland Pocosin and Canebrake Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7250,NA,NA,Inter-Mountain Basins Curl-leaf Mountain Mahogany Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7260,NA,NA,Mediterranean California Lower Montane Black Oak Forest and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7261,NA,NA,Mediterranean California Lower Montane Black Oak-Conifer Forest and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7262,NA,NA,East Cascades Oak Forest and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7263,NA,NA,East Cascades Oak-Ponderosa Pine Forest and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7264,NA,NA,California Lower Montane Blue Oak Woodland and Savanna,Hardwood,Tree,Sparse tree canopy,Deciduous sparse tree canopy
+NA,7265,NA,NA,California Lower Montane Blue Oak-Foothill Pine Woodland and Savanna,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7268,NA,NA,Eastern Great Plains Tallgrass Aspen Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7270,NA,NA,Klamath-Siskiyou Xeromorphic Serpentine Chaparral,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7272,NA,NA,Eastern Boreal Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7286,NA,NA,Paleozoic Plateau Bluff and Talus Herbaceous,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7288,NA,NA,Acadian-Appalachian Alpine Tundra Meadow,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7289,NA,NA,Acadian-Appalachian Subalpine Heath-Krummholz,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7290,NA,NA,North-Central Oak Barrens Herbaceous,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7291,NA,NA,Central Interior Highlands Calcareous Glade and Barrens Herbaceous,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7292,NA,NA,Open Water,Open Water,Water,Non-vegetated,Non-vegetated
+NA,7295,NA,NA,Quarries-Strip Mines-Gravel Pits-Well and Wind Pads,Quarries-Strip Mines-Gravel Pits-Well and Wind Pads,Barren,Non-vegetated,Developed
+NA,7296,NA,NA,Developed-Low Intensity,Developed-Low Intensity,Developed,No Dominant Lifeform,Developed
+NA,7297,NA,NA,Developed-Medium Intensity,Developed-Medium Intensity,Developed,No Dominant Lifeform,Developed
+NA,7298,NA,NA,Developed-High Intensity,Developed-High Intensity,Developed,No Dominant Lifeform,Developed
+NA,7300,NA,NA,Developed-Open Space,Developed-Open Space,Developed,No Dominant Lifeform,No Dominant Lifeform
+NA,7301,NA,NA,Laurentian-Acadian Sub-boreal Aspen-Birch Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7302,NA,NA,Laurentian-Acadian Northern Hardwoods Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7303,NA,NA,Northeastern Interior Dry-Mesic Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7304,NA,NA,Ozark-Ouachita Dry-Mesic Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7305,NA,NA,Southern Interior Low Plateau Dry-Mesic Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7306,NA,NA,East Gulf Coastal Plain Northern Loess Plain Oak-Hickory Upland,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7307,NA,NA,East Gulf Coastal Plain Northern Dry Upland Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7308,NA,NA,Crosstimbers Oak Forest and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7309,NA,NA,Southern Appalachian Northern Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7310,NA,NA,North-Central Interior Dry-Mesic Oak Forest and Woodland,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7311,NA,NA,North-Central Interior Dry Oak Forest and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7312,NA,NA,Ouachita Montane Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7313,NA,NA,North-Central Interior Beech-Maple Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7314,NA,NA,North-Central Interior Maple-Basswood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7315,NA,NA,Southern Appalachian Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7316,NA,NA,Southern Piedmont Mesic Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7317,NA,NA,Allegheny-Cumberland Dry Oak Forest and Woodland,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7318,NA,NA,Southern and Central Appalachian Cove Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7320,NA,NA,Central and Southern Appalachian Montane Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7321,NA,NA,South-Central Interior Mesophytic Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7322,NA,NA,Crowley's Ridge Mesic Loess Slope Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7323,NA,NA,West Gulf Coastal Plain Mesic Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7324,NA,NA,Northern Atlantic Coastal Plain Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7325,NA,NA,East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7326,NA,NA,South-Central Interior / Upper Coastal Plain Flatwoods,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7327,NA,NA,East Gulf Coastal Plain Northern Loess Bluff Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7328,NA,NA,Southern Coastal Plain Limestone Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7329,NA,NA,East Gulf Coastal Plain Southern Loess Bluff Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7330,NA,NA,Southern Coastal Plain Dry Upland Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7331,NA,NA,Eastern Great Plains Tallgrass Aspen Forest and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7333,NA,NA,South Florida Hardwood Hammock,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7334,NA,NA,Ozark-Ouachita Mesic Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7335,NA,NA,Southern Atlantic Coastal Plain Dry and Dry-Mesic Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7336,NA,NA,Southwest Florida Maritime Hammock,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7337,NA,NA,Southeast Florida Maritime Hammock,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7338,NA,NA,Central and South Texas Coastal Fringe Forest and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7339,NA,NA,West Gulf Coastal Plain Chenier and Upper Texas Coastal Fringe Forest and Woodland,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7340,NA,NA,Appalachian Shale Barrens,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7342,NA,NA,Piedmont Hardpan Woodland and Forest,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7343,NA,NA,Southern Atlantic Coastal Plain Mesic Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7346,NA,NA,Atlantic Coastal Plain Fall-line Sandhills Longleaf Pine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7347,NA,NA,Atlantic Coastal Plain Upland Longleaf Pine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7348,NA,NA,West Gulf Coastal Plain Upland Longleaf Pine Forest and Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7349,NA,NA,East Gulf Coastal Plain Interior Upland Longleaf Pine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7350,NA,NA,Central and Southern Appalachian Spruce-Fir Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7351,NA,NA,Southeastern Interior Longleaf Pine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7352,NA,NA,Southern Appalachian Montane Pine Forest and Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7353,NA,NA,Southern Appalachian Low-Elevation Pine Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7354,NA,NA,Northeastern Interior Pine Barrens,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7355,NA,NA,Northern Atlantic Coastal Plain Pitch Pine Barrens,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7356,NA,NA,Florida Longleaf Pine Sandhill,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7357,NA,NA,Southern Coastal Plain Mesic Slope Forest,Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7358,NA,NA,Bastrop Lost Pines Forest and Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7360,NA,NA,South Florida Pine Rockland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7361,NA,NA,Central Atlantic Coastal Plain Maritime Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7362,NA,NA,Laurentian-Acadian Northern Pine Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7363,NA,NA,Central Interior Highlands Dry Acidic Glade and Barrens,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7364,NA,NA,Ozark-Ouachita Dry Oak Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7366,NA,NA,Laurentian-Acadian Pine-Hemlock Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7367,NA,NA,Ozark-Ouachita Shortleaf Pine Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7368,NA,NA,Southern Piedmont Dry Pine Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7369,NA,NA,Central Appalachian Dry Pine Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7370,NA,NA,Appalachian Hemlock Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7371,NA,NA,West Gulf Coastal Plain Pine Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7372,NA,NA,East Gulf Coastal Plain Interior Shortleaf Pine Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7373,NA,NA,Acadian Low-Elevation Spruce-Fir Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7374,NA,NA,Acadian-Appalachian Montane Spruce-Fir Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7375,NA,NA,Eastern Serpentine Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7376,NA,NA,Southern Ridge and Valley / Cumberland Dry Calcareous Forest,Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7377,NA,NA,Central Appalachian Pine Rocky Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7378,NA,NA,West Gulf Coastal Plain Sandhill Shortleaf Pine Forest and Woodland,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7379,NA,NA,Northern Atlantic Coastal Plain Maritime Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7380,NA,NA,East Gulf Coastal Plain Maritime Forest,Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7381,NA,NA,Lower Mississippi River Dune Woodland and Forest,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7382,NA,NA,Southern Atlantic Coastal Plain Maritime Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7383,NA,NA,Edwards Plateau Limestone Savanna and Woodland,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7384,NA,NA,Mississippi Delta Maritime Forest,Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7385,NA,NA,Great Plains Wooded Draw and Ravine Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7386,NA,NA,Acadian-Appalachian Alpine Tundra Shrubland,Shrubland,Shrub,Dwarf-shrubland,Mixed evergreen-deciduous dwarf-shrubland
+NA,7387,NA,NA,Florida Peninsula Inland Scrub Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7389,NA,NA,Acadian-Appalachian Subalpine Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7390,NA,NA,Tamaulipan Mixed Deciduous Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7391,NA,NA,Tamaulipan Mesquite Upland Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7392,NA,NA,Tamaulipan Calcareous Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7393,NA,NA,Edwards Plateau Limestone Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7394,NA,NA,North-Central Interior Oak Savanna,Hardwood,Tree,Sparse tree canopy,Deciduous sparse tree canopy
+NA,7395,NA,NA,North-Central Oak Barrens Woodland,Hardwood,Tree,Sparse tree canopy,Deciduous sparse tree canopy
+NA,7396,NA,NA,Great Plains Wooded Draw and Ravine Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7397,NA,NA,Nashville Basin Limestone Glade and Woodland,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7398,NA,NA,Cumberland Sandstone Glade and Barrens,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7399,NA,NA,Northern Atlantic Coastal Plain Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7400,NA,NA,Central Appalachian Alkaline Glade and Woodland,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7401,NA,NA,Central Interior Highlands Calcareous Glade and Barrens Woodland,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7403,NA,NA,West Gulf Coastal Plain Catahoula Barrens,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7405,NA,NA,West Gulf Coastal Plain Nepheline Syenite Glade,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7406,NA,NA,Southern Piedmont Dry Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7407,NA,NA,Laurentian Pine Barrens,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7408,NA,NA,Alabama Ketona Glade and Woodland,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7409,NA,NA,Great Lakes Alvar,Grassland,Herb,Herbaceous - shrub-steppe,Perennial graminoid steppe
+NA,7410,NA,NA,Llano Uplift Acidic Forest and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7411,NA,NA,Great Lakes Wet-Mesic Lakeplain Prairie,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7412,NA,NA,North-Central Interior Sand and Gravel Tallgrass Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7413,NA,NA,Bluegrass Savanna and Woodland Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7414,NA,NA,Southern Appalachian Shrub Bald,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7415,NA,NA,Arkansas Valley Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7416,NA,NA,Western Highland Rim Prairie and Barrens,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7417,NA,NA,Eastern Highland Rim Prairie and Barrens,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7418,NA,NA,Pennyroyal Karst Plain Prairie and Barrens,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7419,NA,NA,Southern Ridge and Valley Patch Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7420,NA,NA,Northern Tallgrass Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7421,NA,NA,Central Tallgrass Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7422,NA,NA,Texas Blackland Tallgrass Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7423,NA,NA,Southeastern Great Plains Tallgrass Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7424,NA,NA,East-Central Texas Plains Xeric Sandyland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7425,NA,NA,Florida Dry Prairie Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7426,NA,NA,Southern Atlantic Coastal Plain Dune and Maritime Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7428,NA,NA,West Gulf Coastal Plain Northern Calcareous Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7429,NA,NA,West Gulf Coastal Plain Southern Calcareous Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7430,NA,NA,Southern Coastal Plain Blackland Prairie,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7431,NA,NA,Southwest Florida Dune and Coastal Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7434,NA,NA,Texas-Louisiana Coastal Prairie,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7435,NA,NA,East Gulf Coastal Plain Dune and Coastal Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7436,NA,NA,Northern Atlantic Coastal Plain Dune and Swale Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7437,NA,NA,Texas Coast Dune and Coastal Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7438,NA,NA,Tamaulipan Savanna Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7439,NA,NA,Tamaulipan Lomas,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7441,NA,NA,Bluegrass Savanna and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7442,NA,NA,Arkansas Valley Prairie and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7444,NA,NA,Eastern Boreal Floodplain Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7445,NA,NA,South Florida Dwarf Cypress Savanna,Riparian,Tree,Sparse tree canopy,Deciduous sparse tree canopy
+NA,7446,NA,NA,South Florida Pine Flatwoods,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7447,NA,NA,South Florida Cypress Dome,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7448,NA,NA,Southern Piedmont Dry Oak-(Pine) Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7449,NA,NA,Central Atlantic Coastal Plain Wet Longleaf Pine Savanna and Flatwoods,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7450,NA,NA,Southern Atlantic Coastal Plain Wet Pine Savanna and Flatwoods,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7451,NA,NA,West Gulf Coastal Plain Wet Longleaf Pine Savanna and Flatwoods,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7452,NA,NA,Atlantic Coastal Plain Peatland Pocosin and Canebrake Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7453,NA,NA,Central Florida Pine Flatwoods,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7454,NA,NA,East Gulf Coastal Plain Near-Coast Pine Flatwoods,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7455,NA,NA,East Gulf Coastal Plain Southern Loblolly Flatwoods,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7456,NA,NA,Northern Atlantic Coastal Plain Pitch Pine Lowland,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7457,NA,NA,South-Central Interior / Upper Coastal Plain Wet Flatwoods,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7458,NA,NA,West Gulf Coastal Plain Pine Flatwoods,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7459,NA,NA,Atlantic Coastal Plain Clay-Based Carolina Bay Wetland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7460,NA,NA,Southern Coastal Plain Nonriverine Cypress Dome,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7461,NA,NA,Southern Coastal Plain Seepage Swamp and Baygall Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7462,NA,NA,West Gulf Coastal Plain Seepage Swamp and Baygall,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7463,NA,NA,Central Appalachian Dry Oak Forest,Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7464,NA,NA,Acadian Sub-Boreal Spruce Barrens,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7465,NA,NA,Acadian Sub-Boreal Spruce Flat,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7466,NA,NA,Great Lakes Wooded Dune and Swale,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7467,NA,NA,Tamaulipan Floodplain Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7468,NA,NA,Atlantic Coastal Plain Streamhead Seepage Swamp-Pocosin-Baygall Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7469,NA,NA,Atlantic Coastal Plain Streamhead Seepage Swamp-Pocosin-Baygall Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7471,NA,NA,Southwest Florida Coastal Strand Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,7472,NA,NA,Southeast Florida Coastal Strand Shrubland,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,7474,NA,NA,Tamaulipan Floodplain Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+NA,7475,NA,NA,Tamaulipan Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7476,NA,NA,Tamaulipan Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7481,NA,NA,Laurentian-Acadian Alkaline Conifer-Hardwood Swamp,Riparian,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7482,NA,NA,Great Plains Prairie Pothole,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7483,NA,NA,South Florida Everglades Sawgrass Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7484,NA,NA,South Florida Wet Marl Prairie,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7485,NA,NA,East Gulf Coastal Plain Wet Prairie,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7486,NA,NA,Texas Saline Coastal Prairie,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7487,NA,NA,Texas-Louisiana Coastal Prairie Pondshore,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7488,NA,NA,Eastern Great Plains Wet Meadow-Prairie-Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7489,NA,NA,Floridian Highlands Freshwater Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7500,NA,NA,South Texas Salt and Brackish Tidal Flat,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7501,NA,NA,Southern Atlantic Coastal Plain Nonriverine Swamp and Wet Hardwood Forest,Riparian,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7502,NA,NA,Central Appalachian Dry Oak-Pine Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7505,NA,NA,Ouachita Novaculite Glade and Woodland,Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,7506,NA,NA,West Gulf Coastal Plain Nonriverine Wet Hardwood Flatwoods,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7507,NA,NA,Ozark-Ouachita Shortleaf Pine-Bluestem Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7509,NA,NA,Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7510,NA,NA,Crowley's Ridge Sand Forest,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7511,NA,NA,Appalachian Northern Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7512,NA,NA,Appalachian (Hemlock)-Northern Hardwood Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7513,NA,NA,Lower Mississippi River Flatwoods,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7514,NA,NA,Central Florida Herbaceous Pondshore,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7515,NA,NA,Southern Coastal Plain Herbaceous Seep and Bog,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7516,NA,NA,Atlantic Coastal Plain Sandhill Seep,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7517,NA,NA,Paleozoic Plateau Bluff and Talus Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7518,NA,NA,North-Central Interior Wet Flatwoods,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7519,NA,NA,East-Central Texas Plains Post Oak Savanna and Woodland,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7522,NA,NA,Northern Atlantic Coastal Plain Heathland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7523,NA,NA,Edwards Plateau Dry-Mesic Slope Forest and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7524,NA,NA,Edwards Plateau Mesic Canyon,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7525,NA,NA,Edwards Plateau Riparian Forest and Woodland,Riparian,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7527,NA,NA,East Gulf Coastal Plain Interior Oak Forest,Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7545,NA,NA,East Gulf Coastal Plain Near-Coast Pine Wet Flatwoods,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7546,NA,NA,East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7547,NA,NA,Central Florida Pine Wet Flatwoods,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7548,NA,NA,South Florida Pine Wet Flatwoods,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7554,NA,NA,Acadian Low-Elevation Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7555,NA,NA,Acadian Low-Elevation Spruce-Fir-Hardwood Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7556,NA,NA,Central Appalachian Oak Rocky Woodland,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7557,NA,NA,Central Appalachian Pine-Oak Rocky Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7560,NA,NA,Tamaulipan Mesquite Upland Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7561,NA,NA,Llano Uplift Acidic Herbaceous Glade,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7562,NA,NA,Tamaulipan Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7563,NA,NA,Edwards Plateau Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7564,NA,NA,Edwards Plateau Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7565,NA,NA,Florida Peninsula Inland Scrub Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7566,NA,NA,Florida Dry Prairie Shruband,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7567,NA,NA,Southern Coastal Plain Blackland Prairie Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7571,NA,NA,Southern Coastal Plain Seepage Swamp and Baygall Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7573,NA,NA,Tamaulipan Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7578,NA,NA,East Gulf Coastal Plain Wet Savanna,Riparian,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,7582,NA,NA,Ozark-Ouachita Oak Forest and Woodland,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7583,NA,NA,Ozark-Ouachita Shortleaf Pine-Oak Forest and Woodland,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7584,NA,NA,West Gulf Coastal Plain Hardwood Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7585,NA,NA,West Gulf Coastal Plain Pine-Hardwood Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7586,NA,NA,West Gulf Coastal Plain Sandhill Oak Forest and Woodland,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,7587,NA,NA,West Gulf Coastal Plain Sandhill Oak and Shortleaf Pine Forest and Woodland,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,7588,NA,NA,East Gulf Coastal Plain Southern Hardwood Flatwoods,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7589,NA,NA,East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7590,NA,NA,West Gulf Coastal Plain Hardwood Flatwoods,Hardwood,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7591,NA,NA,West Gulf Coastal Plain Pine-Hardwood Flatwoods,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7662,NA,NA,Temperate Pacific Freshwater Emergent Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7663,NA,NA,North Pacific Shrub Swamp,Shrubland,Shrub,Shrubland,Deciduous shrubland
+NA,7668,NA,NA,Temperate Pacific Tidal Salt and Brackish Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7669,NA,NA,Temperate Pacific Intertidal Flat,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7733,NA,NA,North Pacific Montane Massive Bedrock-Cliff and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7734,NA,NA,North Pacific Alpine and Subalpine Bedrock and Scree,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7735,NA,NA,North American Glacier and Ice Field,Snow-Ice,Snow-Ice,Non-vegetated,Non-vegetated
+NA,7736,NA,NA,Unconsolidated Shore,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7737,NA,NA,North American Glacial Outwash,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7754,NA,NA,Agriculture-Pasture and Hay,Agricultural,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7755,NA,NA,Agriculture-Cultivated Crops and Irrigated Agriculture,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7800,NA,NA,Hawai'i Floodplain Forest,Riparian,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7802,NA,NA,Hawai'i Riparian Forest,Riparian,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7804,NA,NA,Hawai'i Freshwater Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7806,NA,NA,Hawai'i Bog,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7807,NA,NA,Northern Polynesia Tidal Salt Marsh,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7808,NA,NA,Hawai'i Lowland Rainforest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7809,NA,NA,Hawai'i Montane Cloud Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7810,NA,NA,Hawai'i Montane Rainforest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7811,NA,NA,Hawai'i Wet Cliff and Ridge Crest Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7812,NA,NA,Hawai'i Mesic Coastal Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7813,NA,NA,Hawai'i Lowland Dry Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7814,NA,NA,Hawai'i Lowland Mesic Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7815,NA,NA,Hawai'i Montane-Subalpine Dry Forest and Woodland,Hardwood,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7816,NA,NA,Hawai'i Montane-Subalpine Mesic Forest,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,7817,NA,NA,Hawai'i Lowland Dry Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7818,NA,NA,Hawai'i Lowland Mesic Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7819,NA,NA,Hawai'i Lowland Dry Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7820,NA,NA,Hawai'i Lowland Mesic Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7821,NA,NA,Hawai'i Montane-Subalpine Dry Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7822,NA,NA,Hawai'i Montane-Subalpine Dry Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7823,NA,NA,Hawai'i Montane-Subalpine Mesic Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7824,NA,NA,Hawai'i Alpine Dwarf-Shrubland,Shrubland,Shrub,Dwarf Shrubland,Evergreen dwarf-shrubland
+NA,7826,NA,NA,Hawai'i Dry Coastal Strand Shrubland,Shrubland,Shrub,Dwarf Shrubland,Evergreen dwarf-shrubland
+NA,7827,NA,NA,Hawai'i Wet-Mesic Coastal Strand,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7828,NA,NA,Hawai'i Subalpine Mesic Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,7829,NA,NA,Hawai'i Alpine Bedrock and Scree,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7830,NA,NA,Hawai'i Dry Coastal Strand Sparse Vegetation,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7831,NA,NA,Hawai'i Dry-Site Lava Flow,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7832,NA,NA,Hawai'I Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7833,NA,NA,Hawai'i Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7834,NA,NA,Tropical Pacific Orchard,Agricultural,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7835,NA,NA,Tropical Pacific Bush fruit and Berries,Agricultural,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7836,NA,NA,Tropical Pacific Aquaculture,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7837,NA,NA,Sugar Cane,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7838,NA,NA,Caribbean Bush fruit and berries,Agricultural,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7860,NA,NA,Caribbean Coastal Dry Evergreen Forest,Hardwood,Tree,Closed tree canopy,Evergreen
+NA,7861,NA,NA,Caribbean Coastal Mangrove,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7862,NA,NA,Caribbean Coastal Rocky Shore,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7863,NA,NA,Caribbean Coastal Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7864,NA,NA,Caribbean Dry Karst Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7865,NA,NA,"Caribbean Edapho-Xerophilous ""Mogote"" Complex",Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7866,NA,NA,Caribbean Emergent Herbaceous Estuary,Riparian,Herb,Shrubland,Mixed
+NA,7867,NA,NA,Caribbean Estuary Mangrove,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7868,NA,NA,Caribbean Floodplain Forest,Riparian,Tree,Closed Tree Canopy,Mixed
+NA,7869,NA,NA,Caribbean Freshwater Marsh,Riparian,Herb,Shrubland,Mixed
+NA,7870,NA,NA,Caribbean Lowland Moist Serpentine Woodland,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7871,NA,NA,Caribbean Montane Meadow,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7872,NA,NA,Caribbean Montane Wet Elfin Forest,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7873,NA,NA,Caribbean Montane Wet Serpentine Woodland,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7874,NA,NA,Caribbean Montane Wet Short Shrubland,Riparian,Shrub,Shrubland,Mixed
+NA,7875,NA,NA,Caribbean Riparian Forest,Riparian,Tree,Closed Tree Canopy,Mixed
+NA,7876,NA,NA,Caribbean Salt Flat and Pond,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7877,NA,NA,Caribbean Sand Beach Vegetation,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7878,NA,NA,Caribbean Sand Savanna,Hardwood,Tree,Closed tree canopy,Deciduous
+NA,7879,NA,NA,Caribbean Seasonal Evergreen Lowland Forest,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7880,NA,NA,Caribbean Seasonal Evergreen Submontane/Lowland Forest,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7881,NA,NA,Caribbean Semi-deciduous Lowland Forest,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7882,NA,NA,Caribbean Serpentine Dry Scrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7883,NA,NA,Caribbean Submontane/Montane Karstic Forest,Hardwood,Tree,Closed tree canopy,Evergreen
+NA,7884,NA,NA,Caribbean Wet Montane Forest,Riparian,Tree,Closed Tree Canopy,Mixed
+NA,7885,NA,NA,Caribbean Wet Submontane/Lowland Forest,Riparian,Tree,Closed Tree Canopy,Mixed
+NA,7886,NA,NA,Stabilized Caribbean Dunes,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,7887,NA,NA,Caribbean Floodplain Shrubland,Riparian,Shrub,Closed Tree Canopy,Mixed
+NA,7888,NA,NA,Caribbean Riparian Shrubland,Riparian,Shrub,Closed Tree Canopy,Mixed
+NA,7900,NA,NA,Western Cool Temperate Urban Deciduous Forest,Developed,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7901,NA,NA,Western Cool Temperate Urban Evergreen Forest,Developed,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7902,NA,NA,Western Cool Temperate Urban Mixed Forest,Developed,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7903,NA,NA,Western Cool Temperate Urban Herbaceous,Developed,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7904,NA,NA,Western Cool Temperate Urban Shrubland,Developed,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7905,NA,NA,Eastern Cool Temperate Urban Deciduous Forest,Developed,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7906,NA,NA,Eastern Cool Temperate Urban Evergreen Forest,Developed,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7907,NA,NA,Eastern Cool Temperate Urban Mixed Forest,Developed,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7908,NA,NA,Eastern Cool Temperate Urban Herbaceous,Developed,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7909,NA,NA,Eastern Cool Temperate Urban Shrubland,Developed,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7910,NA,NA,Western Warm Temperate Urban Deciduous Forest,Developed,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7911,NA,NA,Western Warm Temperate Urban Evergreen Forest,Developed,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7912,NA,NA,Western Warm Temperate Urban Mixed Forest,Developed,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7913,NA,NA,Western Warm Temperate Urban Herbaceous,Developed,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7914,NA,NA,Western Warm Temperate Urban Shrubland,Developed,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7915,NA,NA,Eastern Warm Temperate Urban Deciduous Forest,Developed,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7916,NA,NA,Eastern Warm Temperate Urban Evergreen Forest,Developed,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7917,NA,NA,Eastern Warm Temperate Urban Mixed Forest,Developed,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7918,NA,NA,Eastern Warm Temperate Urban Herbaceous,Developed,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7919,NA,NA,Eastern Warm Temperate Urban Shrubland,Developed,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7920,NA,NA,Western Cool Temperate Developed Deciduous Forest,Developed,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7921,NA,NA,Western Cool Temperate Developed Evergreen Forest,Developed,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7922,NA,NA,Western Cool Temperate Developed Mixed Forest,Developed,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7923,NA,NA,Western Cool Temperate Developed Shrubland,Developed,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7924,NA,NA,Western Cool Temperate Developed Herbaceous,Developed,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7925,NA,NA,Eastern Cool Temperate Developed Deciduous Forest,Developed,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7926,NA,NA,Eastern Cool Temperate Developed Evergreen Forest,Developed,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7927,NA,NA,Eastern Cool Temperate Developed Mixed Forest,Developed,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7928,NA,NA,Eastern Cool Temperate Developed Shrubland,Developed,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7929,NA,NA,Eastern Cool Temperate Developed Herbaceous,Developed,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7930,NA,NA,Western Warm Temperate Developed Deciduous Forest,Developed,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7931,NA,NA,Western Warm Temperate Developed Evergreen Forest,Developed,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7932,NA,NA,Western Warm Temperate Developed Mixed Forest,Developed,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7933,NA,NA,Western Warm Temperate Developed Shrubland,Developed,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7934,NA,NA,Western Warm Temperate Developed Herbaceous,Developed,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7935,NA,NA,Eastern Warm Temperate Developed Deciduous Forest,Developed,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7936,NA,NA,Eastern Warm Temperate Developed Evergreen Forest,Developed,Tree,Open tree canopy,Evergreen open tree canopy
+NA,7937,NA,NA,Eastern Warm Temperate Developed Mixed Forest,Developed,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,7938,NA,NA,Eastern Warm Temperate Developed Shrubland,Developed,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7939,NA,NA,Eastern Warm Temperate Developed Herbaceous,Developed,Herb,Herbaceous - grassland,Perennial graminoid
+NA,7960,NA,NA,Western Cool Temperate Orchard,Agricultural,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7961,NA,NA,Western Cool Temperate Vineyard,Agricultural,Agriculture,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7962,NA,NA,Western Cool Temperate Bush fruit and berries,Agricultural,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7963,NA,NA,Western Cool Temperate Row Crop - Close Grown Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7964,NA,NA,Western Cool Temperate Row Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7965,NA,NA,Western Cool Temperate Close Grown Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7966,NA,NA,Western Cool Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7967,NA,NA,Western Cool Temperate Pasture and Hayland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7968,NA,NA,Western Cool Temperate Wheat,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7970,NA,NA,Eastern Cool Temperate Orchard,Agricultural,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7971,NA,NA,Eastern Cool Temperate Vineyard,Agricultural,Agriculture,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7972,NA,NA,Eastern Cool Temperate Bush fruit and berries,Agricultural,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7973,NA,NA,Eastern Cool Temperate Row Crop - Close Grown Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7974,NA,NA,Eastern Cool Temperate Row Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7975,NA,NA,Eastern Cool Temperate Close Grown Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7976,NA,NA,Eastern Cool Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7977,NA,NA,Eastern Cool Temperate Pasture and Hayland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7978,NA,NA,Eastern Cool Temperate Wheat,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7979,NA,NA,Eastern Cool Temperate Aquaculture,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7981,NA,NA,Western Warm Temperate Vineyard,Agricultural,Agriculture,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7982,NA,NA,Western Warm Temperate Bush fruit and berries,Agricultural,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7983,NA,NA,Western Warm Temperate Row Crop - Close Grown Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7984,NA,NA,Western Warm Temperate Row Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7985,NA,NA,Western Warm Temperate Close Grown Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7987,NA,NA,Western Warm Temperate Pasture and Hayland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7988,NA,NA,Western Warm Temperate Wheat,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7989,NA,NA,Western Warm Temperate Aquaculture,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7990,NA,NA,Eastern Warm Temperate Orchard,Agricultural,Tree,Open tree canopy,Deciduous open tree canopy
+NA,7991,NA,NA,Eastern Warm Temperate Vineyard,Agricultural,Agriculture,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7992,NA,NA,Eastern Warm Temperate Bush fruit and berries,Agricultural,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,7993,NA,NA,Eastern Warm Temperate Row Crop - Close Grown Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7994,NA,NA,Eastern Warm Temperate Row Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7995,NA,NA,Eastern Warm Temperate Close Grown Crop,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7996,NA,NA,Eastern Warm Temperate Fallow/Idle Cropland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7997,NA,NA,Eastern Warm Temperate Pasture and Hayland,Agricultural,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7998,NA,NA,Eastern Warm Temperate Wheat,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,7999,NA,NA,Eastern Warm Temperate Aquaculture,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb
+NA,9001,NA,NA,Colorado Plateau Mixed Bedrock Canyon and Tableland,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9002,NA,NA,Columbia Basin Foothill Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9003,NA,NA,Great Basin Foothill and Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9004,NA,NA,Inter-Mountain Basins Active and Stabilized Dune,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9005,NA,NA,Inter-Mountain Basins Alkaline Closed Depression,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9006,NA,NA,Inter-Mountain Basins Cliff and Canyon,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9008,NA,NA,Inter-Mountain Basins Playa,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9009,NA,NA,Inter-Mountain Basins Shale Badland,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9010,NA,NA,Inter-Mountain Basins Wash,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9011,NA,NA,North American Arid West Emergent Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9012,NA,NA,Northern Rocky Mountain Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9014,NA,NA,Northwestern Great Plains Floodplain Forest and Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9015,NA,NA,Northwestern Great Plains Riparian Forest,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9016,NA,NA,Rocky Mountain Alpine Bedrock and Scree,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9017,NA,NA,Rocky Mountain Alpine-Montane Wet Meadow,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9018,NA,NA,Rocky Mountain Cliff Canyon and Massive Bedrock,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9019,NA,NA,Rocky Mountain Lower Montane-Foothill Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9021,NA,NA,Rocky Mountain Subalpine-Montane Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9022,NA,NA,Rocky Mountain Subalpine-Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9023,NA,NA,Western Great Plains Badlands,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9024,NA,NA,Western Great Plains Cliff and Outcrop,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9025,NA,NA,Western Great Plains Closed Depression Wetland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9026,NA,NA,Western Great Plains Floodplain Forest and Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9027,NA,NA,Western Great Plains Open Freshwater Depression Wetland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9028,NA,NA,Western Great Plains Riparian Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9029,NA,NA,Western Great Plains Saline Depression Wetland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9030,NA,NA,Columbia Plateau Silver Sagebrush Seasonally Flooded Shrub-Steppe,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9032,NA,NA,Columbia Plateau Ash and Tuff Badland,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9033,NA,NA,Inter-Mountain Basins Volcanic Rock and Cinder Land,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9036,NA,NA,Acadian Coastal Salt Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9037,NA,NA,Acadian Estuary Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9038,NA,NA,Acadian Maritime Bog,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9039,NA,NA,Acadian-Appalachian Conifer Seepage Forest,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,9040,NA,NA,Acadian-North Atlantic Rocky Coast,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9041,NA,NA,Atlantic Coastal Plain Blackwater Stream Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9042,NA,NA,Atlantic Coastal Plain Brownwater Stream Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9044,NA,NA,Atlantic Coastal Plain Embayed Region Tidal Freshwater Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9045,NA,NA,Atlantic Coastal Plain Embayed Region Tidal Salt and Brackish Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9047,NA,NA,Atlantic Coastal Plain Indian River Lagoon Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9048,NA,NA,Atlantic Coastal Plain Northern Bog,Riparian,Shrub,Shrubland,Deciduous shrubland
+NA,9050,NA,NA,Atlantic Coastal Plain Small Blackwater River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9051,NA,NA,Atlantic Coastal Plain Small Brownwater River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9055,NA,NA,Boreal-Laurentian Bog,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9056,NA,NA,Boreal-Laurentian Conifer Acidic Swamp and Treed Poor Fen,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,9057,NA,NA,Boreal-Laurentian-Acadian Acidic Basin Fen,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9059,NA,NA,Central Appalachian River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9060,NA,NA,Central Appalachian Stream and Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9061,NA,NA,Central Atlantic Coastal Plain Sandy Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9062,NA,NA,Central California Coast Ranges Cliff and Canyon,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9063,NA,NA,Central Florida Wet Prairie and Herbaceous Seep,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9064,NA,NA,Central Interior Acidic Cliff and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9065,NA,NA,Central Interior Calcareous Cliff and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9066,NA,NA,Central Interior Highlands and Appalachian Sinkhole and Depression Pond,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9068,NA,NA,Central Texas Coastal Prairie Riparian Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9069,NA,NA,Central Texas Coastal Prairie River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9071,NA,NA,Columbia Bottomlands Forest and Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9073,NA,NA,Cumberland Acidic Cliff and Rockhouse,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9075,NA,NA,Cumberland Seepage Forest,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9077,NA,NA,East Gulf Coastal Plain Depression Pondshore,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9080,NA,NA,East Gulf Coastal Plain Freshwater Tidal Wooded Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9082,NA,NA,East Gulf Coastal Plain Large River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9083,NA,NA,East Gulf Coastal Plain Northern Seepage Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9085,NA,NA,East Gulf Coastal Plain Small Stream and River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9088,NA,NA,Laurentian-Acadian Sub-boreal Dry-Mesic Pine-Black Spruce Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,9089,NA,NA,Laurentian-Acadian Sub-boreal Mesic Balsam Fir-Spruce Forest,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,9091,NA,NA,Edwards Plateau Cliff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9092,NA,NA,Edwards Plateau Floodplain Terrace Forest and Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9094,NA,NA,Florida Big Bend Fresh and Oligohaline Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9095,NA,NA,Florida Big Bend Salt and Brackish Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9097,NA,NA,Florida Panhandle Beach Vegetation,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9098,NA,NA,Florida River Floodplain Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9099,NA,NA,Great Lakes Acidic Rocky Shore and Cliff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9100,NA,NA,Great Lakes Alkaline Rocky Shore and Cliff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9101,NA,NA,Great Lakes Dune,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9102,NA,NA,Great Lakes Freshwater Estuary and Delta,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9103,NA,NA,Gulf Coast Chenier Plain Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9104,NA,NA,Gulf Coast Chenier Plain Fresh and Oligohaline Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9105,NA,NA,Gulf Coast Chenier Plain Salt and Brackish Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9106,NA,NA,High Allegheny Wetland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9110,NA,NA,Klamath-Siskiyou Cliff and Outcrop,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9111,NA,NA,Laurentian Acidic Rocky Outcrop Woodland,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,9112,NA,NA,Laurentian Jack Pine-Red Pine Forest,Conifer,Tree,Sparse tree canopy,Evergreen sparse tree canopy
+NA,9113,NA,NA,Laurentian-Acadian Acidic Cliff and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9114,NA,NA,Laurentian-Acadian Alkaline Fen,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9115,NA,NA,Laurentian-Acadian Calcareous Cliff and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9116,NA,NA,Laurentian-Acadian Calcareous Rocky Outcrop Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9117,NA,NA,Laurentian-Acadian Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9118,NA,NA,Laurentian-Acadian Freshwater Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9119,NA,NA,Laurentian-Acadian Lakeshore Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9120,NA,NA,Laurentian-Acadian Wet Meadow,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9121,NA,NA,Llano Estacado Caprock Escarpment and Breaks Shrubland and Steppe,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,9122,NA,NA,Louisiana Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9125,NA,NA,Mediterranean California Alpine Bedrock and Scree,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9129,NA,NA,Mediterranean California Foothill and Lower Montane Riparian Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9130,NA,NA,Mediterranean California Northern Coastal Dune,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9133,NA,NA,Mediterranean California Serpentine Foothill and Lower Montane Riparian Woodland and Seep,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9134,NA,NA,Mediterranean California Southern Coastal Dune,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9136,NA,NA,Mississippi Delta Fresh and Oligohaline Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9137,NA,NA,Mississippi Delta Salt and Brackish Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9138,NA,NA,Mississippi River Bottomland Depression,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9139,NA,NA,Mississippi River High Floodplain (Bottomland) Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9140,NA,NA,Mississippi River Low Floodplain (Bottomland) Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9141,NA,NA,Mississippi River Riparian Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9142,NA,NA,Mississippi Sound Fresh and Oligohaline Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9143,NA,NA,Mississippi Sound Salt and Brackish Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9145,NA,NA,North American Warm Desert Active and Stabilized Dune,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9146,NA,NA,North American Warm Desert Badland,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9147,NA,NA,North American Warm Desert Bedrock Cliff and Outcrop,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9150,NA,NA,North American Warm Desert Pavement,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9151,NA,NA,North American Warm Desert Playa,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9152,NA,NA,North American Warm Desert Riparian Mesquite Bosque Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9153,NA,NA,North American Warm Desert Volcanic Rockland,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9154,NA,NA,North American Warm Desert Wash Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9160,NA,NA,North Pacific Active Volcanic Rock and Cinder Land,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9165,NA,NA,North Pacific Hardwood-Conifer Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9166,NA,NA,North Pacific Herbaceous Bald and Bluff,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9167,NA,NA,North Pacific Hypermaritime Herbaceous Headland,Grassland,Herb,Herbaceous - shrub-steppe,Perennial graminoid steppe
+NA,9170,NA,NA,North Pacific Lowland Mixed Hardwood-Conifer Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,9171,NA,NA,North Pacific Maritime Coastal Sand Dune and Strand,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9173,NA,NA,North-Central Appalachian Acidic Cliff and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9174,NA,NA,North-Central Appalachian Acidic Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9175,NA,NA,North-Central Appalachian Circumneutral Cliff and Talus,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9176,NA,NA,North-Central Appalachian Seepage Fen,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9177,NA,NA,North-Central Interior and Appalachian Acidic Peatland Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9178,NA,NA,North-Central Interior and Appalachian Rich Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9179,NA,NA,North-Central Interior Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9180,NA,NA,North-Central Interior Freshwater Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9181,NA,NA,North-Central Interior Quartzite Glade,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9182,NA,NA,North-Central Interior Shrub Alkaline Fen,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9183,NA,NA,North-Central Interior Shrub Swamp,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9184,NA,NA,Northeastern Erosional Bluff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9185,NA,NA,Northern Appalachian-Acadian Conifer-Hardwood Acidic Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9186,NA,NA,Northern Appalachian-Acadian Rocky Heath Outcrop Woodland,Conifer,Tree,Open tree canopy,Evergreen open tree canopy
+NA,9187,NA,NA,Northern Atlantic Coastal Plain Basin Peat Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9188,NA,NA,Northern Atlantic Coastal Plain Basin Swamp and Wet Hardwood Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9189,NA,NA,Northern Atlantic Coastal Plain Brackish Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9190,NA,NA,Northern Atlantic Coastal Plain Calcareous Ravine,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,9191,NA,NA,Northern Atlantic Coastal Plain Fresh and Oligohaline Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9192,NA,NA,Northern Atlantic Coastal Plain Pond,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9193,NA,NA,Northern Atlantic Coastal Plain Sandy Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9195,NA,NA,Northern Atlantic Coastal Plain Riparian and Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9197,NA,NA,Northern Atlantic Coastal Plain Tidal Salt Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9198,NA,NA,Northern Atlantic Coastal Plain Tidal Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9202,NA,NA,Northern Great Lakes Coastal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9203,NA,NA,Northern Great Lakes Interdunal Wetland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9207,NA,NA,Ozark-Ouachita Riparian Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9208,NA,NA,Panhandle Florida Limestone Glade,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,9209,NA,NA,Piedmont Seepage Wetland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9210,NA,NA,Piedmont Upland Depression Swamp,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9211,NA,NA,Red River Large Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9213,NA,NA,Sierra Nevada Cliff and Canyon,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9216,NA,NA,South Florida Bayhead Swamp,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,9218,NA,NA,South Florida Hydric Hammock,Riparian,Tree,Open tree canopy,Evergreen open tree canopy
+NA,9220,NA,NA,South Florida Pond-apple/Popash Slough,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9221,NA,NA,South Florida Shell Hash Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9222,NA,NA,South Florida Slough Gator Hole and Willow Head Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9223,NA,NA,South-Central Interior Large Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9224,NA,NA,South-Central Interior Small Stream and Riparian Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9226,NA,NA,Southeast Florida Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9227,NA,NA,Southeastern Coastal Plain Cliff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9228,NA,NA,Southeastern Coastal Plain Interdunal Wetland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9229,NA,NA,Southeastern Coastal Plain Natural Lakeshore,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9230,NA,NA,Southeastern Great Plains Floodplain Forest and Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9231,NA,NA,Southeastern Great Plains Riparian Forest and Woodland,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9232,NA,NA,Southern and Central Appalachian Bog and Fen,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9233,NA,NA,Southern and Central Appalachian Mafic Glade and Barrens,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,9234,NA,NA,Southern Appalachian Granitic Dome,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9237,NA,NA,Southern Appalachian Seepage Wetland,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9239,NA,NA,Southern Atlantic Coastal Plain Depression Pondshore,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9240,NA,NA,Southern Atlantic Coastal Plain Florida Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9241,NA,NA,Southern Atlantic Coastal Plain Fresh and Oligohaline Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9242,NA,NA,Southern Atlantic Coastal Plain Large River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9243,NA,NA,Southern Atlantic Coastal Plain Salt and Brackish Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9244,NA,NA,Southern Atlantic Coastal Plain Sea Island Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9245,NA,NA,Southern Atlantic Coastal Plain Tidal Wooded Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9246,NA,NA,Southern California Coast Ranges Cliff and Canyon,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9247,NA,NA,Southern Coastal Plain Blackwater River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9248,NA,NA,Southern Coastal Plain Hydric Hammock,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9249,NA,NA,Southern Coastal Plain Nonriverine Basin Swamp,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9250,NA,NA,Southern Coastal Plain Oak Dome and Hammock,Riparian,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,9251,NA,NA,Southern Coastal Plain Sinkhole,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9256,NA,NA,Southern Piedmont Glade and Barrens,Conifer-Hardwood,Tree,Sparse tree canopy,Mixed evergreen-deciduous sparse tree canopy
+NA,9257,NA,NA,Southern Piedmont Granite Flatrock and Outcrop,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9258,NA,NA,Southern Piedmont Large Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9259,NA,NA,Southern Piedmont Small Floodplain and Riparian Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9260,NA,NA,Southern Ridge and Valley Calcareous Glade and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9261,NA,NA,Southern Ridge and Valley Seepage Fen,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9262,NA,NA,Southwest Florida Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9265,NA,NA,Southwestern Great Plains Canyon,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9266,NA,NA,Tamaulipan Closed Depression Wetland Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9268,NA,NA,Tamaulipan Ramadero,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9270,NA,NA,Tamaulipan Saline Thornscrub,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9272,NA,NA,Temperate Pacific Subalpine-Montane Wet Meadow,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9273,NA,NA,Texas Coast Beach,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9274,NA,NA,Texas Coast Fresh and Oligohaline Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9275,NA,NA,Texas Coast Salt and Brackish Tidal Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9282,NA,NA,West Gulf Coastal Plain Large River Floodplain Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9283,NA,NA,West Gulf Coastal Plain Near-Coast Large River Swamp,Riparian,Tree,Open tree canopy,Deciduous open tree canopy
+NA,9284,NA,NA,West Gulf Coastal Plain Small Stream and River Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9288,NA,NA,Northeastern Interior Calcareous Oak Forest,Hardwood,Tree,Closed tree canopy,Deciduous closed tree canopy
+NA,9289,NA,NA,Madrean Mesic Canyon Forest and Woodland,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9290,NA,NA,Southeastern Great Plains Cliff,Sparsely Vegetated,Sparse,Sparsely vegetated,Sparsely vegetated
+NA,9295,NA,NA,Laurentian-Acadian Sub-boreal Dry-Mesic Pine-Black Spruce-Hardwood Forest,Conifer-Hardwood,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,9301,NA,NA,California Ruderal Grassland and Meadow,Exotic Herbaceous,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,9302,NA,NA,Californian Ruderal Forest,Exotic Tree-Shrub,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9303,NA,NA,Caribbean & Mesoamerican Lowland Ruderal Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9304,NA,NA,Caribbean Forest Plantation,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9305,NA,NA,Caribbean Ruderal Dry Forest,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9307,NA,NA,Great Basin & Intermountain Introduced Annual and Biennial Forbland,Exotic Herbaceous,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,9308,NA,NA,Great Basin & Intermountain Introduced Annual Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Annual Graminoid/Forb
+NA,9309,NA,NA,Great Basin & Intermountain Introduced Perennial Grassland and Forbland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9311,NA,NA,North Pacific Maritime Coastal Sand Dune Ruderal Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9312,NA,NA,Northeastern North American Temperate Forest Plantation,Conifer,Tree,Open Tree Canopy,Evergreen open tree canopy
+NA,9314,NA,NA,Northern & Central Native Ruderal Flooded & Swamp Forest,Riparian,Tree,Closed tree canopy,Mixed evergreen-deciduous closed tree canopy
+NA,9315,NA,NA,Northern & Central Native Ruderal Forest,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9316,NA,NA,Northern & Central Plains Ruderal & Planted Shrubland,Exotic Tree-Shrub,Shrub,Shrubland,Deciduous shrubland
+NA,9317,NA,NA,Northern & Central Ruderal Shrubland,Exotic Tree-Shrub,Shrub,Shrubland,Deciduous shrubland
+NA,9318,NA,NA,Northern & Central Ruderal Wet Meadow & Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9319,NA,NA,Southeastern Exotic Ruderal Forest,Exotic Tree-Shrub,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9320,NA,NA,Southeastern Native Ruderal Flooded & Swamp Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9321,NA,NA,Southeastern Native Ruderal Forest,Conifer-Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9322,NA,NA,Southeastern North American Temperate Forest Plantation,Conifer,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,9323,NA,NA,Southeastern Ruderal Shrubland,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9324,NA,NA,Southeastern Ruderal Wet Meadow & Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9325,NA,NA,Great Plains Comanchian Ruderal Shrubland,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9326,NA,NA,Southern Vancouverian Lowland Ruderal Shrubland,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9328,NA,NA,Interior Western North American Temperate Ruderal Shrubland,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9329,NA,NA,Western North American Ruderal Wet Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9332,NA,NA,Southeastern Exotic Ruderal Flooded & Swamp Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9336,NA,NA,Great Basin & Intermountain Ruderal Shrubland,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9337,NA,NA,California Ruderal Scrub,Exotic Tree-Shrub,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9340,NA,NA,Caribbean Lowland Ruderal Rainforest,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9341,NA,NA,Caribbean Montane Ruderal Forest,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9343,NA,NA,Hawaiian Montane Ruderal Forest & Woodland,Hardwood,Tree,Closed Tree Canopy,Mixed evergreen-deciduous closed tree canopy
+NA,9344,NA,NA,Hawaiian Ruderal Coastal Salt Marsh,Riparian,Herb,Herbaceous - Grassland,Perennial graminoid
+NA,9345,NA,NA,Hawaiian Ruderal Flooded & Swamp Forest,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9346,NA,NA,Hawaiian Ruderal Freshwater Wet Meadow & Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9347,NA,NA,Hawaiian Ruderal Mangrove,Hardwood,Tree,Closed tree canopy,Evergreen closed tree canopy
+NA,9348,NA,NA,Polynesian Ruderal Dry Woodland,Hardwood,Tree,Closed Tree Canopy,Mixed evergreen-deciduous closed tree canopy
+NA,9349,NA,NA,Polynesian Ruderal Lowland Rainforest,Hardwood,Tree,Closed Tree Canopy,Mixed evergreen-deciduous closed tree canopy
+NA,9350,NA,NA,Polynesian Ruderal Lowland Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,9351,NA,NA,Polynesian Ruderal Scrub Coastal Strand,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,9352,NA,NA,Polynesian Ruderal Subalpine-Montane Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,9353,NA,NA,Tropical Pacific Forest Plantation,Hardwood,Tree,Open Tree Canopy,Mixed evergreen-deciduous open tree canopy
+NA,9354,NA,NA,Caribbean Ruderal Freshwater Wet Meadow & Marsh,Grassland,Herb,Shrubland,Mixed
+NA,9355,NA,NA,Tropical Agroforestry Plantation,Hardwood,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9502,NA,NA,Columbia Basin Foothill Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9503,NA,NA,Great Basin Foothill and Lower Montane Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9504,NA,NA,Columbia Basin Foothill Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9505,NA,NA,Great Basin Foothill and Lower Montane Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9512,NA,NA,Northern Rocky Mountain Lower Montane Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9513,NA,NA,Northwestern Great Plains Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9514,NA,NA,Northwestern Great Plains Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9515,NA,NA,Northwestern Great Plains Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9516,NA,NA,Northwestern Great Plains Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9519,NA,NA,Rocky Mountain Lower Montane-Foothill Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9526,NA,NA,Western Great Plains Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9527,NA,NA,Western Great Plains Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9528,NA,NA,Western Great Plains Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9529,NA,NA,Western Great Plains Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9533,NA,NA,North American Warm Desert Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9541,NA,NA,Atlantic Coastal Plain Blackwater Stream Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9542,NA,NA,Atlantic Coastal Plain Blackwater Stream Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9559,NA,NA,Central Appalachian River Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9560,NA,NA,Central Appalachian Stream and Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9561,NA,NA,Central Appalachian River Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9562,NA,NA,Central Appalachian Stream and Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9568,NA,NA,Central Texas Coastal Prairie Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9569,NA,NA,Central Texas Coastal Prairie River Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9570,NA,NA,Central Texas Coastal Prairie Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9571,NA,NA,Central Texas Coastal Prairie River Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9582,NA,NA,East Gulf Coastal Plain Large River Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9583,NA,NA,East Gulf Coastal Plain Large River Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9585,NA,NA,East Gulf Coastal Plain Small Stream and River Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9586,NA,NA,East Gulf Coastal Plain Small Stream and River Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9592,NA,NA,Edwards Plateau Floodplain Terrace Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9593,NA,NA,Edwards Plateau Floodplain Terrace Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9601,NA,NA,Great Lakes Dune Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9604,NA,NA,Gulf Coast Chenier Plain Fresh and Oligohaline Tidal Marsh Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9605,NA,NA,Gulf Coast Chenier Plain Salt and Brackish Tidal Marsh Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9611,NA,NA,Laurentian Acidic Rocky Outcrop Shrubland,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,9616,NA,NA,Laurentian-Acadian Calcareous Rocky Outcrop Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9617,NA,NA,Laurentian-Acadian Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9620,NA,NA,Laurentian-Acadian Shrub Swamp,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9629,NA,NA,Mediterranean California Foothill and Lower Montane Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9633,NA,NA,Mediterranean California Serpentine Foothill and Lower Montane Riparian Shrubland and Seep,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9639,NA,NA,Mississippi River High Floodplain (Bottomland) Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9640,NA,NA,Mississippi River Low Floodplain (Bottomland) Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9641,NA,NA,Mississippi River High Floodplain (Bottomland) Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9642,NA,NA,Mississippi River Low Floodplain (Bottomland) Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9652,NA,NA,North American Warm Desert Riparian Mesquite Bosque Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+NA,9667,NA,NA,North Pacific Hypermaritime Shrub Headland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9677,NA,NA,North-Central Interior and Appalachian Acidic Peatland Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9679,NA,NA,North-Central Interior Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9682,NA,NA,North-Central Interior Graminoid Alkaline Fen,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9683,NA,NA,North-Central Interior Wet Meadow,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9686,NA,NA,Northern Appalachian-Acadian Rocky Heath Outcrop Shrubland,Shrubland,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9695,NA,NA,Northern Atlantic Coastal Plain Riparian and Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9696,NA,NA,Northern Atlantic Coastal Plain Riparian and Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9707,NA,NA,Ozark-Ouachita Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9708,NA,NA,Ozark-Ouachita Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9722,NA,NA,South Florida Slough Gator Hole and Willow Head Woodland,Riparian,Tree,Open tree canopy,Mixed evergreen-deciduous open tree canopy
+NA,9723,NA,NA,South-Central Interior Large Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9724,NA,NA,South-Central Interior Small Stream and Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9725,NA,NA,South-Central Interior Large Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9726,NA,NA,South-Central Interior Small Stream and Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9730,NA,NA,Southeastern Great Plains Floodplain Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+NA,9731,NA,NA,Southeastern Great Plains Riparian Shrubland,Riparian,Shrub,Shrubland,Deciduous shrubland
+NA,9732,NA,NA,Southeastern Great Plains Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9733,NA,NA,Southeastern Great Plains Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9742,NA,NA,Southern Atlantic Coastal Plain Large River Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9743,NA,NA,Southern Atlantic Coastal Plain Large River Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9758,NA,NA,Southern Piedmont Large Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9759,NA,NA,Southern Piedmont Small Floodplain and Riparian Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9760,NA,NA,Southern Piedmont Large Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9761,NA,NA,Southern Piedmont Small Floodplain and Riparian Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9766,NA,NA,Tamaulipan Closed Depression Wetland Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9774,NA,NA,Texas Coast Fresh and Oligohaline Tidal Marsh Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9775,NA,NA,Texas Coast Salt and Brackish Tidal Marsh Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9782,NA,NA,West Gulf Coastal Plain Large River Floodplain Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9783,NA,NA,West Gulf Coastal Plain Large River Floodplain Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9784,NA,NA,West Gulf Coastal Plain Small Stream and River Shrubland,Riparian,Shrub,Shrubland,Mixed evergreen-deciduous shrubland
+NA,9785,NA,NA,West Gulf Coastal Plain Small Stream and River Herbaceous,Riparian,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9803,NA,NA,Caribbean & Mesoamerican Lowland Ruderal Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9811,NA,NA,North Pacific Maritime Coastal Sand Dune Ruderal Herb Vegetation,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9816,NA,NA,Northern & Central Plains Ruderal & Planted Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9817,NA,NA,Northern & Central Ruderal Meadow,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9823,NA,NA,Southeastern Ruderal Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9825,NA,NA,Great Plains Comanchian Ruderal Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9826,NA,NA,Southern Vancouverian Lowland Ruderal Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9828,NA,NA,Interior Western North American Temperate Ruderal Grassland,Exotic Herbaceous,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9829,NA,NA,Western North American Ruderal Wet Meadow & Marsh,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9848,NA,NA,Polynesian Ruderal Dry Scrub,Shrubland,Shrub,Shrubland,Evergreen shrubland
+NA,9850,NA,NA,Polynesian Ruderal Lowland Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9851,NA,NA,Polynesian Ruderal Herb Coastal Strand,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9852,NA,NA,Polynesian Ruderal Subalpine-Montane Grassland,Grassland,Herb,Herbaceous - grassland,Perennial graminoid
+NA,9993,NA,NA,West Gulf Coastal Plain Flatwoods Pond,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,9994,NA,NA,West Gulf Coastal Plain Herbaceous Seep and Bog,Riparian,Herb,Herbaceous - grassland,Perennial graminoid grassland
+NA,7969,NA,NA,Western Cool Temperate Aquaculture,Agricultural,Agriculture,Herbaceous - grassland,Annual Graminoid/Forb

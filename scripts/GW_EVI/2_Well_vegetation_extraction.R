@@ -15,7 +15,7 @@ crs(lc2023) <- "EPSG:5070"
 # bring in landfire metadata
 
 metadata <- read_csv("data/Landcover/Landfire_EVT_meta.csv") %>% 
-  select(VALUE, EVT_NAME)
+  select(VALUE, EVT_NAME, EVT_PHYS, EVT_LF, EVT_CLASS, EVT_SBCLS)
 # VALUE (matching alluvial_lcc lc2016 and lc2023 values)
 # is what we want to get the EVT_NAME for
 
@@ -30,7 +30,12 @@ extract_landfire <- function(veg_map_file, points_file){
   
   veg_map <- rast(veg_map_file)
   veg <- terra::extract(veg_map, points) %>% 
-    transmute(landcover = EVT_NAME) %>% 
+    transmute(landcover = EVT_NAME,
+              phys = EVT_PHYS,
+              lifeform = EVT_LF,
+              class = EVT_CLASS, 
+              subclass = EVT_SBCLS
+              ) %>% 
     cbind(as.data.frame(points))
   
   return(veg)
@@ -46,20 +51,25 @@ alluvial_points_raw <- st_read("data/Alluvial_well_locations.shp")
 alluvial_points <- vect(st_transform(alluvial_points_raw, crs = "EPSG:5070"))
 
 alluvial_veg_16 <- terra::extract(lc2016, alluvial_points) %>% 
-  transmute(lc2016 = EVT_NAME) %>% 
+  mutate(year = 2016) %>% 
   cbind(as.data.frame(alluvial_points))
 
 alluvial_veg_23 <- terra::extract(lc2023, alluvial_points) %>% 
-  transmute(lc2023 = EVT_NAME) %>% 
+  mutate(year= 2023) %>% 
   cbind(as.data.frame(alluvial_points))
 
-alluvial_veg <- full_join(alluvial_veg_16, alluvial_veg_23)
+alluvial_veg <- rbind(alluvial_veg_16, alluvial_veg_23) %>% 
+  rename(VALUE = EVT_NAME)
 
-alluvial_landfire <- alluvial_veg %>% 
-  mutate(lc2016 = metadata$EVT_NAME[match(lc2016, metadata$VALUE)],
-         lc2023 = metadata$EVT_NAME[match(lc2023, metadata$VALUE)])
+# use lc2016 data for looking at 2013 - 2019 data???
+alluvial_landfire <- full_join(alluvial_veg, metadata) %>% 
+  rename(landcover = EVT_NAME,
+         phys = EVT_PHYS,
+         lifeform = EVT_LF,
+         class = EVT_CLASS, 
+         subclass = EVT_SBCLS)
 
-alluvial_lcc <- filter(alluvial_landfire, lc2016 != lc2023)
+# write_csv(alluvial_landfire, "data/Landcover/USP_AlluvialWells_LF2016.csv")
 
 # ~~~~
 
