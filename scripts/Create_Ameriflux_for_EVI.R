@@ -2,7 +2,7 @@ library(tidyverse)
 library(sf)
 library(terra)
 # source("scripts/Process_PRISM.R")
-
+# ameriflux weather variables should be on Snow?
 # all_az_sites <- st_read("data/Flux/AZ_Ameriflux_sites.shp")
 # plot(all_az_sites)
 # 
