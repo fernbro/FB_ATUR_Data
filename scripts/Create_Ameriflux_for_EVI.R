@@ -53,4 +53,12 @@ flux_daily <- flux_data %>%
   group_by(site, date) %>% 
   summarise(ET = mean((ET*(24*60*60)), na.rm = T))
 
-write_csv(flux_daily, "data/Flux/Daily_Ameriflux_ET.csv") # averaged in mm daily
+flux_daily_w <- flux_data %>% 
+  mutate(date = date(DateTime)) %>% 
+  group_by(site, date) %>%     
+  summarise(ET = mean((ET*(24*60*60)), na.rm = T),   # et is just mean of daily values
+            vpdmax = max(VPD),                       # maximum vpd in each day
+            tmean = mean(TA, na.rm = T),             # mean temperature in each day
+            ppt = sum(P))                            # daily precipitation totals
+
+write_csv(flux_daily_w, "data/Flux/Daily_Ameriflux_ET_Weather.csv") # averaged in mm daily
