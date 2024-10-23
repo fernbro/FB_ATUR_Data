@@ -64,41 +64,68 @@ water_combo <- rbind(regional, alluvial) %>%
 
 # now to combine with these weird dates....
 
+evi_combo_test <- evi_combo %>% 
+  group_by(name) %>% 
+  arrange(date) %>%
+  mutate(interval = c(as.numeric(difftime(lead(date), date, units = "days"))))
               
-              expand_landsat_evi <- function(df) {
-                df <- df %>%
-                  arrange(date) %>%
-                  mutate(interval = c(as.numeric(difftime(lead(date), date, units = "days")))) # interval = length of composite pd
-                
-                expanded_df <- df %>%
-                  filter(!is.na(interval)) %>%
-                  rowwise() %>%
-                  do(data.frame(
-                    date = seq(.$date, by = "day", length.out = .$interval), 
-                    # the above code creates a sequence of days for each row starting with the 
-                    # row's date value and ending after the interval # of days
-                    evi = rep(.$evi, .$interval) 
-                    # repeat the daily value as many times as days in the interval
-                  ))
-                
-                # rowwise() and do() operate by binding the outputs of do() back into rows
-                
-                return(expanded_df)
-              }
+              # expand_landsat_evi <- function(df) {
+              #   df1 <- df %>%
+              #     arrange(date) %>%
+              #     mutate(interval = c(as.numeric(difftime(lead(date), date, units = "days")))) # interval = length of composite pd
+              #   
+              #   expanded_df <- df1 %>%
+              #     filter(!is.na(interval)) %>%
+              #     rowwise() %>%
+              #     do(data.frame(
+              #       date = seq(.$date, by = "day", length.out = .$interval),
+              #       # the above code creates a sequence of days for each row starting with the 
+              #       # row's date value and ending after the interval # of days
+              #       evi = rep(.$evi, .$interval) 
+              #       # repeat the daily value as many times as days in the interval
+              #     ))
+              #   
+              #   # rowwise() and do() operate by binding the outputs of do() back into rows
+              #   
+              #   return(expanded_df)
+              # }
+
+      expand_evi_dates <- function(df){
+        
+        df1 <- df %>% 
+          arrange(date) %>% 
+          mutate(interval = c(as.numeric(difftime(lead(date), date, units = "days"))))
+        
+        expanded <- df1 %>% 
+          filter(!is.na(interval)) %>% 
+          rowwise() %>% 
+          do(data.frame(
+            date = seq(.$date, by = "day", length.out = .$interval)
+          ))
+        
+      }
               
               evi_nested <- evi_combo %>% 
                 group_by(well, name) %>% 
+                arrange(date) %>% 
                 nest()
               
               evi_expand <- evi_nested %>% 
-                mutate(data = map(data, expand_landsat_evi)) %>% 
-                unnest(data)
+                mutate(data = map(data, expand_evi_dates)) %>%
+                unnest(data) %>% 
+                full_join(evi_combo)
+              
+              evi_interp <- evi_expand %>%
+                group_by(name) %>% 
+                arrange(date) %>% 
+                mutate(evi = na.approx(evi)) %>% 
+                ungroup()
               
         # And what if i linearly interpolate?
 
 # merge GW with "composite expanded" EVI
 
-combined_evi <- full_join(water_combo, evi_expand,
+combined_evi <- full_join(water_combo, evi_interp,
                           join_by(name, date, well))
 
 # yay!
