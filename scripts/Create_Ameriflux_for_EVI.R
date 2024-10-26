@@ -61,4 +61,6 @@ flux_daily_w <- flux_data %>%
             tmean = mean(TA, na.rm = T),             # mean temperature in each day
             ppt = sum(P))                            # daily precipitation totals
 
+hist(flux_daily_w$ppt)
+
 write_csv(flux_daily_w, "data/Flux/Daily_Ameriflux_ET_Weather.csv") # averaged in mm daily
