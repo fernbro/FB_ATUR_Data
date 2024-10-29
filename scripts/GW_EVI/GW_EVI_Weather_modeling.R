@@ -54,6 +54,7 @@ weather <- rbind(weather1, weather2) %>%
                                           align = "right")) %>% 
   ungroup()
 
+colors = c("red", "orange", "yellow", "green", "blue", "purple")
 ggplot(filter(weather, month(date) %in% c(4, 5, 6, 7, 8, 9)) %>%   
          mutate(well = case_when(well == "alluvial" ~ "Riparian",
                                  well == "regional" ~ "Upland")), 
@@ -102,13 +103,13 @@ ggplot(weather_ann_daily, aes(x = doy, y = mean_ppt,
   #                 ymax = mean_vpdmax + (sd_vpdmax)),
   #             alpha = 0.7)
 
-ggplot()+
-  geom_line(data = weather_ann_daily, linetype = 2,
-            aes(x = doy, y = mean_vpdmax, color = well))+
-  geom_line(data = evi_ann_daily, linetype = 1,
-            aes(x = doy, y = mean_evi*10, color = well))+
-  theme_light(base_size = 20)+
-  labs(x = "DOY", y = "Mean daily maximum VPD (kPa) / Mean daily EVI x 10")
+# ggplot()+
+#   geom_line(data = weather_ann_daily, linetype = 2,
+#             aes(x = doy, y = mean_vpdmax, color = well))+
+#   geom_line(data = evi_ann_daily, linetype = 1,
+#             aes(x = doy, y = mean_evi*10, color = well))+
+#   theme_light(base_size = 20)+
+#   labs(x = "DOY", y = "Mean daily maximum VPD (kPa) / Mean daily EVI x 10")
 
 monthly_weather <- weather %>% 
   mutate(month = month(date), year = year(date)) %>% 
@@ -214,8 +215,8 @@ z_scores <- read_csv("data/Processed/USP_GW_EVI_Z_10172024.csv") %>%
 alluvial_landfire <-read_csv("data/Landcover/USP_AlluvialWells_LF2016.csv") %>% 
   select(-year)
 
-weather_z <- full_join(z_scores, weather_annual_cumul) %>% 
-  filter(well == "alluvial")
+weather_z <- full_join(z_scores, weather_annual_cumul) %>%  # alluvial areas
+  filter(well == "alluvial") %>% 
   inner_join(wy_z) %>% 
   mutate(winter = case_when(wy_z < -0.5 ~ "dry",
                                 wy_z > 0.5 ~ "wet",
@@ -227,8 +228,17 @@ weather_z <- full_join(z_scores, weather_annual_cumul) %>%
 # log_sdr <- weather_z %>% 
 #   filter(sdr > 0) %>% 
 #   mutate(log_sdr = log(sdr))
+              
+              model_456 <- weather_z %>% 
+                filter(month(date) %in% c(4, 5, 6)) %>% 
+                filter(!is.na(evi_z))
+              
+              model_789 <- weather_z %>% 
+                filter(month(date) %in% c(7, 8, 9)) %>% 
+                filter(!is.na(evi_z)) %>% 
+                mutate(doy = yday(date))
   
-upland_z <- full_join(z_scores, weather_annual_cumul) %>% 
+upland_z <- full_join(z_scores, weather_annual_cumul) %>%  # upland areas
   filter(well == "regional") %>% 
   inner_join(wy_z) %>% 
   mutate(winter = case_when(wy_z < -0.5 ~ "dry",
@@ -239,7 +249,7 @@ upland_z <- full_join(z_scores, weather_annual_cumul) %>%
   full_join(alluvial_landfire, relationship = "many-to-many") %>% 
   filter(!is.na(evi_z), !is.na(sdr_30d))
   
-ggplot(weather_z, aes(x = vpdmax, y = evi_z))+
+ggplot(upland_z, aes(x = vpdmax, y = evi_z))+
   geom_point(aes(color = month))+
   theme_light(base_size = 20)+
   labs(x = "Maximum daily VPD (kPa)", y = "Daily EVI Z-score")
@@ -248,7 +258,7 @@ total_z <- rbind(upland_z, weather_z) %>%
   mutate(well = case_when(well == "alluvial" ~ "Riparian",
                           well == "regional" ~ "Upland"))
 
-ggplot(total_z, aes(x = sdr_30d, y = evi))+
+ggplot(filter(total_z), aes(x = sdr_30d, y = evi))+
   theme_light(base_size = 20)+
   labs(x = "30-day cumulative PPT:VPD (mm/kPa)", y = "EVI")+
   facet_wrap(~well)+
@@ -256,9 +266,35 @@ ggplot(total_z, aes(x = sdr_30d, y = evi))+
   geom_point(aes(color = month))+
   theme(strip.background = element_rect(color = "black", fill = "white"))+
   theme(strip.text = element_text(colour = 'black'))
-summary(lm(evi_z ~ cum_vpd_30d, upland_z))
 
-ggplot(total_ppt0, aes(x = cum_vpd_30d, y = evi))+
+# compare regressions
+upland_model <- lm(evi ~ sdr_30d, upland_z)
+riparian_model <- lm(evi ~ sdr_30d, weather_z)
+summary(upland_model) # R2 0.5779, slope 0.0046996
+summary(riparian_model) # R2 0.4368, slope 0.0072236 # less dependent on ppt but more responsive to declines in vpd
+
+upland_cor <- select(upland_z, evi, sdr_30d)
+cor.test(upland_z$evi, upland_z$sdr_30d) #0.76
+cor.test(weather_z$evi, weather_z$sdr_30d) # 0.66
+cor.test(upland_z$evi, upland_z$cum_vpd_30d) # -0.20
+cor.test(weather_z$evi, weather_z$cum_vpd_30d) # 0.11
+cor.test(upland_z$evi, upland_z$cum_ppt_30d) # 0.75
+cor.test(weather_z$evi, weather_z$cum_ppt_30d) # 0.67
+
+upland_0 <- filter(upland_z, cum_ppt_30d == 0)
+riparian_0 <- filter(weather_z, cum_ppt_30d == 0)
+
+cor.test(upland_0$evi, upland_0$cum_vpd_30d) # 0.113
+cor.test(riparian_0$evi, riparian_0$cum_vpd_30d) # 0.518
+cor.test(upland_0$evi, upland_0$vpdmax) # 0.14
+cor.test(riparian_0$evi, riparian_0$vpdmax) # 0.48
+cor.test(riparian_0$evi, riparian_0$level) # 0.04
+cor.test(upland_0$evi, upland_0$level) # -0.18
+
+plot(upland_model, 1)
+plot(riparian_model, 1)
+
+.ggplot(total_ppt0, aes(x = cum_vpd_30d, y = evi))+
   theme_light(base_size = 20)+
   labs(x = "Cumulative 30-day maximum VPD (kPa)", y = "EVI")+
   geom_smooth(aes(fill = well), method = "lm")+
@@ -381,16 +417,6 @@ r.squaredGLMM(modelz) # this model has the best conditional R2 (random intercept
 
 r.squaredGLMM(modely)
 r.squaredGLMM(modelx)
-
-
-model_456 <- weather_z %>% 
-  filter(month(date) %in% c(4, 5, 6)) %>% 
-  filter(!is.na(evi_z))
-
-model_789 <- weather_z %>% 
-  filter(month(date) %in% c(7, 8, 9)) %>% 
-  filter(!is.na(evi_z)) %>% 
-  mutate(doy = yday(date))
 
 pearson_reaches <- weather_z %>% 
   filter(reach != 0, well == "alluvial") %>% 

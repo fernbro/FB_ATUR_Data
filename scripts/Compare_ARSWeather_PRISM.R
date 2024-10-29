@@ -42,18 +42,68 @@ rain_data <- rain_data1 %>%
   filter((gage == "rg1" & year >= 2000) | (gage == "rg400" & year >= 2002) | 
            (gage == "rg417" & year >= 2007) | (gage == "rg418" & year >= 2007))
 # documentation of these dates: https://www.tucson.ars.ag.gov/dap/dap_docs/precipitation.html
+
+
+
 # need to inerpolate with zeroes to have same structure as PRISM/total comparison
 # especially seeing where this dataset reads zero and prism doesn't!
-
-rain_data_int <- rain_data %>% 
   
+interpolate_rg <- function(df) {
+    df <- df %>%
+      arrange(date) %>%
+      mutate(interval = c(as.numeric(difftime(lead(date), date, units = "days")))) # interval = length of composite pd
+    
+    expanded_df <- df %>%
+      filter(!is.na(interval)) %>%
+      rowwise() %>%     # rowwise() and do() operate by binding the outputs of do() back into rows
+      do(data.frame(
+        date = seq(.$date, by = "day", length.out = .$interval)
+        # the above code creates a sequence of days for each row starting with the 
+      ))
 
+    return(expanded_df)
+}
 
-ggplot(rain_data, aes(x = date, y = ppt))+
+rain_nested <- rain_data %>%
+  group_by(gage) %>%
+  nest()
+
+rain_interp <- rain_nested %>%
+  mutate(data = map(data, interpolate_rg)) %>%
+  # map the interpolation function to each site (called "data" by the nest fxn) in the collection we created above
+  unnest(data) %>%  # now unnest to make one dataframe again with its site column
+  full_join(rain_data, join_by(gage, date)) %>% # now bring back data to put observations in where they exist...
+  mutate(ppt = case_when(is.na(ppt) ~ 0,
+                         !is.na(ppt) ~ ppt)) %>% 
+  select(gage, date, ppt)
+
+ggplot(filter(rain_interp, year(date) %in% c(2020, 2021)), aes(x = date, y = ppt))+
   geom_line(aes(group = gage, color = gage))+
   theme_light()+
-  facet_wrap(~gage, scales = "free_x")+
+  labs(x = "Date", y = "Daily precipitation (mm)")+
+  facet_wrap(~gage + year(date), scales = "free_x")+
   theme(strip.background = element_rect(color = "black", fill = "white"))+
   theme(strip.text = element_text(colour = 'black'))
 
+# let's aggregate to some time periods
+
+ars_monthly <- rain_interp %>% 
+  mutate(year = year(date), month = month(date)) %>% 
+  group_by(gage, year, month) %>%
+  summarise(ppt = sum(ppt))
+
+ars_yearly <- rain_interp %>%
+  mutate(year = year(date)) %>% 
+  filter(year != 2024) %>% 
+  group_by(gage, year) %>%
+  summarise(ppt = sum(ppt))
+
+ggplot(ars_yearly, aes(x = year, y = ppt))+
+  geom_line()+
+  geom_hline(yintercept = mean(ars_yearly$ppt), color = "red")+
+  facet_wrap(~gage)+
+  theme_light()+
+  theme(strip.background = element_rect(color = "black", fill = "white"))+
+  theme(strip.text = element_text(colour = 'black'))
+# currently: extracting PRISM to compare explicitly with these gauges!
 
