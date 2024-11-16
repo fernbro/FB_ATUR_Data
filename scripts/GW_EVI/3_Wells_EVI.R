@@ -69,6 +69,13 @@ library(viridis)
               # evi_combo <- rbind(evi, evi2) # combine now that they're labeled
               
               evi_mod09 <- rbind(evi_mod_a, evi_mod_r)
+              
+              evi_ann_daily <- evi_mod09 %>% 
+                mutate(doy = yday(date)) %>% 
+                group_by(well, doy) %>% 
+                summarise(n = n(), mean_evi = mean(evi, na.rm = T), sd_evi = sd(evi, na.rm = T)) %>% 
+                mutate(well = case_when(well == "alluvial" ~ "Riparian",
+                                        well == "regional" ~ "Upland"))
 
 
 #plot of evi, time series for each well (colored by its aquifer type)
@@ -188,9 +195,7 @@ stats <- full_join(evi_stats, water_stats)
 #   ungroup()
 
 z_scores <- full_join(combined_evi, stats) %>% 
-  filter(!is.na(evi), !is.na(level),
-         month(date) %in% c(4, 5, 6, 7, 8, 9)
-         ) %>% 
+  filter(!is.na(evi), !is.na(level)) %>% 
   mutate(evi_z = (evi - evi_mean)/evi_sd,
          dtg_z = (level - dtg_mean)/dtg_sd,
          month = month(date)) %>% 
@@ -207,8 +212,7 @@ z_scores <- full_join(combined_evi, stats) %>%
 #   ungroup()
 
 # let's get a bunch of explanatory variables going
-z_model <- filter(z_scores,
-                  month(date) %in% c(4, 5, 6, 7, 8, 9)) %>% 
+z_model <- filter(z_scores) %>% 
   full_join(wells_by_reach) %>% 
   mutate(year = year(date)) %>%
   # mutate(water_year = case_when(month(date) >= 11 ~ year(date) + 1,
@@ -223,7 +227,7 @@ z_model <- filter(z_scores,
 
 z_model$method <- "obs relative to whole year - MOD09 daily EVI"
 
-# write_csv(z_model, "data/Processed/USP_GW_EVI_Z_10172024.csv")
+#write_csv(z_model, "data/Processed/USP_GW_EVI_Z_FullYear_10312024.csv")
 
 wells_by_reach <- read_csv("data/SPRNCA/Wells_Reaches.csv")
 # make Z_SCORES plot
@@ -624,7 +628,7 @@ evi_annual <- evi_mod09 %>%
 evi_ann_daily <- evi_mod09 %>% 
   mutate(doy = yday(date)) %>% 
   group_by(well, doy) %>% 
-  summarise(mean_evi = mean(evi, na.rm = T), sd_evi = sd(evi, na.rm = T)) %>% 
+  summarise(n = n(), mean_evi = mean(evi, na.rm = T), sd_evi = sd(evi, na.rm = T)) %>% 
   mutate(well = case_when(well == "alluvial" ~ "Riparian",
                           well == "regional" ~ "Upland"))
 

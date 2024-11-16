@@ -7,8 +7,11 @@ evi_raw <- read_csv('data/MOD09GA_EVI_Flux.csv')
 prism_raw <- read_csv('data/AZ_Flux_PRISM.csv')
 
 evi <- evi_raw %>% 
-  transmute(date = make_date(year = year, month = month, day = day),
-            site = substr(name, 4, 6), evi = EVI)
+  rename(date_string = `system:index`) %>% 
+  transmute(date = make_date(year = substr(date_string, 1, 4), 
+                             month = substr(date_string, 6, 7), 
+                             day = substr(date_string, 9, 10)),
+            site = substr(name, 4, 6), evi = evi)
 
 prism <- prism_raw %>% 
   mutate(site = substr(name, 4, 6),
@@ -41,19 +44,21 @@ monthly <- evi_flux %>%
             ppt = sum(ppt), tmean = mean(tmean, na.rm = T),
             vpdmax = max(vpdmax))
 
-ggplot(filter(monthly, site %in% c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs')), 
+san_pedro <- c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs')
+
+ggplot(filter(monthly, site %in% san_pedro), 
        aes(x = evi, y = ET))+
-  geom_point(size = 0.9, aes(color = site))+
+  geom_point(size = 2, alpha = 0.8, aes(color = site))+
   geom_smooth(se = T, method = "lm", linewidth = 1)+
-  ggtitle("Monthly ET vs. average EVI")+
-  xlab("EVI")+
-  ylab("ET (mm/day)")+
+  xlab("Monthly average EVI")+
+  ylab("Monthly average ET rate (mm/day)")+
+  labs(color = "Site")+
   theme_light(base_size = 20)+
   #facet_wrap(~site)+
   theme(strip.background = element_rect(color = "black", fill = "white"))+
   theme(strip.text = element_text(colour = 'black'))
 
-summary(lm(ET ~ evi, data = filter(monthly, site %in% c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs'))))
+summary(lm(ET ~ evi, data = filter(monthly, site %in% san_pedro)))
 #ggsave("figures/Monthly_ETvEVI_USPFlux.jpg", last_plot(), width = 5, height = 5, units = "in")
 
 ggplot(monthly, aes(x = evi, y = ET))+

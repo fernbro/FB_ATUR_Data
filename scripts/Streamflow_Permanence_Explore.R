@@ -83,7 +83,7 @@ summary(lm(percent_flowing ~ year, filter(stream_perm_raw, site == "Fairbank")))
 
 # 2007 to 2013! woo!
 
-evi_dtg_z <- read_csv("data/Processed/USP_GW_EVI_Z.csv")
+evi_dtg_z <- read_csv("data/USP_GW_EVI_Z_FullYear_10312024.csv")
 
 stream_perm_all <- stream_perm_raw %>% 
   filter(no_data <= 100) %>% 
