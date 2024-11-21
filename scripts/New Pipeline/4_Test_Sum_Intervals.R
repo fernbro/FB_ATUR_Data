@@ -21,16 +21,16 @@ ppt_cor <- weather_evi %>%
                           Parameter2 == "ppt_90d" ~ 90
   ))
 
-# ggplot(ppt_cor, aes(x = days, y = r, 
-#                        group = Group))+
-#   geom_point(aes(color = Group))+
-#   geom_errorbar(aes(ymin = CI_low, ymax = CI_high), width = 0.3)+
-#   geom_line(linetype = 2)+
-#   theme_light()
+ggplot(ppt_cor, aes(x = days, y = r,
+                       group = Group))+
+  geom_point(aes(color = Group))+
+  geom_errorbar(aes(ymin = CI_low, ymax = CI_high), width = 0.3)+
+  geom_line(linetype = 2)+
+  theme_light()
 # 
 # ggplot(weather_evi, aes(x = ppt_30d, y = evi))+
 #   geom_point()
-# summary(lm(evi ~ ppt_60d*well, weather_evi)) # highest R2 of interactions and day types
+summary(lm(evi ~ ppt_30d, subset(weather_evi, well == "alluvial"))) # highest R2 of interactions and day types
 
 vpd_cor <- weather_evi %>% 
   select(well, evi, vpdmax, vpd_5d:vpd_120d) %>% 

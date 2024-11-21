@@ -23,10 +23,11 @@ evi_flux <- full_join(flux, evi) %>%
 # %>% 
 #   filter(ET >= 0, !is.na(ET), !is.na(evi), !is.na(vpdmax)) # filter for NA values and <0 ET
 
-ggplot(filter(evi_flux), aes(x = evi, y = ET))+
+ggplot(filter(evi_flux, site %in% san_pedro), aes(x = evi, y = ET))+
   geom_point(size = 0.2)+
   geom_smooth(se = F, method = "lm")+
   facet_wrap(~site)
+summary(lm(ET ~ evi, filter(evi_flux, site %in% san_pedro))) # R2 55.9%
 
 model <- lmer(ET ~ evi + tmean + ppt + (1 + evi | site), evi_flux)
  # ppt on any given day may not tell much.
