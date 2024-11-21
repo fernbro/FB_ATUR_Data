@@ -6,7 +6,8 @@ weather <- read_csv("data/Processed/Weather_Cumulative.csv") %>%
 evi <- read_csv("data/Processed/USP_EVI_Z_11132024.csv") %>% 
   mutate(date = date(date))
 
-# sites <- select(evi, name, well)
+sites <- select(evi, name, well) %>% 
+  distinct()
 # write_csv(sites, "data/Wells_Not_Masked.csv")
 
 weather_evi <- full_join(weather, evi) %>% 
