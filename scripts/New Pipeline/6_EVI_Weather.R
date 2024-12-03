@@ -6,7 +6,8 @@ weather <- read_csv("data/Processed/Weather_Cumulative.csv") %>%
 evi <- read_csv("data/Processed/USP_EVI_Z_11132024.csv") %>% 
   mutate(date = date(date))
 
-sites <- select(evi, name, well) %>% 
+sites <- filter(evi, !is.na(evi)) %>% 
+  select(name, well) %>% 
   distinct()
 # write_csv(sites, "data/Wells_Not_Masked.csv")
 
@@ -20,7 +21,10 @@ weather_evi <- full_join(weather, evi) %>%
 
 well_colors <- c("slateblue", "darkgoldenrod3")
 
+# add shaded bar from X1 to X2
 ggplot()+
+  geom_rect(aes(xmin = 182, xmax = 273, ymin = -Inf, ymax = Inf),
+            fill = "lightgray", alpha = 0.5)+
   geom_ribbon(data = weather_ann_daily, alpha = 0.3,
               aes(fill = well, x = doy, y = mean_vpdmax,
                   ymin = mean_vpdmax - sd_vpdmax,
@@ -34,6 +38,8 @@ ggplot()+
   labs(x = "DOY", y = "Mean daily maximum VPD (kPa)", fill = "Well", color = "Well")
 # ggsave("figures/vpd_anncycle.jpg", last_plot(), height = 5, width = 7, units = "in")
 ggplot()+
+  geom_rect(aes(xmin = 182, xmax = 273, ymin = -Inf, ymax = Inf),
+            fill = "lightgray", alpha = 0.5)+
   geom_ribbon(data = evi_ann_daily, alpha = 0.3,
               aes(fill = well, x = doy, y = mean_evi,
                   ymin = (mean_evi - sd_evi),
@@ -57,6 +63,7 @@ rsq <- data.frame(
 )
 names(rsq) <- c("well", "var", "time")
 
+summary(lm(evi ~ cum_ppt_30d, filter(weather_evi, well == "Upland", month %in% c(7, 8, 9))))
 rsq$r_sq <- c(34.2, 25.6, 29, 28.7,
               35, 8, 29.4, 30)
 
@@ -78,21 +85,35 @@ ggplot(rsq, aes(x = time,
   theme(legend.position = "none")
 
 
-summary(lm(evi ~ cum_vpd_30d, subset(weather_evi, well == "Riparian" 
-                                     & month %in% c(7, 8, 9))))
-
+summary(lm(evi ~ cum_ppt_30d, subset(weather_evi, well == "Upland" 
+                                     )))
+# & month %in% c(7, 8, 9)
 
 ggplot(weather_evi, aes(x = cum_ppt_30d, y = evi))+
   theme_light(base_size = 20)+
   labs(x = "30-day cumulative PPT (mm)", y = "EVI", color = "Month")+
   facet_wrap(~well)+
-  geom_smooth(method = "lm", color = "gray80")+
   scale_colour_gradient2(low = "red", mid = "purple", high = "blue3",
                         midpoint = 6)+
   geom_point(alpha = 0.5, aes(color = month), pch = 1)+
+  geom_smooth(method = "lm", color = "gray60")+
   theme(strip.background = element_rect(color = "black", fill = "white"))+
   theme(strip.text = element_text(colour = 'black'))
 
+ggplot(weather_evi, aes(x = cum_vpd_30d, y = evi))+
+  theme_light(base_size = 20)+
+  labs(x = "30-day cumulative max VPD (kPa)", y = "EVI", color = "Month")+
+  facet_wrap(~well)+
+  scale_colour_gradient2(low = "red", mid = "purple", high = "blue3",
+                         midpoint = 6)+
+  geom_point(alpha = 0.5, aes(color = month), pch = 1)+
+  geom_smooth(method = "lm", color = "gray60")+
+  theme(strip.background = element_rect(color = "black", fill = "white"))+
+  theme(strip.text = element_text(colour = 'black'))
+
+
+
+#####################
 ggplot(weather_evi, aes(x = cum_ppt_30d, y = evi, color = well))+
   theme_minimal(base_size = 40)+
   labs(x = "30-day cumulative PPT (mm)", y = "EVI", color = "Month")+

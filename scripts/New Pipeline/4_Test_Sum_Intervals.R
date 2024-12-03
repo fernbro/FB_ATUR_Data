@@ -30,7 +30,7 @@ ggplot(ppt_cor, aes(x = days, y = r,
 # 
 # ggplot(weather_evi, aes(x = ppt_30d, y = evi))+
 #   geom_point()
-summary(lm(evi ~ ppt_30d, subset(weather_evi, well == "alluvial"))) # highest R2 of interactions and day types
+summary(lm(evi ~ ppt_60d, subset(weather_evi, well == "alluvial"))) # highest R2 of interactions and day types
 
 vpd_cor <- weather_evi %>% 
   select(well, evi, vpdmax, vpd_5d:vpd_120d) %>% 
