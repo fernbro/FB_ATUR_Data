@@ -1,6 +1,26 @@
 library(tidyverse)
+library(trend)
 
 weather <- read_csv("data/Processed/Weather_Cumulative.csv")
+
+smk_mod <- function(x, ...) {
+  result <- smk.test(x, ...)
+  
+  tibble(
+    p.value = result$p.value,
+    statistic = result$statistic
+  )
+}
+
+ppt_smk <- weather %>%
+  arrange(date) %>% 
+  group_by(well, name) %>%
+  group_modify(~ smk_mod(ts(.x$ppt, frequency = 365)))
+
+vpdmax_smk <- weather %>%
+  arrange(date) %>% 
+  group_by(well, name) %>%
+  group_modify(~ smk_mod(ts(.x$vpdmax, frequency = 365)))
 
 annuals <- weather %>%
   mutate(year = year(date)) %>% 

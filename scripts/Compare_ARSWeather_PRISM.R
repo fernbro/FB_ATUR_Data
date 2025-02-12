@@ -92,20 +92,29 @@ rain_interp <- rain_nested %>%
   select(gage, date, ppt_gage)
 
 # combine interpolated (with zeroes) ARS gage to PRISM
-library(RcppRoll)
+
 ars_both <- full_join(ars_prism, rain_interp) %>%
   filter(!is.na(ppt_gage)) %>% 
-  group_by(gage) %>% 
-  arrange(date) %>% 
-  mutate(cum_prism = RcppRoll::roll_sum(ppt_prism, n = 30, fill = "NA",
-                                        align = "right"),
-         cum_gage = RcppRoll::roll_sum(ppt_gage, n = 30, fill = "NA",
-                                        align = "right")) %>% 
-  ungroup()
+  mutate(year = year(date), month = month(date)) %>% 
+  group_by(gage, year, month) %>%
+  summarise(ppt_prism = sum(ppt_prism),
+            ppt_gage = sum(ppt_gage))
+
+# rolling sums:
+# library(RcppRoll)
+# ars_both <- full_join(ars_prism, rain_interp) %>%
+#   filter(!is.na(ppt_gage)) %>% 
+#   group_by(gage) %>% 
+#   arrange(date) %>% 
+#   mutate(cum_prism = RcppRoll::roll_sum(ppt_prism, n = 30, fill = "NA",
+#                                         align = "right"),
+#          cum_gage = RcppRoll::roll_sum(ppt_gage, n = 30, fill = "NA",
+#                                         align = "right")) %>% 
+#   ungroup()
 # there should be no NAs in the ARS data... once they're turned on
 
 # after running Compare_FluxWeather_PRISM.R:
-# source("scripts/Compare_FluxWeather_PRISM.R")
+source("scripts/Compare_FluxWeather_PRISM.R")
 
 ars_both <- ars_both %>% 
   mutate(gage = case_when(gage == "rg1" ~ "ARS 1",

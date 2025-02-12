@@ -1,4 +1,5 @@
 library(tidyverse)
+library(broom)
 
 # function for calculating well temporal coverage:
 
@@ -35,17 +36,23 @@ alluvial <- alluv_levels %>%
             level = lev_va) %>%
   mutate(well = "Riparian")
 
-ggplot(filter(alluvial, year(date) %in% seq(2000,2024,by=1)), 
-       aes(x = date, y = level, group = name))+
-  geom_point()+
-  geom_smooth(method = "lm")+
-  facet_wrap(~month(date))
-# looks to be an increase of a mean of about 0.85 m per 24 years
-# 0.035 m per year (mean decline of 35 mm per year!!!)
-# well trends are variable...
-
-alluv_covg <- well_covg(alluvial)
-
+# ggplot(filter(alluvial, year(date) %in% seq(2000,2024,by=1)), 
+#        aes(x = date, y = level, group = name))+
+# #   geom_point()+
+# #   geom_smooth(method = "lm")
+# # looks to be an increase of a mean of about 0.85 m per 24 years
+# # 0.035 m per year (mean decline of 35 mm per year!!!)
+# # well trends are variable...
+# 
+# alluv_covg <- well_covg(alluvial)
+# 
+# alluv_trends <- alluvial %>% 
+#   filter(year(date) %in% seq(2000,2024,by=1)) %>% 
+#   group_by(name) %>% 
+#   reframe(tidy(lm(level ~ year(date)))) %>% 
+#   filter(term == "year(date)", p.value <= 0.05)
+# mean(alluv_trends$estimate) # increase in DTG of about 0.02 ft/yr (fifth of an inch)
+# 0.0199 if only keeping significant trends
 # Rest of the wells (Upland area; Regional aquifer):
 
 regional_levels <- read_csv("data/Groundwater_levels_below_land_surface.csv")
@@ -58,18 +65,34 @@ regional <- regional_levels %>%
             level = lev_va) %>% 
   mutate(well = "Upland") %>% 
   filter(year(date) <= 2024)
-# combine groundwater measurements
+
+reg_trends <- regional %>% 
+  filter(year(date) %in% seq(2000,2024,by=1)) %>% 
+  group_by(name) %>% 
+  reframe(tidy(lm(level ~ year(date)))) %>% 
+  filter(term == "year(date)", p.value <= 0.05)
+# "for wells with statistically significant (p <= 0.05) trends over time (2000 to 2024),
+# rates of DTG change ranged from x to y"
+
+min(reg_trends$estimate)
+max(reg_trends$estimate)
+median(reg_trends$estimate) # but what do i do with confidence intervals?
+mean(reg_trends$estimate) # increase in DTG of about 0.39 ft/year (~4.7 inches) (am i supposed to avg the CI bounds?)
+# 0.512 ft/year if only keeping significant trends
+# maybe an average is not the parameter that i'm interested in
+# give range of estimates and range of confidence intervals???
 
 ggplot(filter(regional, year(date) %in% seq(2000,2024,by=1)), 
        aes(x = date, y = level, group = name))+
   geom_point()+
   geom_smooth(method = "lm")+
-  facet_wrap(~month(date))
+  facet_wrap(~name, scales = "free_y")
 # should average all of the rates calculated for each well (name)
 # histogram of slope trends
 
 
 ## combine ##
+# combine groundwater measurements
 
 water_combo <- rbind(regional, alluvial) %>% 
   select(date, name, well, level) %>% 
@@ -89,6 +112,12 @@ water_stats <- water_combo %>%
 
 groundwater <- full_join(water_combo, water_stats) %>% 
   mutate(dtg_z = (level - dtg_mean)/dtg_sd)
+
+ggplot(filter(groundwater, well == "Riparian"), 
+       aes(x = date, y = level))+
+  geom_point()+
+  geom_line()+
+  facet_wrap(~name, scales = "free")
 
 #groundwater$method <- "seasonal stats"
 
