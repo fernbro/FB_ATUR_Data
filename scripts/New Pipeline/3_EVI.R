@@ -114,13 +114,20 @@ z_model <- full_join(evi_mod09, evi_stats) %>%
 z_model$method <- "obs relative to seasons - MOD09 daily EVI"
 #monthly_z$method <- "obs relative to month - MOD09 daily EVI"
 
-write_csv(z_model, "data/Processed/USP_EVI_Z_11132024.csv")
+# write_csv(z_model, "data/Processed/USP_EVI_Z_11132024.csv")
 # write_csv(z_model, "data/Processed/USP_EVI_Z_Seasonal_01032025.csv")
 # write_csv(monthly_z, "data/Processed/USP_EVI_Z_Monthly_12132024.csv")
 
 
-
 # VISUALIZE
+z_model$szn <- factor(z_model$szn, levels = c("JFM", "AMJ", "JAS", "OND"))
+z_model$well <- ifelse(z_model$well == "alluvial", "Riparian", "Upland")
+
+
+ggplot(z_model, aes(x = szn, y = evi_sd/evi_mean, color = well))+
+  geom_boxplot()+
+  theme_light()+
+  labs(x = "Season", y = "EVI CV", color = "Well location")
 
 
 ggplot(filter(z_model, well == "regional", 

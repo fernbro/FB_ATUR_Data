@@ -2,11 +2,16 @@ library(tidyverse)
 library(broom)
 # install.packages("ggnewscale")
 library(ggnewscale)
+library(lme4)
+library(MuMIn)
+library(DescTools)
 
 weather <- read_csv("data/Processed/Weather_Cumulative.csv") %>% 
   mutate(date = date(date))
 evi <- read_csv("data/Processed/USP_EVI_Z_Seasonal_01032025.csv") %>% 
   mutate(date = date(date))
+
+well_colors <- c("slateblue1", "darkgoldenrod3")
 
 # # name == "D-22-22 17BDD2 [COTUWD]"
 # ggplot(filter(evi, well == "alluvial"), aes(x = date, y = evi))+
@@ -29,9 +34,104 @@ weather_evi_monthly <- weather_evi %>%
   mutate(month = month(date), year = year(date)) %>% 
   group_by(well, name, month, year) %>% 
   summarise(evi = mean(evi, na.rm = T),
-            ppt = sum(ppt), vpdmax = max(vpdmax))
+            ppt = sum(ppt), vpd_max = max(vpdmax),
+            vpdmean = mean(vpdmax, na.rm = T))
 
+
+ppt_cor_monthly_full <- weather_evi_monthly %>% 
+  filter(!is.na(evi), !is.na(ppt)) %>% 
+  group_by(well, month) %>% 
+  dplyr::summarise(n = n(),
+            cor = (cor.test(evi, ppt, use = "pairwise.complete.obs", conf.level = 0.95))$estimate,
+            ci_lo = (cor.test(evi, ppt, use = "pairwise.complete.obs", conf.level = 0.95))$conf.int[1],
+            ci_up = (cor.test(evi, ppt, use = "pairwise.complete.obs", conf.level = 0.95))$conf.int[2]
+  ) %>% 
+  mutate(var = "ppt")
+
+vpd_cor_monthly_full <- weather_evi_monthly %>% 
+  filter(!is.na(evi), !is.na(vpd_max)) %>% 
+  group_by(well, month) %>% 
+  summarise(n = n(),
+            cor = (cor.test(evi, vpd_max, use = "pairwise.complete.obs", conf.level = 0.95))$estimate,
+            ci_lo = (cor.test(evi, vpd_max, use = "pairwise.complete.obs", conf.level = 0.95))$conf.int[1],
+            ci_up = (cor.test(evi, vpd_max, use = "pairwise.complete.obs", conf.level = 0.95))$conf.int[2]
+  ) %>% 
+  mutate(var = "vpd")
+
+ggplot(ppt_cor_monthly_full, aes(x = as.factor(month), y = cor))+
+  geom_line(aes(group = well), linetype = 2)+
+  geom_errorbar(aes(ymin = ci_lo, ymax = ci_up), 
+                alpha = 0.5, width = 0.2)+
+  geom_point(aes(color = well), size = 6)+
+  scale_color_manual(values = well_colors)+
+  theme_light(base_size = 30)+
+  geom_hline(yintercept = 0, color = "gray60")+
+  labs(x = "Month", y = "Pearson's correlation", 
+       color = "Well location")
+
+ggplot(vpd_cor_monthly_full, aes(x = as.factor(month), y = cor))+
+  geom_line(aes(group = well), linetype = 2)+
+  geom_errorbar(aes(ymin = ci_lo, ymax = ci_up), 
+                alpha = 0.5, width = 0.2)+
+  geom_point(aes(color = well), size = 6)+
+  scale_color_manual(values = well_colors)+
+  theme_light(base_size = 30)+
+  geom_hline(yintercept = 0, color = "gray60")+
+  labs(x = "Month", y = "Pearson's correlation", 
+       color = "Well location")
+
+combo_monthly_cor <- rbind(ppt_cor_monthly_full, vpd_cor_monthly_full) %>% 
+  pivot_wider(names_from = var, values_from = c("cor", "ci_lo", "ci_up"))
+
+ggplot(data = combo_monthly_cor, aes(x = cor_ppt, y = cor_vpd, color = well))+
+  theme_light(base_size = 20)+
+  labs(x = "PPT-EVI correlation", y = "VPD-EVI correlation", color = "Well location")+
+  geom_smooth(size = 0, alpha = 0.2, method = "lm")+
+  stat_smooth(geom = "line", method = "lm")+
+  geom_point(size = 4)+
+  scale_color_manual(values = well_colors)
+
+cor_ppt_avgs <- full_join(combo_monthly_cor, monthly_ppt) %>% 
+  select(-n) %>% 
+  full_join(monthly_cycles)
+  
+ggplot(data = combo_monthly_cor, aes(x = well, y = (cor_ppt)))+
+  geom_boxplot()
+ggplot(data = combo_monthly_cor, aes(x = well, y = (cor_vpd)))+
+  geom_boxplot()
+ggplot(data = arrange(cor_ppt_avgs, month), aes(x = mean_ppt, y = cor_vpd, label = month))+
+  labs(x = "Mean precipitation (mm)", y = "EVI - max VPD correlation")+
+  geom_point(alpha = 0.5)+
+  theme_light(base_size = 20)+
+  geom_text(check_overlap = T, nudge_y = 0.02)+
+  geom_path(alpha = 0.3)+
+  facet_wrap(~well)+
+  geom_smooth(aes(group = well), method = "lm")
+
+rip_cor <- filter(cor_ppt_avgs, well == "Riparian")
+up_cor <- filter(cor_ppt_avgs, well == "Upland")
+
+cor.test(up_cor$cor_vpd, up_cor$mean_vpd) # -0.658! (95% CI = -0.839 to -0.347)
+
+
+anova(lm(cor_vpd ~ mean_ppt, data = cor_ppt_avgs))
+# monthly mean precipitation explained 40% of the variability in monthly VPD correlation.
+# with random effect of well (riparian v. upland), explains 52% of variability
+# vpd did not drive the PPT correlations (10% var explains w/ the mixed model)
+
+# aggregated to monsoon?
+
+# monsoon <- weather_evi %>%
+#   filter(szn == "JAS") %>% 
+#   mutate(year = year(date)) %>% 
+#   group_by(well, name, year) %>% 
+#   summarise(evi = mean(evi, na.rm = T),
+#             ppt = sum(ppt), vpd_max = max(vpdmax))
+
+winter_data <- filter(weather_evi_monthly, month %in% c(1, 2, 3))
+spring_data <- filter(weather_evi_monthly, month %in% c(4, 5, 6))
 monsoon_data <- filter(weather_evi_monthly, month %in% c(7, 8, 9))
+fall_data <- filter(weather_evi_monthly, month %in% c(10, 11, 12))
 
 # weather %>% 
 #   group_by(well) %>% 
@@ -44,14 +144,30 @@ monsoon_data <- filter(weather_evi_monthly, month %in% c(7, 8, 9))
 #   filter(!is.na(cum_ppt_30d)) %>% 
 #   summarise(cor(cum_vpd_30d, cum_ppt_30d))
 # VPD - PPT cor during entire period ranges 0.076 in uplands, 0.101 in riparian
+ggplot(filter(monsoon), aes(x = (vpd_max), y = evi, group = interaction(well)))+
+  theme_light(base_size = 20)+
+  labs(x = "30-day cumulative PPT (mm)", y = "EVI", 
+        color = "Well location")+
+  geom_point(alpha = 0.2, aes(shape = well))+
+  scale_shape_manual(values = c(21, 22), guide = "none")+
+  geom_smooth(method = "lm", aes(color = well), linewidth = 2)+
+  scale_color_manual(values = well_colors)+
+  guides(fill = guide_legend(override.aes=list(shape = 21, alpha = 1)))
+
+# total monsoon season precipitation relationship looks good......
+summary(lm(evi ~ vpd_max, filter(monsoon, well == "Riparian"))) # R2 still low lol
+
+
 
 # Final figures (6, 7):
 
 well_colors <- c("slateblue1", "darkgoldenrod3")
 month_colors <-  c("red", "purple", "blue3")
 names(month_colors) <- factor(c(7, 8, 9))
+monsoon_colors <-  c("red", "purple", "blue3")
+names(monsoon_colors) <- factor(c(7, 8, 9))
 
-ggplot(monsoon_data, aes(x = (ppt), y = evi, group = well))+
+ggplot(filter(monsoon_data), aes(x = (ppt), y = evi, group = well))+
   theme_light(base_size = 20)+
   labs(x = "30-day cumulative PPT (mm)", y = "EVI", 
        fill = "Month", color = "Well location")+
@@ -60,6 +176,18 @@ ggplot(monsoon_data, aes(x = (ppt), y = evi, group = well))+
   scale_shape_manual(values = c(21, 22), guide = "none")+
   geom_smooth(method = "lm", aes(color = well), linewidth = 2)+
   scale_color_manual(values = well_colors)+
+  guides(fill = guide_legend(override.aes=list(shape = 21, alpha = 1)))
+
+ggplot(filter(fall_data), aes(x = (ppt), y = evi, group = well))+
+  theme_light(base_size = 20)+
+  ylim(c(0,0.6))+
+  labs(x = "Monthly PPT (mm)", y = "EVI", 
+       fill = "Month", color = "Well location")+
+  geom_point(alpha = 0.2, aes(fill = factor(month), shape = well))+
+  #scale_fill_manual(values = month_colors, aesthetics = "fill", name = "Month")+
+  scale_shape_manual(values = c(21, 22), guide = "none")+
+  geom_smooth(method = "lm", aes(color = well), linewidth = 2)+
+  # scale_color_manual(values = well_colors)+
   guides(fill = guide_legend(override.aes=list(shape = 21, alpha = 1)))
 
 ggplot(monsoon_data,
@@ -101,7 +229,7 @@ ggplot(weather_evi,
 
 # Monthly:
 ggplot(weather_evi_monthly, 
-       aes(x = (ppt), y = evi, group = well))+
+       aes(x = (ppt), y = evi_mean, group = well))+
   theme_light(base_size = 26)+
   labs(x = "Monthly PPT (mm)", y = "EVI", 
        fill = "Month", color = "Well location")+
@@ -122,9 +250,12 @@ ggplot(monsoon_data,
   geom_smooth(method = "lm", aes(color = well), linewidth = 2)+
   scale_color_manual(values = well_colors)+
   guides(fill = guide_legend(override.aes=list(shape = 21, alpha = 1)))
+summary(lm(evi ~ ppt, filter(monsoon_data, well == "Riparian")))
+summary(lm(evi ~ ppt, filter(monsoon_data, well == "Upland"))) 
+# about half the slope of in the riparian area
 
 ggplot(weather_evi_monthly, 
-       aes(x = (vpdmax), y = evi, group = well))+
+       aes(x = (vpd_max), y = evi, group = well))+
   theme_light(base_size = 26)+
   labs(x = "Monthly max VPD (kPa)", y = "EVI", 
        fill = "Month", color = "Well location")+
@@ -135,19 +266,19 @@ ggplot(weather_evi_monthly,
   scale_color_manual(values = well_colors)
 
 ggplot(monsoon_data, 
-       aes(x = (vpdmax), y = evi, group = well))+
+       aes(x = (vpd_max), y = evi, group = name))+
   theme_light(base_size = 26)+
   labs(x = "Monthly max VPD (kPa)", y = "EVI", 
        fill = "Month", color = "Well location")+
   geom_point(alpha = 0.2, aes(shape = well,  fill = factor(month)))+
   scale_fill_manual(values = month_colors, aesthetics = "fill", name = "Month")+
   scale_shape_manual(values = c(21, 22), guide = "none")+
-  geom_smooth(method = "lm", aes(color = well), linewidth = 2)+
+  geom_smooth(method = "lm", se = F, aes(color = well), linewidth = 2)+
   scale_color_manual(values = well_colors)+
   guides(fill = guide_legend(override.aes=list(shape = 21, alpha = 1)))
 
 
-# Table 1:
+# Table 1 and Model Selection:
 
 # PPT models:
 summary(lm(evi ~ ppt, data = filter(weather_evi_monthly, well == "Riparian")))
@@ -160,6 +291,25 @@ summary(lm(evi ~ vpdmax, data = filter(weather_evi_monthly, well == "Riparian"))
 summary(lm(evi ~ vpdmax, data = filter(weather_evi_monthly, well == "Upland")))
 summary(lm(evi ~ vpdmax, data = filter(monsoon_data, well == "Riparian")))
 summary(lm(evi ~ vpdmax, data = filter(monsoon_data, well == "Upland")))
+
+# Mixed models:
+
+mixed_ppt_m <- lmer(evi ~ ppt + (1 | well), data = monsoon_data)
+summary(mixed_ppt_m)
+r.squaredGLMM(mixed_ppt_m) # 33.02%
+# AIC(mixed_ppt_m)
+
+mixed_vpd_m <- lmer(evi ~ vpd_max + (1 | well), data = monsoon_data) # only have vpd slope as random?
+summary(mixed_vpd_m)
+r.squaredGLMM(mixed_vpd_m) # is failing to converge a bad thing or just a "warning"?
+# 54.39%
+
+# no fixed fx: 96.49% (95% fixed fx)
+# adding 0 outside of parentheses: No fixed effects, even for intercept
+# add 0 inside parenthesis: no random intercepts
+# no specification: random effect of variable with fixed + random intercept
+# intercept fixed: 66.9% (same as not including any 0 or 1)
+# intercept random: 96.4%
 
 # after running 3_EVI.R and 2_Wrangle_Weather.R
 

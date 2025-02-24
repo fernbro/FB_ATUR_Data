@@ -95,7 +95,7 @@ z_bins <- z_scores %>%
   mutate(z_dir = case_when(dtg_z <= 0 ~ "Shallower",
                           dtg_z > 0 ~ "Deeper")) %>% 
   mutate(month = month(date)) %>% 
-  filter(month %in% c(4, 5, 6, 7, 8, 9))
+  filter(month %in% c(7, 8, 9))
 
 z_bins$z_bin <- factor(z_bins$z_bin, levels = c("< -1", "-1 to 0",
                                                 "0 to 1", "> 1"))
