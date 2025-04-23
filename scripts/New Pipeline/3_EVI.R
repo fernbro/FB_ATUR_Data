@@ -85,7 +85,7 @@ evi_ann_daily <- evi_mod09 %>%
 
 evi_stats <- evi_mod09 %>% 
   filter(year(date) <= 2024 & year(date) >= 2000) %>%  # use only complete calendar years
-  group_by(name, szn) %>% 
+  group_by(well, name, szn) %>% 
   summarise(evi_mean = mean(evi, na.rm = T),
             evi_sd = sd(evi, na.rm = T)) %>% 
   ungroup()
@@ -115,7 +115,7 @@ z_model$method <- "obs relative to seasons - MOD09 daily EVI"
 #monthly_z$method <- "obs relative to month - MOD09 daily EVI"
 
 # write_csv(z_model, "data/Processed/USP_EVI_Z_11132024.csv")
-# write_csv(z_model, "data/Processed/USP_EVI_Z_Seasonal_01032025.csv")
+write_csv(z_model, "data/Processed/USP_EVI_Z_Seasonal_01032025.csv")
 # write_csv(monthly_z, "data/Processed/USP_EVI_Z_Monthly_12132024.csv")
 
 

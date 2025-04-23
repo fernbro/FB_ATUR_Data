@@ -119,10 +119,10 @@ ggplot(filter(groundwater, well == "Riparian"),
   geom_line()+
   facet_wrap(~name, scales = "free")
 
-#groundwater$method <- "seasonal stats"
+groundwater$method <- "seasonal stats"
 
 #write_csv(groundwater, "data/Processed/USP_GW_Zscores_11142024.csv")
-#write_csv(groundwater, "data/Processed/USP_GW_Zscores_Seasonal_01032025.csv")
+write_csv(groundwater, "data/Processed/USP_GW_Zscores_Seasonal_01032025.csv")
 
 
 min(subset(groundwater, well == "Riparian")$level)

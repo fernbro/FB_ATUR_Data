@@ -5,14 +5,18 @@ library(viridis)
 library(DescTools)
 options(scipen = 99999999)
 
+# 3_EVI.R:
 evi <- read_csv("data/Processed/USP_EVI_Z_Seasonal_01032025.csv") %>% 
   mutate(well = case_when(well == "alluvial" ~ "Riparian",
                           well == "regional" ~ "Upland"),
          date = date(date))
+
+# 2_Wrangle_Weather.R:
 weather <- read_csv("data/Processed/Weather_Cumulative.csv") %>% 
   mutate(well = case_when(well == "alluvial" ~ "Riparian",
                           well == "regional" ~ "Upland"),
          date = date(date))
+
 # gw <- read_csv("data/Processed/USP_GW_Zscores_11142024.csv") %>% 
 #   mutate(date = date(date))
 
@@ -40,6 +44,7 @@ weather <- read_csv("data/Processed/Weather_Cumulative.csv") %>%
                       group_by(well, name) %>%
                       group_modify(~ smk_mod(ts(.x$evi, frequency = 365)))
 
+# 5_Groundwater.R:
 gw <- read_csv("data/Processed/USP_GW_Zscores_Seasonal_01032025.csv") %>%
   mutate(date = date(date)) %>% 
   select(-method)
