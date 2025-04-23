@@ -1,90 +1,90 @@
-name,well
-D-22-22 06AAA3 [LSP-3],alluvial
-D-22-22 06AAA7 [LSP-2],alluvial
-D-23-22 09ACD1 [HERSUS],alluvial
-D-23-22 09ACD2 [HERSUD],alluvial
-D-22-22 17BDD2 [COTUWD],alluvial
-D-21-22 19CDB2 [CLRSUD],alluvial
-D-23-22 04DCD1 [HER-LS],alluvial
-D-23-22 04DCD2 [HER-LD],alluvial
-D-22-22 06ABD [LSP-6],alluvial
-D-19-21 21ACC2 [CONLID],alluvial
-D-21-21 13BAB4 [MOSLNW],alluvial
-D-19-21 28ACD [TOM-LI],alluvial
-D-22-22 33BBC [HUN-UP],alluvial
-D-22-22 17ACC1 [COT-LS],alluvial
-D-22-22 17ACC2 [COT-LD],alluvial
-D-20-21 10AAC2 [FBK-UP],alluvial
-D-20-21 15DDB [BOQ-UP],alluvial
-D-22-22 06AAA1 [LSPLED],alluvial
-D-22-22 17ACC3 [COTBLM],alluvial
-D-20-21 15DBD1 [BOQ-LI],alluvial
-D-19-21 05AAA2 [STD-LO],alluvial
-D-22-22 28CAA1 [HUN-LI],alluvial
-D-23-22 22CBB2 [KOL-LO],alluvial
-D-23-22 22CBB3 [KOL-UP],alluvial
-D-22-22 28CCD [HUN-SO],alluvial
-D-23-22 33DCD2 [PALO DEEP],alluvial
-D-23-22 33ABD02 [ULLRICH],alluvial
-D-19-21 08DAC1 [SUM-LI],alluvial
-D-24-22 08DBA2 [PLS-LO],alluvial
-D-24-22 04ADD [PAL-SA],alluvial
-D-22-22 28CAA2 [HUN-LO],alluvial
-D-21-21 13BAB1 [MOSLNS],alluvial
-D-21-21 13BAB2 [MOSLND],alluvial
-D-24-22 04CBC2 [PALUWD],alluvial
-D-24-22 04CBC1 [PALUWS],alluvial
-D-22-22 06AAA4 [LSP-4],alluvial
-D-22-22 06AAA6 [LSP-1],alluvial
-D-22-22 06AAA5 [LSP-5],alluvial
-D-22-22 05BBD2 [LSPUED],alluvial
-D-21-22 19CDB1 [CLRSUS],alluvial
-D-21-21 13BAC1 [MOSWAS],alluvial
-D-20-21 03CBA [FBK-LI],alluvial
-D-24-22 04CBA3 [PAL-US],alluvial
-D-24-22 04CBA4 [PAL-UD],alluvial
-D-24-22 04CBA1 [PAL-LS],alluvial
-D-24-22 04CBA2 [PAL-LD],alluvial
-D-20-21 14BCC1 [BOQSUS],alluvial
-D-20-21 14BCC2 [BOQSUD],alluvial
-D-19-21 05AAA1 [STD-LI],alluvial
-D-21-21 02DDC [CHB-LI],alluvial
-D-22-22 06AAB [LSPUWD],alluvial
-D-20-21 03CAB [FBK-LO],alluvial
-D-24-22 08DBA1 [PLS-LI],alluvial
-D-23-22 22CBB1 [KOL-LI],alluvial
-D-23-22 04DCA1 [HERUWS],alluvial
-D-23-22 04DCD4 [HERUED],alluvial
-D-23-22 04DCD3 [HERUES],alluvial
-D-24-21 17BCB3 [Baumkirchner 3],regional
-D-23-22 33BCC [PALO FH],regional
-D-23-22 29DBD1 [3-CAN S],regional
-D-23-22 29ACB1 [3-CAN N],regional
-D-23-23 32BCB [FOUDY],regional
-D-23-22 17ACC [HOLDER],regional
-D-23-21 06CCC2 [RAMBO],regional
-D-22-21 35ADD1 PZ1 [RANCH DEEP],regional
-D-22-21 35ADD1 PZ2 [RANCH SHALLOW],regional
-D-22-20 26DDC [ANTELOPE 2],regional
-D-22-20 26ABB1 [ANTELOPE 3],regional
-D-22-21 11BDA1 [SB RANCH],regional
-D-21-21 27CBD [BELLA VISTA],regional
-D-22-22 23BCA [MISTY RAY],regional
-D-21-21 20ACC1 [MW-4],regional
-D-21-21 19CDD1 [MW-3],regional
-D-21-20 20DCD1 [TW-1] UNSURV,regional
-D-21-23 17DDA,regional
-D-21-20 14DAD1 [MW-6],regional
-D-21-22 13CAD,regional
-D-21-20 15ACD1 [TW-4],regional
-D-21-21 17BCC1 [TW-9],regional
-D-21-20 13CBD1 [TW-8],regional
-D-21-20 13CBA1 [CASING-8],regional
-D-21-20 11BCD1 [TW-7],regional
-D-21-21 16AAD1 [MW-5],regional
-D-21-21 10ADA1 [MW-1],regional
-D-21-20 10BBD1 [TW-9W],regional
-D-21-20 09ABC1 [MW-2],regional
-D-20-21 33CDD1 [MW-7],regional
-D-20-20 35CCB1 [TW-6],regional
-D-20-19 13DDC1 [RAIN],regional
+name,well,evi
+D-22-22 06AAA3 [LSP-3],alluvial,yes
+D-22-22 06AAA7 [LSP-2],alluvial,yes
+D-23-22 09ACD1 [HERSUS],alluvial,yes
+D-23-22 09ACD2 [HERSUD],alluvial,yes
+D-22-22 17BDD2 [COTUWD],alluvial,yes
+D-21-22 19CDB2 [CLRSUD],alluvial,yes
+D-23-22 04DCD1 [HER-LS],alluvial,yes
+D-23-22 04DCD2 [HER-LD],alluvial,yes
+D-22-22 06ABD [LSP-6],alluvial,yes
+D-19-21 21ACC2 [CONLID],alluvial,yes
+D-21-21 13BAB4 [MOSLNW],alluvial,yes
+D-19-21 28ACD [TOM-LI],alluvial,yes
+D-22-22 33BBC [HUN-UP],alluvial,yes
+D-22-22 17ACC1 [COT-LS],alluvial,yes
+D-22-22 17ACC2 [COT-LD],alluvial,yes
+D-20-21 10AAC2 [FBK-UP],alluvial,yes
+D-20-21 15DDB [BOQ-UP],alluvial,yes
+D-22-22 06AAA1 [LSPLED],alluvial,yes
+D-22-22 17ACC3 [COTBLM],alluvial,yes
+D-20-21 15DBD1 [BOQ-LI],alluvial,yes
+D-19-21 05AAA2 [STD-LO],alluvial,yes
+D-22-22 28CAA1 [HUN-LI],alluvial,yes
+D-23-22 22CBB2 [KOL-LO],alluvial,yes
+D-23-22 22CBB3 [KOL-UP],alluvial,yes
+D-22-22 28CCD [HUN-SO],alluvial,yes
+D-23-22 33DCD2 [PALO DEEP],alluvial,yes
+D-23-22 33ABD02 [ULLRICH],alluvial,yes
+D-19-21 08DAC1 [SUM-LI],alluvial,yes
+D-24-22 08DBA2 [PLS-LO],alluvial,yes
+D-24-22 04ADD [PAL-SA],alluvial,yes
+D-22-22 28CAA2 [HUN-LO],alluvial,yes
+D-21-21 13BAB1 [MOSLNS],alluvial,yes
+D-21-21 13BAB2 [MOSLND],alluvial,yes
+D-24-22 04CBC2 [PALUWD],alluvial,yes
+D-24-22 04CBC1 [PALUWS],alluvial,yes
+D-22-22 06AAA4 [LSP-4],alluvial,yes
+D-22-22 06AAA6 [LSP-1],alluvial,yes
+D-22-22 06AAA5 [LSP-5],alluvial,yes
+D-22-22 05BBD2 [LSPUED],alluvial,yes
+D-21-22 19CDB1 [CLRSUS],alluvial,yes
+D-21-21 13BAC1 [MOSWAS],alluvial,yes
+D-20-21 03CBA [FBK-LI],alluvial,yes
+D-24-22 04CBA3 [PAL-US],alluvial,yes
+D-24-22 04CBA4 [PAL-UD],alluvial,yes
+D-24-22 04CBA1 [PAL-LS],alluvial,yes
+D-24-22 04CBA2 [PAL-LD],alluvial,yes
+D-20-21 14BCC1 [BOQSUS],alluvial,yes
+D-20-21 14BCC2 [BOQSUD],alluvial,yes
+D-19-21 05AAA1 [STD-LI],alluvial,yes
+D-21-21 02DDC [CHB-LI],alluvial,yes
+D-22-22 06AAB [LSPUWD],alluvial,yes
+D-20-21 03CAB [FBK-LO],alluvial,yes
+D-24-22 08DBA1 [PLS-LI],alluvial,yes
+D-23-22 22CBB1 [KOL-LI],alluvial,yes
+D-23-22 04DCA1 [HERUWS],alluvial,yes
+D-23-22 04DCD4 [HERUED],alluvial,yes
+D-23-22 04DCD3 [HERUES],alluvial,yes
+D-24-21 17BCB3 [Baumkirchner 3],regional,yes
+D-23-22 33BCC [PALO FH],regional,yes
+D-23-22 29DBD1 [3-CAN S],regional,yes
+D-23-22 29ACB1 [3-CAN N],regional,yes
+D-23-23 32BCB [FOUDY],regional,yes
+D-23-22 17ACC [HOLDER],regional,yes
+D-23-21 06CCC2 [RAMBO],regional,yes
+D-22-21 35ADD1 PZ1 [RANCH DEEP],regional,yes
+D-22-21 35ADD1 PZ2 [RANCH SHALLOW],regional,yes
+D-22-20 26DDC [ANTELOPE 2],regional,yes
+D-22-20 26ABB1 [ANTELOPE 3],regional,yes
+D-22-21 11BDA1 [SB RANCH],regional,yes
+D-21-21 27CBD [BELLA VISTA],regional,yes
+D-22-22 23BCA [MISTY RAY],regional,yes
+D-21-21 20ACC1 [MW-4],regional,yes
+D-21-21 19CDD1 [MW-3],regional,yes
+D-21-20 20DCD1 [TW-1] UNSURV,regional,yes
+D-21-23 17DDA,regional,yes
+D-21-20 14DAD1 [MW-6],regional,yes
+D-21-22 13CAD,regional,yes
+D-21-20 15ACD1 [TW-4],regional,yes
+D-21-21 17BCC1 [TW-9],regional,yes
+D-21-20 13CBD1 [TW-8],regional,yes
+D-21-20 13CBA1 [CASING-8],regional,yes
+D-21-20 11BCD1 [TW-7],regional,yes
+D-21-21 16AAD1 [MW-5],regional,yes
+D-21-21 10ADA1 [MW-1],regional,yes
+D-21-20 10BBD1 [TW-9W],regional,yes
+D-21-20 09ABC1 [MW-2],regional,yes
+D-20-21 33CDD1 [MW-7],regional,yes
+D-20-20 35CCB1 [TW-6],regional,yes
+D-20-19 13DDC1 [RAIN],regional,yes
