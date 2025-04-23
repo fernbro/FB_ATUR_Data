@@ -32,10 +32,10 @@ san_pedro <- c('CMW', 'LS1', 'LS2', 'Wkg', 'Whs')
 
 ggplot(filter(monthly, site %in% san_pedro), 
        aes(x = evi, y = ET))+
-  geom_point(size = 2, alpha = 0.8, aes(color = site))+
+  geom_point(size = 4, alpha = 0.8, aes(color = site))+
   geom_smooth(se = T, method = "lm", linewidth = 1)+
   xlab("Monthly average EVI")+
-  ylab("Monthly average ET (mm/day)")+
+  ylab("Monthly ET (mm/day)")+
   labs(color = "AmeriFlux site")+
   theme_light(base_size = 30)+
   theme(strip.background = element_rect(color = "black", fill = "white"))+

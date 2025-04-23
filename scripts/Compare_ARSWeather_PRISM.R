@@ -7,6 +7,7 @@ ars_ppt <- read_csv("data/ARS_Gages_PRISM_ppt.csv")
 ars_tmean <- read_csv("data/ARS_Gages_PRISM_tmean.csv")
 ars_vpdmax <- read_csv("data/ARS_Gages_PRISM_vpdmax.csv")
 
+# only from four wells (extract rest):
 ars_prism <- full_join(ars_ppt, ars_tmean) %>% 
   full_join(ars_vpdmax) %>% 
   mutate(gage = case_when(name == "wg_rg001" ~ "rg1",
@@ -15,47 +16,80 @@ ars_prism <- full_join(ars_ppt, ars_tmean) %>%
                           name == "rg_rg418" ~ "rg418"),
          ppt_prism = ppt, date = date(date)) %>% 
   select(-name, -ppt)
-  
+
+# Spatial analysis: matching gages to wells
+
 swrc_inst <- st_read("data/SWRC/SWRC_DAP_Instrumentation.shp")
 usp_alluv <- st_read("data/Alluvial_well_locations.shp")
+usp_reg <- st_read("data/General_USPWHIP_well_locations.shp")
 
-swrc_usp <- subset(swrc_inst, Watershed == "USP")
+swrc_usp <- subset(swrc_inst, Watershed == "USP") # only select instrumentation from the USP watershed
 
 # use st_nearest_feature()
 
 # reproject both
 
-usp_inst <- st_transform(swrc_usp, "epsg:32612")
-ars_inst <- st_transform(swrc_inst, "epsg:32612") %>% 
+# usp_inst <- st_transform(swrc_usp, "epsg:32612")
+ars_inst <- st_transform(swrc_usp, "epsg:32612") %>% 
   subset(siteTypeSt == "Raingage")
-# need to process PRISM for these points...
+              # need to process PRISM for the rest of these points...
 
 alluv_wells <- st_transform(usp_alluv, "epsg:32612")
+reg_wells <- st_transform(usp_reg, "epsg:32612")
+wells <- rbind(alluv_wells, reg_wells) # one shapefile of all project wells
 
-inst_to_wells <- (st_nearest_feature(alluv_wells, ars_inst))
+inst_to_wells <- unique(st_nearest_feature(wells, ars_inst)) # pick the rain gage that's closest to each well
 # for each alluvial well, what ars instrument is closest?
 # RG 600 is the Charleston mesquite flux site precipitation. These data come with the flux data.
 
+# then invert to select the well closest to each rain gage
+
+subset_gages <- unique(ars_inst$instrument[inst_to_wells]) # extract gage ID numbers using index from the st_nearest_feature output
+subset_gage_for_wells <- subset(ars_inst, instrument %in% subset_gages & instrument != 600)
+st_write(subset_gage_for_wells, "data/SWRC/Gages_near_wells.shp")
+# 11 gages to be used as only these 12 are closest to our wells. each gage got matched with several wells
+
+wells_to_gages <- st_nearest_feature(subset_gage_for_wells, wells) # invert shortest distance search to ask which well is closest to each gage
+ars_well_match <- unique(wells[wells_to_gages,]) # unique well names ID'd by previous line
+# duplicate_well_distance <- st_nearest_feature(subset(wells, name == "D-22-20 26ABB1 [ANTELOPE 3]"), 
+#                                        subset_gage_for_wells)
+# ars_well_match <- ars_well_match[c(1,3:11)]
+wells_to_gages2 <- st_nearest_feature(ars_well_match, subset_gage_for_wells)
+matched_wells <- subset(wells, name %in% ars_well_match)
+# Antelope 3 well is closest to gage [9].. as opposed to?
+
+distances <- st_distance(matched_wells, subset_gage_for_wells, by_element = T)
+
 ggplot()+
-  geom_sf(data = ars_inst[inst_to_wells, 1:26], color = "red")+
-  geom_sf(data = alluv_wells, color = "blue")+
+  geom_sf(data = ars_inst[inst_to_wells, 1:26], color = "red")+ # gages
+  geom_sf(data = alluv_wells, color = "blue")+ # riparian wells
+  geom_sf(data = reg_wells, color = "green")+ # upland wells
   theme_light()
 
-unique(swrc_inst$instrument[inst_to_wells])
+ggplot()+
+  geom_sf(data = ars_inst[inst_to_wells, 1:26], color = "red")+ # gages
+  geom_sf(data = subset(alluv_wells, name %in% ars_well_match), color = "blue")+ # riparian wells
+  geom_sf(data = subset(reg_wells, name %in% ars_well_match), color = "green")+ # upland wells
+  theme_light()
 
-rain_data_raw <- read_csv("data/SWRC/dap_aggregate_10282024.csv")
+rain_data_raw <- read_csv("data/SWRC/dap_02132025.csv")
 
 names(rain_data_raw) <- c("year", "month", "day", 
-                          "rg1", "rg400", "rg417", "rg418")
+                          "rg1", "rg2", "rg400", "rg402", "rg405", "rg406",
+                          "rg411", "rg417", "rg418", "rg425", "rg427")
 
-rain_data1 <- pivot_longer(rain_data_raw, cols = c("rg1", "rg400", "rg417", "rg418"),
+rain_data1 <- pivot_longer(rain_data_raw, cols = c(4:14),
                           names_to = "gage", values_to = "ppt")
 
 rain_data <- rain_data1 %>% 
   filter(year != "Gage") %>% 
   mutate(date = make_date(year = year, month = month, day = day)) %>% # edit data for before some gages were turned on
-  filter((gage == "rg1" & year >= 2000) | (gage == "rg400" & year >= 2002) | 
-           (gage == "rg417" & year >= 2007) | (gage == "rg418" & year >= 2007))
+  filter((gage == "rg1" & year >= 2000) | (gage == "rg2" & year >= 2000) 
+         | (gage == "rg400" & year >= 2002) | (gage == "rg402" & year >= 2005)
+         | (gage == "rg405" & year >= 2006) | (gage == "rg406" & year >= 2006) 
+         | (gage == "rg411" & year >= 2006) | (gage == "rg417" & year >= 2007) 
+         | (gage == "rg418" & year >= 2007) | (gage == "rg425" & year >= 2007)
+         | (gage == "rg427" & year >= 2011))
 # documentation of these dates: https://www.tucson.ars.ag.gov/dap/dap_docs/precipitation.html
 
 # need to inerpolate with zeroes to have same structure as PRISM/total comparison
@@ -92,20 +126,29 @@ rain_interp <- rain_nested %>%
   select(gage, date, ppt_gage)
 
 # combine interpolated (with zeroes) ARS gage to PRISM
-library(RcppRoll)
+
 ars_both <- full_join(ars_prism, rain_interp) %>%
   filter(!is.na(ppt_gage)) %>% 
-  group_by(gage) %>% 
-  arrange(date) %>% 
-  mutate(cum_prism = RcppRoll::roll_sum(ppt_prism, n = 30, fill = "NA",
-                                        align = "right"),
-         cum_gage = RcppRoll::roll_sum(ppt_gage, n = 30, fill = "NA",
-                                        align = "right")) %>% 
-  ungroup()
+  mutate(year = year(date), month = month(date)) %>% 
+  group_by(gage, year, month) %>%
+  summarise(ppt_prism = sum(ppt_prism),
+            ppt_gage = sum(ppt_gage))
+
+# rolling sums:
+# library(RcppRoll)
+# ars_both <- full_join(ars_prism, rain_interp) %>%
+#   filter(!is.na(ppt_gage)) %>% 
+#   group_by(gage) %>% 
+#   arrange(date) %>% 
+#   mutate(cum_prism = RcppRoll::roll_sum(ppt_prism, n = 30, fill = "NA",
+#                                         align = "right"),
+#          cum_gage = RcppRoll::roll_sum(ppt_gage, n = 30, fill = "NA",
+#                                         align = "right")) %>% 
+#   ungroup()
 # there should be no NAs in the ARS data... once they're turned on
 
 # after running Compare_FluxWeather_PRISM.R:
-# source("scripts/Compare_FluxWeather_PRISM.R")
+source("scripts/Compare_FluxWeather_PRISM.R")
 
 ars_both <- ars_both %>% 
   mutate(gage = case_when(gage == "rg1" ~ "ARS 1",

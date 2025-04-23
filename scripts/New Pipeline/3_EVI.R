@@ -68,7 +68,11 @@ evi_mod_r <- read_csv("data/MOD09GA_EVI_regional.csv") %>%
 # 
 # evi_combo <- rbind(evi, evi2) # combine now that they're labeled
 
-evi_mod09 <- rbind(evi_mod_a, evi_mod_r)
+evi_mod09 <- rbind(evi_mod_a, evi_mod_r) %>% 
+  mutate(szn = case_when(month(date) %in% c(1, 2, 3) ~ "JFM",
+                         month(date) %in% c(4, 5, 6) ~ "AMJ",
+                         month(date) %in% c(7, 8, 9) ~ "JAS",
+                         month(date) %in% c(10, 11, 12) ~ "OND"))
 
 evi_ann_daily <- evi_mod09 %>% 
   mutate(doy = yday(date)) %>% 
@@ -77,21 +81,65 @@ evi_ann_daily <- evi_mod09 %>%
   mutate(well = case_when(well == "alluvial" ~ "Riparian",
                           well == "regional" ~ "Upland"))
 
+# STATS and Z-SCORES
+
 evi_stats <- evi_mod09 %>% 
   filter(year(date) <= 2024 & year(date) >= 2000) %>%  # use only complete calendar years
-  group_by(name) %>% 
+  group_by(well, name, szn) %>% 
   summarise(evi_mean = mean(evi, na.rm = T),
             evi_sd = sd(evi, na.rm = T)) %>% 
   ungroup()
+
+# evi_monthly_stats <- evi_mod09 %>% 
+#   mutate(month = month(date)) %>% 
+#   filter(year(date) <= 2024 & year(date) >= 2000) %>%  # use only complete calendar years
+#   group_by(name, month) %>% 
+#   summarise(evi_mean = mean(evi, na.rm = T),
+#             evi_sd = sd(evi, na.rm = T)) %>% 
+#   ungroup()
 
 # %>% 
 #   mutate(evi_z = (evi - evi_mean)/evi_sd,
 #          month = month(date))
 
+# monthly_z <- evi_mod09 %>% 
+#   mutate(month = month(date)) %>% 
+#   full_join(evi_monthly_stats) %>% 
+#   mutate(evi_z = (evi - evi_mean)/evi_sd)
+
 z_model <- full_join(evi_mod09, evi_stats) %>% 
   mutate(evi_z = (evi - evi_mean)/evi_sd,
          month = month(date))
 
-z_model$method <- "obs relative to whole year - MOD09 daily EVI"
+z_model$method <- "obs relative to seasons - MOD09 daily EVI"
+#monthly_z$method <- "obs relative to month - MOD09 daily EVI"
 
-write_csv(z_model, "data/Processed/USP_EVI_Z_11132024.csv")
+# write_csv(z_model, "data/Processed/USP_EVI_Z_11132024.csv")
+write_csv(z_model, "data/Processed/USP_EVI_Z_Seasonal_01032025.csv")
+# write_csv(monthly_z, "data/Processed/USP_EVI_Z_Monthly_12132024.csv")
+
+
+# VISUALIZE
+z_model$szn <- factor(z_model$szn, levels = c("JFM", "AMJ", "JAS", "OND"))
+z_model$well <- ifelse(z_model$well == "alluvial", "Riparian", "Upland")
+
+
+ggplot(z_model, aes(x = szn, y = evi_sd/evi_mean, color = well))+
+  geom_boxplot()+
+  theme_light()+
+  labs(x = "Season", y = "EVI CV", color = "Well location")
+
+
+ggplot(filter(z_model, well == "regional", 
+              year(date) >= 2000), 
+       aes(x = (date), y = evi_z))+
+  geom_point()+
+  geom_smooth()+
+  facet_wrap(~month(date), scales = "free")
+
+ggplot(filter(z_model, well == "alluvial", 
+              year(date) >= 2000), 
+       aes(x = (date), y = (evi_z)))+
+  geom_point()+
+  geom_smooth(method = "lm")+
+  facet_wrap(~month(date), scales = "free")
