@@ -1,10 +1,21 @@
 library(tidyverse)
 library(lme4)
 library(MuMIn)
+library(emmeans)
+library(sf)
+# install.packages("mapview")
+library(mapview)
+library(viridis)
+
+weather <- read_csv("data/Processed/Weather_Cumulative.csv") %>% 
+  mutate(date = date(date), year = year(date), month = month(date)) %>% 
+  filter(well == "alluvial") %>% 
+  select(date, ppt, vpdmax, name, year, month) %>% 
+  group_by(name, year, month) %>% 
+  summarise(ppt = sum(ppt), vpdmax = max(vpdmax))
 
 dist <- read_csv("data/Alluvial_Wells_Stream_Distance.csv") %>% 
   transmute(name = name, dist = NEAR_DIST)
-
 
 rip_et_raw <- read_csv("data/OpenET_GEE_RiparianWells.csv")
 # et data is in mm/month 
@@ -24,10 +35,27 @@ rip_et <- rip_et_raw %>%
 
 # example sites:
 ggplot(filter(rip_et, name %in% c("D-20-21 15DBD1 [BOQ-LI]", "D-20-21 10AAC2 [FBK-UP]")),
-       aes(x = date, y = et_mm_monthly, color = name))+
-  geom_line()
+       aes(x = date, y = et_mm_monthly))+
+  geom_line()+
+  facet_wrap(~name)
 
+# integrate annualy for example sites:
 
+ann_et <- filter(rip_et, name %in% c("D-20-21 15DBD1 [BOQ-LI]", 
+                                     "D-20-21 10AAC2 [FBK-UP]")) %>% 
+  group_by(name, year) %>% 
+  summarise(et_mm_yrly = sum(et_mm_monthly))
+
+ggplot(ann_et,
+       aes(x = year, y = et_mm_yrly))+
+  geom_bar(stat = "identity", fill = "coral")+
+  labs(x = "Year", y = "ET (mm/year)")+
+  theme_light(base_size = 26)+
+  scale_x_continuous(breaks = c(2000, 2005, 2010, 2015, 2020),
+    labels = c("2000", "2005", "2010", "2015", "2020"))+
+  facet_wrap(~name)+
+  theme(strip.background = element_rect(color = "black", fill = "white"))+
+  theme(strip.text = element_text(colour = 'black'))
 
 
 # we can also try normalizing ET... this prob makes the most sense too
@@ -98,9 +126,45 @@ mixed_rip <- lmer(et_mm_monthly ~ dtg | name, data = monsoon)
 # confint(mixed_rip)
 r.squaredGLMM(mixed_rip) # 78.2% variance explained
 
+ggplot(filter(monsoon, !is.na(dtg), !is.na(et_mm_monthly)), aes(x = dtg, y = et_mm_monthly))+
+  geom_point(alpha = 0.5)+
+  geom_line(aes(y = predict(mixed_rip), group = name))
+  # facet_wrap(~name, scales = "free")
+
+
+# marginal plots? emmeans
+
+# plot(emtrends(mixed_rip), var = "dtg")
+
+
+
+# graph corresponding to model structure above:
+ggplot(filter(monsoon, name %in% c("D-20-21 15DBD1 [BOQ-LI]", "D-20-21 10AAC2 [FBK-UP]")),
+       aes(x = dtg, y = et_mm_monthly, color = name))+
+  geom_point()+
+  geom_smooth(method = "lm")+
+  theme(legend.position = "none")+
+  facet_wrap(~name, scales = "free")
+
 # rank these wells by distance to channel????
 
 hist(coef(mixed_rip)$name$dtg, breaks = 30)
+
+ggplot(coef(mixed_rip)$name, aes(x = dtg))+
+  geom_vline(xintercept = 0, color = "orange")+
+  geom_histogram(binwidth = 0.5, aes(group = row.names(coef(mixed_rip)$name)), 
+                 color = "white")+
+  theme_light(base_size = 26)+
+  labs(x = "Site ET response to DTG (mm/m)", y = "# of sites")
+
+ggplot(coef(mixed_rip)$name, aes(x = dtg, y = "Riparian"))+
+  geom_vline(xintercept = 0, color = "orange")+
+  geom_point(position = "jitter", pch = 1, size = 3)+
+  geom_boxplot(alpha = 0.5)+
+  theme_light(base_size = 26)+
+  labs(x = "Site ET response to DTG (mm/m)", y = "Well location")
+
+
 mean(coef(mixed_rip)$name$dtg)
 median(coef(mixed_rip)$name$dtg)
  # the mean response to groundwater: for every 1-foot increase in DTG (1 foot drop in water table), 
@@ -109,20 +173,21 @@ betas <- data.frame(rownames(coef(mixed_rip)$name), coef(mixed_rip)$name$dtg)
 colnames(betas) <- c("name", "dtg")
 
 
-betas <- full_join(betas, dist)
+betas <- full_join(betas, dist) %>% 
+  full_join(filter(rip_stats, season == "JAS"))
 hist(log(betas$dist))
 
-ggplot(betas, aes(x = log(dist), y = (dtg)))+
-  geom_point()+
-  geom_hline(yintercept = 0)+
-  geom_smooth(method = "lm")+
-  labs(x = "ln(Distance from stream to well (m))", y = "Monthly ET vs. DTG slope (mm/ft)")
+# ggplot(filter(betas, season == "JAS"), aes(x = dtg_mean, y = (dtg)))+
+#   geom_point()+
+#   geom_hline(yintercept = 0)+
+#   geom_smooth(method = "lm")+
+#   labs(x = "Site mean DTG (m)", y = "Monthly ET vs. DTG slope (mm/m)")
 
 ggplot(betas, aes(x = dist, y = (dtg)))+
   geom_point()+
   geom_hline(yintercept = 0)+
   geom_smooth(method = "lm")+
-  labs(x = "Distance from stream to well (m)", y = "Monthly ET vs. DTG slope (mm/ft)")
+  labs(x = "Distance from stream to well (m)", y = "Monthly ET vs. DTG slope (mm/m)")
 
 distmod <- lm(dtg ~ log(dist), betas)
 # plot(distmod) 
@@ -157,11 +222,23 @@ ggplot(aes(x = dtg_z, y = et_z))+
 dtg_et %>% 
   filter(month %in% c(7, 8, 9)) %>% 
   ggplot(aes(x = dtg, y = (et_mm_monthly)))+
-  geom_point(aes(color = name))+
-  geom_smooth(method = "lm", se = T)+
-  theme_light()+
+  geom_point()+
+  geom_smooth(method = "lm")+
+  theme_light(base_size = 26)+
   theme(legend.position = "none")+
-  facet_wrap(~season)
+  labs(x = "Depth to groundwater (m)", y = "ET (mm/month)")
+
+summary(lm(et_mm_monthly ~ dtg, data = filter(dtg_et, month %in% c(7, 8, 9))))
+
+filter(monsoon, !is.na(dtg), !is.na(et_mm_monthly)) %>% 
+  ggplot(aes(x = dtg, y = et_mm_monthly))+
+  geom_point()+
+  geom_line(aes(y = predict(mixed_rip), group = name))+
+  geom_smooth(method = "lm")+
+  theme_light(base_size = 26)+
+  theme(legend.position = "none")+
+  labs(x = "Depth to groundwater (m)", y = "ET (mm/month)")
+summary(lm(et_mm_monthly ~ dtg, data = monsoon))
 
 dtg_et %>% 
   filter(month %in% c(7, 8, 9)) %>% 
@@ -188,3 +265,73 @@ ggplot(dtg_et, aes(x = anom, y = et_z))+
 
 # ggplot(rip_et, aes(x = date, y = et_ensemble_mad, group = name))+
   # geom_line()
+
+
+
+
+# Weather-ET combo:
+rip_et_w <- inner_join(rip_et, weather)
+
+ppt_mod <- lmer(et_mm_monthly ~ ppt + season + (1 | name), rip_et_w)
+vpd_mod <- lmer(et_mm_monthly ~ vpdmax + season + (1 | name), rip_et_w)
+weather_mod <- lmer(et_mm_monthly ~ ppt + vpdmax + season + (1 | name), rip_et_w)
+
+r.squaredGLMM(ppt_mod) # 71.7
+r.squaredGLMM(vpd_mod) # 75.2
+summary(weather_mod)  ; r.squaredGLMM(weather_mod) # 75.5
+anova(weather_mod)  
+  
+# isolate for monsoon szns:
+
+mons_et_w <- filter(rip_et_w, month %in% c(7, 8, 9))
+
+cor.test(mons_et_w$et_mm_monthly, mons_et_w$vpdmax)
+
+cor.test(mons_et_w$et_mm_monthly, mons_et_w$ppt)
+
+ggplot(mons_et_w, aes(x = vpdmax, y = et_mm_monthly))+
+  geom_point()+
+  geom_smooth(method = "lm", aes(group = name), se = F)
+
+# growing season ET correlations:
+
+gs <- rip_et_w %>% 
+  filter(month >= 3 & month <= 10) %>% 
+  group_by(name, year) %>% 
+  summarise(gs_et = sum(et_mm_monthly), 
+            gs_ppt = sum(ppt),
+            gs_vpdmax = max(vpdmax))
+
+cor.test(gs$gs_et, gs$gs_ppt)
+cor.test(gs$gs_et, gs$gs_vpdmax)
+
+ggplot(gs, aes(x = gs_ppt, y = gs_et))+
+  geom_point()+
+  geom_smooth()
+ggplot(gs, aes(x = gs_vpdmax, y = gs_et))+
+  geom_point()+
+  geom_smooth(method = "lm")
+
+
+# map the slopes spatially?
+well_loc <- st_read("data/Alluvial_well_locations.shp")
+
+wells <- full_join(well_loc, betas) %>% 
+  st_as_sf()
+
+wells_disp <- st_jitter(wells, amount = 0.04)
+
+mapview(wells_disp[2], col.regions = inferno)
+
+# infer <- palette(hcl.colors(8, "inferno"))
+# 
+# plot(wells_disp[2], col = infer)
+# 
+# 
+# ggplot(wells_disp, aes())+
+#   geom_sf()
+# 
+
+
+  
+  
