@@ -1,4 +1,5 @@
 library(tidyverse)
+library(cars)
 library(lme4)
 library(MuMIn)
 library(nlme)
@@ -35,11 +36,15 @@ library(pbkrtest)
 #                    month(date) %in% c(4, 5, 6) ~ "AMJ",
 #                    month(date) %in% c(7, 8, 9)))
 
-model_in <- read_csv("data/Processed/ModelInputs_AggregatedtoPRISMPixel_09172025.csv")
+model_in <- read_csv("data/Processed/ModelInputs_AggregatedtoPRISMPixel_Landsat_09172025.csv")
 rip_all <- filter(weather_evi_monthly, well == "Riparian") %>% 
-  filter(!is.na(ppt), !is.na(vpd_max), !is.na(evi))
+  filter(!is.na(ppt), !is.na(vpd_max), !is.na(evi)) %>% 
+  mutate(ppt = scale(ppt), vpd_max = scale(vpd_max))
 up_all <- filter(weather_evi_monthly, well == "Upland") %>% 
-  filter(!is.na(ppt), !is.na(vpd_max), !is.na(evi)) 
+  filter(!is.na(ppt), !is.na(vpd_max), !is.na(evi)) %>% 
+  mutate(ppt = scale(ppt), vpd_max = scale(vpd_max))
+
+# not straightforward to me whether it's better to scale or not.
 
 rip_jfm <- filter(rip_all, month %in% c(1, 2, 3))
 rip_amj <- filter(rip_all, month %in% c(4, 5, 6))
@@ -75,7 +80,7 @@ anova(best_rip_jfm)
 
 # Riparian AMJ:
 
-cor.test(rip_amj$ppt, rip_amj$vpd_max) # correlation is <0.1 so I'm gonna include it
+cor.test(rip_amj$ppt, rip_amj$vpd_max) # abs(correlation) is <0.2 so I'm gonna include it
 # is that a threshold that makes sense?
 # for variables less correlated than (xxxxxx).......
 # what if i use 0.2 for cutoff??? lol I NEED TO FIND A PAPER sldfkjlskg
@@ -89,24 +94,24 @@ r.squaredGLMM(lmer(evi ~ vpd_max + (1 | prism), data = rip_amj, REML = F))
 AIC(lmer(evi ~ vpd_max*ppt + (1 | prism), data = rip_amj, REML = F))
 r.squaredGLMM(lmer(evi ~ vpd_max*ppt + (1 | prism), data = rip_amj, REML = F))
 
-best_rip_amj <- lmer(evi ~ vpd_max*ppt + (1 | prism), data = rip_amj, REML = F)
+best_rip_amj <- lmer(evi ~ vpd_max + (1 | prism), data = rip_amj, REML = F)
 anova(best_rip_amj)
-
+r.squaredGLMM(best_rip_amj)
 
 # Riparian JAS:
 
 cor.test(rip_jas$ppt, rip_jas$vpd_max) # abs val corr < 0.2... include!
 
-AIC(lmer(evi ~ ppt + (1 | prism), data = rip_jas, REML = F))
-r.squaredGLMM(lmer(evi ~ ppt + (1 | prism), data = rip_jas, REML = F))
+AIC(lmer(evi ~ scale(ppt) + (1 | prism), data = rip_jas, REML = F))
+r.squaredGLMM(lmer(evi ~ scale(ppt) + (1 | prism), data = rip_jas, REML = F))
 
-AIC(lmer(evi ~ vpd_max + (1 | prism), data = rip_jas, REML = F))
-r.squaredGLMM(lmer(evi ~ vpd_max + (1 | prism), data = rip_jas, REML = F))
+AIC(lmer(evi ~ scale(vpd_max) + (1 | prism), data = rip_jas, REML = F))
+r.squaredGLMM(lmer(evi ~ scale(vpd_max) + (1 | prism), data = rip_jas, REML = F))
 
-AIC(lmer(evi ~ vpd_max*scale(ppt) + (1 | prism), data = rip_jas, REML = F))
-r.squaredGLMM(lmer(evi ~ vpd_max*scale(ppt) + (1 | prism), data = rip_jas, REML = F))
+AIC(lmer(evi ~ scale(vpd_max)*scale(ppt) + (1 | prism), data = rip_jas, REML = F))
+r.squaredGLMM(lmer(evi ~ scale(vpd_max)*scale(ppt) + (1 | prism), data = rip_jas, REML = F))
 
-anova(lmer(evi ~ vpd_max*scale(ppt) + (1 | prism), data = rip_jas, REML = F))
+anova(lmer(evi ~ scale(vpd_max):scale(ppt) + scale(vpd_max) + (1 | prism), data = rip_jas, REML = F))
 
 # remove lone vpd variable (but keep interaction) as the best model:
 best_rip_jas <- lmer(evi ~ log(ppt) + log(ppt):vpd_max + (1 | prism), data = rip_jas, REML = F)
