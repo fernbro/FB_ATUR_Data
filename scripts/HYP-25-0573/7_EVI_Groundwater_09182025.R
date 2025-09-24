@@ -3,7 +3,7 @@ library(trend)
 library(viridis)
 # library(spearmanCI)
 library(DescTools)
-options(scipen = 99999999)
+options(scipen = 9999)
 
 # 3_EVI.R:
 evi <- read_csv("data/Processed/USP_EVI_Z_Seasonal_Landsat_09182025_Interpolated") %>% 
@@ -36,7 +36,6 @@ evi <- read_csv("data/Processed/USP_EVI_Z_Seasonal_Landsat_09182025_Interpolated
                       )
                     }
                     
-                    # should i linearly interpolate? so that there are no NAs? (basically assumes autocorrelation lol)
                     evi_smk <- evi %>%
                       arrange(date) %>% 
                       group_by(well, name) %>%
@@ -72,23 +71,18 @@ gw <- read_csv("data/Processed/USP_GW_Zscores_Seasonal_01032025.csv") %>%
                 geom_line()+
                 geom_smooth(method = "lm")
 
+
+source("scripts/HYP-25-0573/7a_Wells_In_Same_EVI_Pixel.R")
+              
 z_scores <- full_join(evi, gw) %>% 
   filter(!is.na(month)) %>% 
-  mutate(level_m = level*0.3048) # create a level column in meters
-
+  mutate(level_m = level*0.3048) %>% # create a level column in meters
+  full_join(clust) %>%
+  group_by(well, cluster, date, szn, evi_mean) %>% 
+  summarise(evi_z = mean(evi_z), dtg_z = mean(dtg_z))
+  
 z_bins <- z_scores %>% 
   filter(!is.na(dtg_z), !is.na(evi_z)) %>%
-  mutate(dtg_bin = case_when(level_m <= 1 ~ "0 - 1 m",
-                             level_m > 1 & level_m <= 2 ~ "1 - 2 m",
-                             level_m > 2 & level_m <= 3 ~ "2 - 3 m",
-                             level_m > 3 & level_m <= 4 ~ "3 - 4 m",
-                             level_m > 4 & level_m <= 5 ~ "4 - 5 m",
-                             level_m > 5 & level_m <= 6 ~ "5 - 6 m",
-                             level_m > 6 & level_m <= 7 ~ "6 - 7 m",
-                             level_m > 7 & level_m <= 8 ~ "7 - 8 m",
-                             level_m > 8 & level_m <= 9 ~ "8 - 9 m",
-                             level_m > 9 & level_m <= 10 ~ "9 - 10 m",
-                             level_m > 10 ~ "Greater than 10 m")) %>% 
   mutate(z_bin = case_when(dtg_z < -1 ~ "< -1",
                            dtg_z >= -1 & dtg_z < 0 ~ "-1 to 0",
                            dtg_z >= 0 & dtg_z < 1 ~ "0 to 1",
@@ -106,9 +100,30 @@ z_bins$z_dir <- factor(z_bins$z_dir, levels = c("Shallower", "Deeper"))
 
 ggplot(filter(z_bins), aes(x = dtg_z, y = evi_z, group = factor(month),
                            linetype = factor(month), fill = factor(month)))+
-  theme_light(base_size = 26)+
+  theme_light(base_size = 20)+
   labs(x = "DTG z-score", y = "EVI z-score", color = "Month", linetype = "Month", fill = "Month")+
-  geom_point(aes(color = factor(month)), size = 2)+
+  geom_point(aes(color = factor(month)), size = 0.3)+
+  # geom_bin_2d(alpha = 0.4, bins = 70)+
+  
+  geom_smooth(data = filter(z_bins, month == 4 & well == "Upland"),
+              method = "lm", alpha=0.3, linewidth=0)+
+  stat_smooth(data = filter(z_bins, month == 4 & well == "Upland"),
+              geom="line", method = "lm", se = T)+
+  
+  geom_smooth(data = filter(z_bins, month == 5 & well == "Upland"),
+              method = "lm", alpha=0.3, linewidth=0)+
+  stat_smooth(data = filter(z_bins, month == 5 & well == "Upland"),
+              geom="line", method = "lm", se = T)+
+  
+  geom_smooth(data = filter(z_bins, month == 6 & well == "Upland"),
+              method = "lm", alpha=0.3, linewidth=0)+
+  stat_smooth(data = filter(z_bins, month == 6 & well == "Upland"),
+              geom="line", method = "lm", se = T)+
+  
+  geom_smooth(data = filter(z_bins, month == 6 & well == "Riparian"),
+              method = "lm", alpha=0.3, linewidth=0)+
+  stat_smooth(data = filter(z_bins, month == 6 & well == "Riparian"),
+              geom="line", method = "lm", se = T)+
   
   geom_smooth(data = filter(z_bins, month == 7 & well == "Riparian"),
     method = "lm", alpha=0.3, linewidth=0)+
@@ -129,10 +144,11 @@ ggplot(filter(z_bins), aes(x = dtg_z, y = evi_z, group = factor(month),
               method = "lm", alpha=0.3, linewidth=0)+
   stat_smooth(data = filter(z_bins, month == 9 & well == "Riparian"),
               geom="line", method = "lm", se = T)+
-  
-  scale_color_viridis(discrete = T)+
-  scale_fill_viridis(discrete = T)+
-  facet_wrap(~well + szn)+
+  # scale_color_viridis(discrete = T)+
+  # scale_fill_viridis(discrete = T)+
+  scale_color_brewer(type = "qual", palette = "Dark2")+
+  scale_fill_brewer(type = "qual", palette = "Dark2")+
+  facet_wrap(~well + szn, scale = "free")+
   theme(strip.background = element_rect(color = "black", fill = "white"))+
   theme(strip.text = element_text(colour = 'black'))+
   guides(linetype = guide_legend(override.aes = list(size = 10)))

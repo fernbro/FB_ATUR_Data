@@ -24,6 +24,8 @@ fab_up <- unlist(st_intersects(up, fabric)) %>%
   cbind(up)
 colnames(fab_up) <- c("prism", 'name', 'geometry')
 
+fab <- rbind(fab_rip, fab_up)
+
 fabric_sub_r <- fabric[(unlist(st_intersects(rip, fabric))),]
 length(unique(fabric_sub_r$geometry))
 

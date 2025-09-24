@@ -1,9 +1,9 @@
 library(tidyverse)
-library(cars)
+# library(cars)
 library(lme4)
 library(MuMIn)
 library(nlme)
-install.packages("lmerTest")
+# install.packages("lmerTest")
 library(lmerTest)
 # install.packages("emmeans")
 library(emmeans)
@@ -37,10 +37,10 @@ library(pbkrtest)
 #                    month(date) %in% c(7, 8, 9)))
 
 model_in <- read_csv("data/Processed/ModelInputs_AggregatedtoPRISMPixel_Landsat_09172025.csv")
-rip_all <- filter(weather_evi_monthly, well == "Riparian") %>% 
+rip_all <- filter(model_in, well == "Riparian") %>% 
   filter(!is.na(ppt), !is.na(vpd_max), !is.na(evi)) %>% 
   mutate(ppt = scale(ppt), vpd_max = scale(vpd_max))
-up_all <- filter(weather_evi_monthly, well == "Upland") %>% 
+up_all <- filter(model_in, well == "Upland") %>% 
   filter(!is.na(ppt), !is.na(vpd_max), !is.na(evi)) %>% 
   mutate(ppt = scale(ppt), vpd_max = scale(vpd_max))
 
@@ -94,7 +94,7 @@ r.squaredGLMM(lmer(evi ~ vpd_max + (1 | prism), data = rip_amj, REML = F))
 AIC(lmer(evi ~ vpd_max*ppt + (1 | prism), data = rip_amj, REML = F))
 r.squaredGLMM(lmer(evi ~ vpd_max*ppt + (1 | prism), data = rip_amj, REML = F))
 
-best_rip_amj <- lmer(evi ~ vpd_max + (1 | prism), data = rip_amj, REML = F)
+best_rip_amj <- lmer(evi ~ vpd_max*ppt + (1 | prism), data = rip_amj, REML = F)
 anova(best_rip_amj)
 r.squaredGLMM(best_rip_amj)
 
@@ -102,19 +102,19 @@ r.squaredGLMM(best_rip_amj)
 
 cor.test(rip_jas$ppt, rip_jas$vpd_max) # abs val corr < 0.2... include!
 
-AIC(lmer(evi ~ scale(ppt) + (1 | prism), data = rip_jas, REML = F))
-r.squaredGLMM(lmer(evi ~ scale(ppt) + (1 | prism), data = rip_jas, REML = F))
+AIC(lmer(evi ~ (ppt) + (1 | prism), data = rip_jas, REML = F))
+r.squaredGLMM(lmer(evi ~ (ppt) + (1 | prism), data = rip_jas, REML = F))
 
-AIC(lmer(evi ~ scale(vpd_max) + (1 | prism), data = rip_jas, REML = F))
-r.squaredGLMM(lmer(evi ~ scale(vpd_max) + (1 | prism), data = rip_jas, REML = F))
+AIC(lmer(evi ~ (vpd_max) + (1 | prism), data = rip_jas, REML = F))
+r.squaredGLMM(lmer(evi ~ (vpd_max) + (1 | prism), data = rip_jas, REML = F))
 
-AIC(lmer(evi ~ scale(vpd_max)*scale(ppt) + (1 | prism), data = rip_jas, REML = F))
-r.squaredGLMM(lmer(evi ~ scale(vpd_max)*scale(ppt) + (1 | prism), data = rip_jas, REML = F))
+AIC(lmer(evi ~ (vpd_max)*(ppt) + (1 | prism), data = rip_jas, REML = F))
+r.squaredGLMM(lmer(evi ~ (vpd_max)*(ppt) + (1 | prism), data = rip_jas, REML = F))
 
-anova(lmer(evi ~ scale(vpd_max):scale(ppt) + scale(vpd_max) + (1 | prism), data = rip_jas, REML = F))
+anova(lmer(evi ~ (vpd_max):(ppt) + (vpd_max) + (1 | prism), data = rip_jas, REML = F))
 
 # remove lone vpd variable (but keep interaction) as the best model:
-best_rip_jas <- lmer(evi ~ log(ppt) + log(ppt):vpd_max + (1 | prism), data = rip_jas, REML = F)
+best_rip_jas <- lmer(evi ~ (vpd_max):(ppt) + (vpd_max) + (1 | prism), data = rip_jas, REML = F)
 anova(best_rip_jas)
 
 
@@ -124,17 +124,58 @@ anova(best_rip_jas)
 cor.test(rip_ond$ppt, rip_ond$vpd_max) # cor much less than 0.1
 
 
-# Upland:
+# Upland JFM:
 
-AIC(lmer(evi_mean ~ ppt + (1 | name), data = up_all, REML = F))
-summary(lmer(evi_mean ~ ppt + (1 | name), data = up_all, REML = F))
-r.squaredGLMM(lmer(evi_mean ~ ppt + (1 | name), data = up_all, REML = F))
+cor.test(up_jfm$ppt, up_jfm$vpd_max) # dont include in same model!
 
-AIC(lmer(evi_mean ~ vpd_max + (1 | name), data = up_all, REML = F))
-r.squaredGLMM(lmer(evi_mean ~ vpd_max + (1 | name), data = up_all, REML = F))
+AIC(lmer(evi ~ ppt + (1 | prism), data = up_jfm, REML = F))
+# summary(lmer(evi ~ ppt + (1 | prism), data = up_jfm, REML = F))
+r.squaredGLMM(lmer(evi ~ ppt + (1 | prism), data = up_jfm, REML = F))
 
-AIC(lmer(evi_mean ~ vpd_max*ppt + (1 | name), data = up_all, REML = F))
-r.squaredGLMM(lmer(evi_mean ~ vpd_max*ppt + (1 | name), data = up_all, REML = F))
+AIC(lmer(evi ~ vpd_max + (1 | prism), data = up_jfm, REML = F))
+r.squaredGLMM(lmer(evi ~ vpd_max + (1 | prism), data = up_jfm, REML = F))
+
+
+best_up_jfm <- lmer(evi ~ vpd_max + (1 | prism), data = up_jfm, REML = F)
+anova(best_up_jfm)
+
+# Upland AMJ:
+
+cor.test(up_amj$ppt, up_amj$vpd_max) # can include (<0.2)
+
+AIC(lmer(evi ~ ppt + (1 | prism), data = up_amj, REML = F)) # better model
+# summary(lmer(evi ~ ppt + (1 | prism), data = up_jfm, REML = F))
+r.squaredGLMM(lmer(evi ~ ppt + (1 | prism), data = up_amj, REML = F))
+
+AIC(lmer(evi ~ vpd_max + (1 | prism), data = up_amj, REML = F))
+r.squaredGLMM(lmer(evi ~ vpd_max + (1 | prism), data = up_amj, REML = F))
+
+AIC(lmer(evi ~ vpd_max*ppt + (1 | prism), data = up_amj, REML = F))
+r.squaredGLMM(lmer(evi ~ vpd_max*ppt + (1 | prism), data = up_amj, REML = F))
+
+best_up_amj <- (lmer(evi ~ vpd_max + ppt + (1 | prism), data = up_amj, REML = F))
+anova(best_up_amj)
+AIC(best_up_amj)
+r.squaredGLMM(best_up_amj)
+
+# Upland JAS:
+
+cor.test(up_jas$ppt, up_jas$vpd_max) # <0.2
+
+AIC(lmer(evi ~ ppt + (1 | prism), data = up_jas, REML = F))
+# summary(lmer(evi ~ ppt + (1 | prism), data = up_jfm, REML = F))
+r.squaredGLMM(lmer(evi ~ ppt + (1 | prism), data = up_jas, REML = F))
+
+AIC(lmer(evi ~ vpd_max + (1 | prism), data = up_jas, REML = F))
+r.squaredGLMM(lmer(evi ~ vpd_max + (1 | prism), data = up_jas, REML = F))
+
+AIC(lmer(evi ~ vpd_max*ppt + (1 | prism), data = up_jas, REML = F))
+r.squaredGLMM(lmer(evi ~ vpd_max*ppt + (1 | prism), data = up_jas, REML = F))
+
+best_up_jas <- lmer(evi ~ vpd_max*ppt + (1 | prism), data = up_jas, REML = F)
+anova(best_up_jas)
+
+# Upland OND:
 
 AIC(lmer(evi_mean ~ szn*ppt + (1 | name), data = up_all, REML = F))
 r.squaredGLMM(lmer(evi_mean ~ szn*ppt + (1 | name), data = up_all, REML = F))
@@ -157,21 +198,24 @@ summary(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = up_all, REML = F))
 r.squaredGLMM(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = up_all, REML = F))
 
 
-emmeans(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = up_all, REML = F), specs = "szn")
+# emmeans(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = up_all, REML = F), specs = "szn")
 
-plot(emtrends(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = up_all, REML = F), var = "ppt"))
-plot(emtrends(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = rip_all, REML = F),
-        var = "ppt"))
+# plot(emtrends(lmer(evi ~ ppt*vpd_max + (1 | prism), data = up_all, REML = F), var = "ppt"))
+# plot(emtrends(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = rip_all, REML = F),
+        # var = "ppt"))
+
+plot(emtrends(best_rip_amj, var = "ppt"))
+        
 
 # PPT effect sizes:
-emmip(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = up_all, REML = F), ppt ~ vpd_max | szn, 
+emmip(lmer(evi ~ ppt*vpd_max + (1 | prism), data = rip_jas, REML = F), ppt ~ vpd_max, 
       at=list(vpd_max=c(2.93, 4.1, 5.3)), # estimated at different quantiles of VPD
       CIs=TRUE)+
   xlab("max VPD quantiles (25, 50, 75%)")+
   ylab("Precipitation effect size on EVI (mm-1)")+
   theme_light(base_size = 26)+
   ylim(c(0, 0.4))
-emmip(lmer(evi_mean ~ ppt*vpd_max*szn + (1 | name), data = rip_all), ppt ~ vpd_max | szn, 
+emmip(best_rip_amj, ppt ~ vpd_max, 
       at=list(vpd_max=c(3.06, 4.3, 5.5)), # estimated at different quantiles of VPD
       CIs=TRUE)+
   xlab("max VPD quantiles (25, 50, 75%)")+
